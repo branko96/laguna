@@ -1,8 +1,8 @@
 <?php
 
-$basedatos='boxtracker_01';
+$basedatos='lagunacampo';
 $servidor='localhost';
-$usuario='admin';
-$paswd='boxtracker1234';
+$usuario='root';
+$paswd='';
 
 ?>

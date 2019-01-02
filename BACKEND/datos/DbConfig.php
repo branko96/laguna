@@ -1,23 +1,15 @@
 <?php
-//77include ("../conexion.php");
+
 class DbConfig 
 {	
-	/*private  $dbName  = 'boxtracker_01';
-	private  $dbHost = 'localhost';
-	private  $dbUsername= 'admin';
-	private  $dbUserPassword = 'boxtracker1234';*/
-
-	
-
-
 	protected $connection;
 	
 	public function __construct()
 	{	
-		 $basedatos='boxtracker_01';
+		 $basedatos='lagunacampo';
 	 $servidor='localhost';
-	 $usuario='admin';
-	 $paswd='boxtracker1234';
+	 $usuario='root';
+	 $paswd='';
 
 		$this->dbName = $basedatos;
 
