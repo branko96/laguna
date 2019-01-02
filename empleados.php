@@ -46,9 +46,9 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>Dakota Rice</td>
-                        <td>$36,738</td>
-                        <td>Niger</td>
+                        <td>Branko</td>
+                        <td>Ottavianelli</td>
+                        <td>Bahia Blanca</td>
                         <td class="td-actions text-center">
                           <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
@@ -60,37 +60,9 @@
                       </tr>
                       <tr>
                         <td>2</td>
-                        <td>Minerva Hooper</td>
-                        <td>$23,789</td>
-                        <td>Curaçao</td>
-                        <td class="td-actions text-center">
-                          <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
-                            <i class="material-icons">edit</i>
-                          </button>
-                          <button type="button" rel="tooltip" title="Borrar" class="btn btn-danger btn-link btn-sm">
-                            <i class="material-icons">close</i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Sage Rodriguez</td>
-                        <td>$56,142</td>
-                        <td>Netherlands</td>
-                        <td class="td-actions text-center">
-                          <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
-                            <i class="material-icons">edit</i>
-                          </button>
-                          <button type="button" rel="tooltip" title="Borrar" class="btn btn-danger btn-link btn-sm">
-                            <i class="material-icons">close</i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Philip Chaney</td>
-                        <td>$38,735</td>
-                        <td>Korea, South</td>
+                        <td>Fede </td>
+                        <td>Osovnikar</td>
+                        <td>San Antonio</td>
                         <td class="td-actions text-center">
                           <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
