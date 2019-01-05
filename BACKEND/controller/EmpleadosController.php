@@ -1,5 +1,4 @@
 <?php
-			
 	include_once dirname(__FILE__). '/../datos/DbEmpleados.php';
 	include_once dirname(__FILE__). '/../model/Empleado.php';
 
@@ -18,9 +17,27 @@
 		{	
 					$query = sprintf("SELECT * FROM empleados");
 					$result = $this->db->getData($query);
-					
+
 			return $result;
 		}
+		
+		public function VerEmpleado($empleadopk){
+			$query = sprintf("SELECT * FROM empleados WHERE id_empleado = %d",$empleadopk);
+			$result = $this->db->getData($query);
+				
+			if(!$result) {
+
+				$respuesta =  new Respuesta(-1,'No se ha encontrado el empleado'); 
+				return $respuesta;
+			}else{
+					$empleado =  new Empleado($result[0]['id_empleado'],$result[0]['nombre'],$result[0]['apellido'],$result[0]['puesto'],$result[0]['fecha_inicio'],$result[0]['sueldo'],$result[0]['dni'],$result[0]['cuil'],$result[0]['cod_postal'],$result[0]['fecha_fin']);
+
+					$respuesta =  new Respuesta(1,$empleado);
+
+					return $respuesta;
+			}	
+			
+			}
 
 
 		

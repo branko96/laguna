@@ -9,7 +9,7 @@
 		protected $sueldo;
 		protected $dni;	
 		protected $cuil;
-		protected $cod_posta;
+		protected $cod_postal;
 		protected $fecha_fin;    
 		
 		public function __construct($id,$nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$dni,$cuil,$cod_postal,$fecha_fin)
