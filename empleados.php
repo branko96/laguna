@@ -12,7 +12,7 @@
     <!-- MENU -->
     <?php include('menu.php');?>
       <!-- End Navbar -->
-      <div class="content">
+      <div class="content" id="app">
         <div class="container-fluid">
           <!-- your content here -->
            <div class="col-lg-12 col-md-12">
@@ -34,35 +34,28 @@
                     <thead class="text-warning">
                       <th>ID</th>
                       <th>Nombre</th>
-                      <th>Apellido</th><!-- 
-                      <th>Localidad</th>
-                      <th>Localidad</th>
-                      <th>Localidad</th>
-                      <th>Localidad</th>
-                      <th>Localidad</th> -->
-                      <th>Localidad</th> 
+                      <th>Apellido</th>
+                      <th>DNI</th>
+                      <th>Cuil</th>
+                      <th>Codigo Postal</th>
+                      <th>Puesto</th>
+                      <th>Sueldo</th>
+                      <th>Fecha Inicio</th>
+                      <th>Fecha Fin</th> 
                       <th>Accion</th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Branko</td>
-                        <td>Ottavianelli</td>
-                        <td>Bahia Blanca</td>
-                        <td class="td-actions text-center">
-                          <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
-                            <i class="material-icons">edit</i>
-                          </button>
-                          <button type="button" rel="tooltip" title="Borrar" class="btn btn-danger btn-link btn-sm">
-                            <i class="material-icons">close</i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Fede </td>
-                        <td>Osovnikar</td>
-                        <td>San Antonio</td>
+                      <tr v-for="empleado in empleados">
+                        <td>{{empleado.id}}</td>
+                        <td>{{empleado.nombre}}</td>
+                        <td>{{empleado.apellido}}</td>
+                        <td>{{empleado.dni}}</td>
+                        <td>{{empleado.cuil}}</td>
+                        <td>{{empleado.cod_postal}}</td>
+                        <td>{{empleado.puesto}}</td>
+                        <td>{{empleado.sueldo}}</td>
+                        <td>{{empleado.fecha_inicio}}</td>
+                        <td>{{empleado.fecha_fin}}</td>
                         <td class="td-actions text-center">
                           <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
@@ -144,15 +137,21 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Last Name</label>
+                          <label class="bmd-label-floating">Cuil</label>
                           <input type="text" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Adress</label>
+                          <label class="bmd-label-floating">Puesto</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Sueldo</label>
                           <input type="text" class="form-control">
                         </div>
                       </div>
@@ -160,24 +159,24 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">City</label>
+                          <label class="bmd-label-floating">Fecha Inicio</label>
                           <input type="text" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Country</label>
+                          <label class="bmd-label-floating">Fecha Fin</label>
                           <input type="text" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Postal Code</label>
+                          <label class="bmd-label-floating">Codigo Postal</label>
                           <input type="text" class="form-control">
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                   <!--  <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
                           <label>About Me</label>
@@ -187,7 +186,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn btn-success pull-right">Guardar</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     <div class="clearfix"></div>
@@ -204,8 +203,9 @@
     </div>
   </div>
 </div>
-
+<script src="js/vue.js"></script>
 <script src="js/index.js"></script>
+<script src="js/index-controller.js"></script>
 </body>
 
 </html>
