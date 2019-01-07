@@ -1,8 +1,8 @@
 <?php
-	include_once dirname(__FILE__). 'C:\wamp\www\laguna\BACKEND\model\Respuesta.php';
-	include_once dirname(__FILE__). 'C:\wamp\www\laguna\BACKEND\datos\DbEmpleados.php';
-	include_once dirname(__FILE__). 'C:\wamp\www\laguna\BACKEND\model\Empleado.php';
-	//set_include_path('//model/Respuesta.php');
+	include_once dirname(__FILE__). '/../model/Respuesta.php';
+	include_once dirname(__FILE__). '/../datos/DbEmpleados.php';
+	include_once dirname(__FILE__). '/../model/Empleado.php';
+
 	//set_include_path('//model/Empleado.php');
 	//set_include_path('//datos/DbEmpleados.php');
 
