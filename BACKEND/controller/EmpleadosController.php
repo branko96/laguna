@@ -1,6 +1,6 @@
 <?php
 	include_once dirname(__FILE__). 'C:\wamp\www\laguna\BACKEND\model\Respuesta.php';
-	include_once dirname(__FILE__). 'C:\wamp\www\laguna\BACKEND/datos\DbEmpleados.php';
+	include_once dirname(__FILE__). 'C:\wamp\www\laguna\BACKEND\datos\DbEmpleados.php';
 	include_once dirname(__FILE__). 'C:\wamp\www\laguna\BACKEND\model\Empleado.php';
 	//set_include_path('//model/Respuesta.php');
 	//set_include_path('//model/Empleado.php');
