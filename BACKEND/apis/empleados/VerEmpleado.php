@@ -1,12 +1,12 @@
 <?php 
 
 //FIJAS
-include_once 'C:/wamp/www/laguna/BACKEND/controller/EmpleadosController.php'
+include_once 'C:\wamp\www\laguna\BACKEND\controller\EmpleadosController.php'
 //header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$EmpleadosController= new EmpleadosController();
+$empleadosController= new EmpleadosController();
 
 //comprobar metodo
 
