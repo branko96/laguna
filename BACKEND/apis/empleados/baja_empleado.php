@@ -1,12 +1,14 @@
 <?php 
 
 //FIJAS
-include("../../controller/ProyectController.php");
+require_once '../../datos/conexion.php';
+require_once '../../controller/EmpleadosController.php';
+
 header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$proyectController= new ProyectController();
+$empleadosController= new EmpleadosController();
 
 //comprobar metodo
 
@@ -22,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$proyectController->FinalizarProyecto($body['id_proyect']);
+	$rta=$empleadoController->EliminarEmpleado($body['id_empleado']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));

@@ -1,13 +1,14 @@
 <?php 
 
 //FIJAS
-include("../../controller/ProyectController.php");
+require_once '../../datos/conexion.php';
+require_once '../../controller/EmpleadosController.php';
 
 header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$proyectController= new ProyectController();
+$empleadosController= new EmpleadosController();
 
 //comprobar metodo
 
@@ -24,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		//var_dump($_FILES);
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
-		$fecha_creacion= date('Y-m-d H:i:s');
-		$rta=$proyectController->AltaProyecto($body['nombre'], $body['pais'], $body['ciudad'], $fecha_creacion, $body['descripcion'], $body['id_group'], $body['id_creador'], $body['estado'], $_FILES['foto_proyecto']);
+		$fecha_inicio= date('Y-m-d H:i:s');
+		$rta=$empleadosController->AltaEmpleado($body['nombre'], $body['apellido'], $body['puesto'], $fecha_inicio, $body['sueldo'], $body['dni'], $body['cuil'], $body['cod_postal'], $body['fecha_fin']);
 
 	//IMPRIMO RESPUESTA
 

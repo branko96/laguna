@@ -2,9 +2,7 @@
 	include_once dirname(__FILE__). '/../model/Respuesta.php';
 	include_once dirname(__FILE__). '/../datos/DbEmpleados.php';
 	include_once dirname(__FILE__). '/../model/Empleado.php';
-
-	//set_include_path('//model/Empleado.php');
-	//set_include_path('//datos/DbEmpleados.php');
+	//include_once dirname(__FILE__). '/../datos/conexion.php';
 
 	class EmpleadosController
 	{
@@ -28,7 +26,7 @@
 		public function VerEmpleado($empleadopk){
 			$query = sprintf("SELECT * FROM empleados WHERE id_empleado = %d",$empleadopk);
 			$result = $this->db->getData($query);
-				
+			var_dump($result);
 			if(!$result) {
 
 				$respuesta =  new Respuesta(-1,'No se ha encontrado el empleado'); 
@@ -42,6 +40,24 @@
 			}	
 			
 			}
+
+		public function AltaEmpleado($nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$dni,$cuil,$cod_postal,$fecha_fin){			
+
+			$query = sprintf("INSERT INTO empleados (nombre,apellido,puesto,fecha_inicio,sueldo,dni,cuil,cod_postal,fecha_fin) VALUES ('%s','%s','%s','%s','%f',%d,%d,%d,'%s')", $nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$dni,$cuil,$cod_postal,$fecha_fin);
+
+			$result = $this->db->execute($query);
+			$id_empleado = $this->db->lastid();
+
+			var_dump($result);
+			if(count($result)>0){ 
+				$respuesta =  new Respuesta(1,'empleado creado correctamente');
+
+				return $respuesta;
+			}else{
+					$respuesta =  new Respuesta(-1,'Error, el empleado no se ha podido grabar');
+					return $respuesta;
+			}
+		}
 
 
 		
