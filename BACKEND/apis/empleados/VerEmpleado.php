@@ -1,12 +1,12 @@
 <?php 
 
 //FIJAS
-include("../../controller/ProyectController.php");
-header('Access-Control-Allow-Origin: *');
+include_once 'C:/wamp/www/laguna/BACKEND/controller/EmpleadosController.php'
+//header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$proyectController= new ProyectController();
+$EmpleadosController= new EmpleadosController();
 
 //comprobar metodo
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$proyectController->Proyectos_id_creador($body['id_creador']);
+	$rta=$empleadosController->VerEmpleado($body['id_empleado']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));
