@@ -1,9 +1,9 @@
 <?php 
-
+header('Access-Control-Allow-Origin: *');
 require_once '../../datos/conexion.php';
 require_once '../../controller/EmpleadosController.php';
 
-//header('Access-Control-Allow-Origin: *');
+
 
 //defino controladora
 
