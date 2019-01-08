@@ -8,7 +8,7 @@ header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$empleadosController= new EmpleadosController();
+$empleadosController= new EmpleadosController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$empleadoController->EliminarEmpleado($body['id_empleado']);
+	$rta=$empleadosController->EliminarEmpleado($body['id_empleado']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));
