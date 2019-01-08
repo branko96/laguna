@@ -48,10 +48,9 @@
 			$result = $this->db->execute($query);
 			$id_empleado = $this->db->lastid();
 			if(count($result)>0){ 
-				$empleado =  new Empleado($result[0]['id_empleado'],$result[0]['nombre'],$result[0]['apellido'],$result[0]['puesto'],$result[0]['fecha_inicio'],$result[0]['dni'],$result[0]['cuil'],$result[0]['cod_postal'],$result[0]['fecha_fin']);
 				
 				$respuesta =  new Respuesta(1,'empleado creado correctamente');
-				return $empleado;
+				return $respuesta;
 				
 			}else{
 					$respuesta =  new Respuesta(-1,'Error, el empleado no se ha podido grabar');

@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$body=$_POST; 
 		//var_dump($body);
 		//var_dump($_FILES);
-
+		
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 		$fecha_inicio= date('Y-m-d H:i:s');
 		$rta=$empleadosController->AltaEmpleado($body['nombre'], $body['apellido'], $body['puesto'], $fecha_inicio, $body['sueldo'], $body['dni'], $body['cuil'], $body['cod_postal'], $body['fecha_fin']);
