@@ -7,12 +7,12 @@
   <?php include('header.php');?>
 </head>
 
-<body >
+<body>
   <div class="wrapper ">
     <!-- MENU -->
     <?php include('menu.php');?>
       <!-- End Navbar -->
-      <div class="content"  id="app">
+      <div class="content" id="app">
         <div class="container-fluid">
           <!-- your content here -->
            <div class="col-lg-12 col-md-12">
@@ -70,13 +70,7 @@
               </div>
             </div>
         </div>
-      </div>
-      <!-- FOOTER -->
-      <?php include('footer.php');?>
-      <!-- END FOOTER -->
-    </div>
-  </div>
-<!--fin todo-->
+
 
 <!-- The Modal -->
 <div class="modal fade" id="modal_nuevo_user">
@@ -201,6 +195,14 @@
     </div>
   </div>
 </div>
+<!--fin modal-->
+      </div>
+      <!-- FOOTER -->
+      <?php include('footer.php');?>
+      <!-- END FOOTER -->
+    </div>
+  </div>
+<!--fin todo-->
 
 
 <div class="modal fade" id="modal_editar_user">
@@ -319,7 +321,6 @@
     </div>
   </div>
 </div>
-
 
 <script src="js/vue.js"></script>
 <script src="js/vue-axios.min.js"></script>

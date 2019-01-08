@@ -18,7 +18,11 @@ var vm=new Vue({
 	},
 	methods:{
 		nuevo_empleado(){
-			MyApiClient.post("/BACKEND/apis/empleados/alta_empleado.php",this.nuevo_empleado)
+			var form_data = new FormData();
+			for ( var key in this.nuevo_emp ) {
+			    form_data.append(key, this.nuevo_emp[key]);
+			}
+			MyApiClient.post("/BACKEND/apis/empleados/alta_empleado.php",form_data)
 			.then((respuesta) =>{
 					console.log(respuesta);
 					if (respuesta.data.id_respuesta="1") {
