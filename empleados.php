@@ -28,9 +28,6 @@
                   </div>
 
                 </div>
-                <modal v-if="showModal" @close="showModal = false">
-                  <h3 slot="header">custom header</h3>
-                </modal>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">

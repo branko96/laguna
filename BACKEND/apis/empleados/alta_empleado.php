@@ -8,7 +8,7 @@ header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$empleadosController= new EmpleadosController();
+$empleadosController= new EmpleadosController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 

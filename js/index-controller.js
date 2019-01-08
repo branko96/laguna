@@ -1,7 +1,5 @@
 var ruta = 'https://'+window.location.host;
-Vue.component('modal', {
-  template: '#modal-template'
-});
+
 
 const MyApiClient = axios.create({
   baseURL: 'http://localhost:80/laguna/',
@@ -27,14 +25,11 @@ var vm=new Vue({
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta="1") {
-							this.empleado_editar=respuesta.data.mensaje
+							this.empleado_editar=respuesta.data.mensaje;
 						}
 
 				});
-		},
-		toggleModal() {
-        	this.modalShown = !this.modalShown;
-    	}
+		}
 	}
 });
 
