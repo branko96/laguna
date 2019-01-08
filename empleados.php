@@ -105,24 +105,24 @@
                   
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form @submit.prevent="nuevo_empleado">
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nombre</label>
-                          <input type="text" name="nombre" class="form-control">
+                          <input type="text" name="nombre" v-model="nuevo_emp.nombre" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Apellido</label>
-                          <input type="text" class="form-control">
+                          <input type="text" v-model="nuevo_emp.apellido" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Dni</label>
-                          <input type="text" max-length="10" class="form-control">
+                          <input type="text" v-model="nuevo_emp.dni" max-length="10" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -130,13 +130,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>
-                          <input type="email" class="form-control">
+                          <input type="email" v-model="nuevo_emp.email" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Cuil</label>
-                          <input type="text" class="form-control">
+                          <input type="text" v-model="nuevo_emp.cuil" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -144,13 +144,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Puesto</label>
-                          <input type="text" class="form-control">
+                          <input type="text" v-model="nuevo_emp.puesto" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Sueldo</label>
-                          <input type="text" class="form-control">
+                          <input type="text" v-model="nuevo_emp.sueldo" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -158,19 +158,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Fecha Inicio</label>
-                          <input type="text" class="form-control">
+                          <input type="text" v-model="nuevo_emp.fecha_inicio" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Fecha Fin</label>
-                          <input type="text" class="form-control">
+                          <input type="text" v-model="nuevo_emp.fecha_fin" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Codigo Postal</label>
-                          <input type="text" class="form-control">
+                          <input type="text" v-model="nuevo_emp.cod_postal" class="form-control">
                         </div>
                       </div>
                     </div>

@@ -13,9 +13,19 @@ var vm=new Vue({
 			{id:1,nombre:'Branko',apellido: 'Ottavianelli',dni:'39412217',cuil:'20-39412217-4',cod_postal:'8000',puesto:'peon',sueldo:22.500,fecha_inicio:'20-9-2018',fecha_fin:''},
 			{id:2,nombre:'Federico',apellido: 'Osovnikar',dni:'39412131',cuil:'20-39412131-4',cod_postal:'8000',puesto:'peon',sueldo:24.500,fecha_inicio:'20-2-2018',fecha_fin:''}
 		],
+		nuevo_emp:{id:0,nombre:'',apellido: '',dni:'',cuil:'',cod_postal:'',puesto:'',sueldo:null,fecha_inicio:'',fecha_fin:''},
 		showModal:false
 	},
 	methods:{
+		nuevo_empleado(){
+			MyApiClient.post("/BACKEND/apis/empleados/alta_empleado.php",this.nuevo_empleado)
+			.then((respuesta) =>{
+					console.log(respuesta);
+					if (respuesta.data.id_respuesta="1") {
+					}
+
+			});
+		},
 		modal_editar:function(empleado){
 			$("#modal_editar_user").modal("show");
 			this.ver_empleado(empleado);
