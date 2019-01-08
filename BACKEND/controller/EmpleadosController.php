@@ -58,6 +58,18 @@
 			}
 		}
 
+		public function EliminarEmpleado($id_empleado){
+			$query = sprintf("DELETE from empleados WHERE user_id = %d", $id_empleado);
+			$result = $this->db->execute($query);	
+			if(!$result) {
+				$respuesta =  new Respuesta(1,'Empleado eliminado correctamente'); 
+				return $respuesta;
+			}else{
+					$respuesta =  new Respuesta(-1,'No se ha podido eliminar el empleado');
+					return $respuesta;
+			}	
+		}
+
 
 		
 }
