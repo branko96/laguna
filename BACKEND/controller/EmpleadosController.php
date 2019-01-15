@@ -70,7 +70,20 @@
 			}	
 		}
 
+		function EditarEmpleado($id_empleado,$nombre,$apellido,$puesto,$sueldo,$cod_postal,$fecha_fin){
+				$query = sprintf("UPDATE empleados SET nombre = '%s',apellido = '%s',puesto = '%s',sueldo = %f,cod_postal = %d,fecha_fin = '%s' WHERE id_empleado = %d ;",$nombre,$apellido,$puesto,$sueldo,$cod_postal,$fecha_fin,$id_empleado);
 
+			$result = $this->db->execute($query);
+			
+			
+			if(!$result){
+				$respuesta =  new Respuesta(1,'Empleado actualizado correctamente'); 
+				return $respuesta;
+			}else{
+					$respuesta =  new Respuesta(-1,'No se ha podido modificar el empleado');
+					return $respuesta;
+			}	
+		}
 		
 }
 
