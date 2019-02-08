@@ -26,9 +26,75 @@ var vm=new Vue({
 			.then((respuesta) =>{
 					console.log(respuesta);
 					if (respuesta.data.id_respuesta="1") {
+						$.notify({
+							message: respuesta.data.mensaje
+						},{
+							z_index: 2000,
+							type: 'success',
+							placement: {
+								from: "top",
+								align: "center"
+							}
+						});
+					}else{
+						$.notify({
+							message: respuesta.data.mensaje
+						},{
+							type: 'danger',
+							z_index: 2000,
+							placement: {
+								from: "top",
+								align: "center"
+							}
+						});
 					}
 
 			});
+		},
+		editar_empleado(){
+			var form_data = new FormData();
+			for ( var key in this.empleado_editar ) {
+			    form_data.append(key, this.empleado_editar[key]);
+			}
+			MyApiClient.post("/BACKEND/apis/empleados/edit_empleado.php",form_data)
+			.then((respuesta) =>{
+					console.log(respuesta);
+					if (respuesta.data.id_respuesta="1") {
+						$.notify({
+							message: respuesta.data.mensaje
+						},{
+							type: 'success',
+							placement: {
+								from: "top",
+								align: "center"
+							}
+						});
+
+					}else{
+						$.notify({
+							message: respuesta.data.mensaje
+						},{
+							type: 'danger',
+							placement: {
+								from: "top",
+								align: "center"
+							}
+						});
+					}
+
+			});
+		},
+		eliminar_empleado(){
+			$.notify({
+				message: 'Empleado Eliminado' 
+			},{
+				type: 'danger',
+				placement: {
+					from: "top",
+					align: "center"
+				}
+			});
+
 		},
 		modal_editar:function(empleado){
 			$("#modal_editar_user").modal("show");
@@ -36,6 +102,16 @@ var vm=new Vue({
 		},
 		ver_empleado(empleado){
 			MyApiClient.get("/BACKEND/apis/empleados/VerEmpleado.php?id_empleado=1")
+				.then((respuesta) =>{
+						console.log(respuesta);
+						if (respuesta.data.id_respuesta="1") {
+							this.empleado_editar=respuesta.data.mensaje;
+						}
+
+				});
+		},
+		traer_empleados(){
+			MyApiClient.get("/BACKEND/apis/empleados/Traer_empleado.php")
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta="1") {

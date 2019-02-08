@@ -26,7 +26,7 @@
 		public function VerEmpleado($empleadopk){
 			$query = sprintf("SELECT * FROM empleados WHERE id_empleado = %d",$empleadopk);
 			$result = $this->db->getData($query);
-			var_dump($result);
+			//var_dump($result);
 			if(!$result) {
 
 				$respuesta =  new Respuesta(-1,'No se ha encontrado el empleado'); 
