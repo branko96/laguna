@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	//var_dump($body);
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$empleadosController->EditarEmpleado($body['id_empleado'],$body['nombre'],$body['apellido'],$body['puesto'],$body['sueldo'], $body['cod_postal'], $body['fecha_fin']);
+	$rta=$empleadosController->EditarEmpleado($body['id_empleado'],$body['nombre'],$body['apellido'],$body['puesto'],$body['sueldo'],$body['email'], $body['cod_postal'], $body['fecha_fin']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));
