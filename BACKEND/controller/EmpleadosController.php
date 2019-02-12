@@ -32,7 +32,7 @@
 				$respuesta =  new Respuesta(-1,'No se ha encontrado el empleado'); 
 				return $respuesta;
 			}else{
-					$empleado =  new Empleado($result[0]['id_empleado'],$result[0]['nombre'],$result[0]['apellido'],$result[0]['puesto'],$result[0]['fecha_inicio'],$result[0]['sueldo'],$result[0]['dni'],$result[0]['cuil'],$result[0]['cod_postal'],$result[0]['fecha_fin']);
+					$empleado =  new Empleado($result[0]['id_empleado'],$result[0]['nombre'],$result[0]['apellido'],$result[0]['puesto'],$result[0]['fecha_inicio'],$result[0]['sueldo'],$result[0]['email'],$result[0]['dni'],$result[0]['cuil'],$result[0]['cod_postal'],$result[0]['fecha_fin']);
 
 					$respuesta =  new Respuesta(1,$empleado);
 
@@ -41,9 +41,9 @@
 			
 		}
 
-		public function AltaEmpleado($nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$dni,$cuil,$cod_postal,$fecha_fin){			
+		public function AltaEmpleado($nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin){			
 
-			$query = sprintf("INSERT INTO empleados (nombre,apellido,puesto,fecha_inicio,sueldo,dni,cuil,cod_postal,fecha_fin) VALUES ('%s','%s','%s','%s','%f',%d,%d,%d,'%s')", $nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$dni,$cuil,$cod_postal,$fecha_fin);
+			$query = sprintf("INSERT INTO empleados (nombre,apellido,puesto,fecha_inicio,sueldo,email,dni,cuil,cod_postal,fecha_fin) VALUES ('%s','%s','%s','%s','%f',%d,%d,%d,'%s')", $nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin);
 
 			$result = $this->db->execute($query);
 			$id_empleado = $this->db->lastid();
@@ -70,8 +70,8 @@
 			}	
 		}
 
-		function EditarEmpleado($id_empleado,$nombre,$apellido,$puesto,$sueldo,$cod_postal,$fecha_fin){
-				$query = sprintf("UPDATE empleados SET nombre = '%s',apellido = '%s',puesto = '%s',sueldo = %f,cod_postal = %d,fecha_fin = '%s' WHERE id_empleado = %d ;",$nombre,$apellido,$puesto,$sueldo,$cod_postal,$fecha_fin,$id_empleado);
+		function EditarEmpleado($id_empleado,$nombre,$apellido,$puesto,$sueldo,$email,$cod_postal,$fecha_fin){
+				$query = sprintf("UPDATE empleados SET nombre = '%s',apellido = '%s',puesto = '%s',sueldo = %f,email = '%s',cod_postal = %d,fecha_fin = '%s' WHERE id_empleado = %d ;",$nombre,$apellido,$puesto,$sueldo,$email,$cod_postal,$fecha_fin,$id_empleado);
 
 			$result = $this->db->execute($query);
 			
@@ -94,7 +94,7 @@
 				$empleados = [];
 				for($i=0; $i< count($result);$i++){		
 
-					array_push($empleados, new Empleado($result[$i]['id_empleado'],$result[$i]['nombre'],$result[$i]['apellido'],$result[$i]['puesto'],$result[$i]['fecha_inicio'],$result[$i]['sueldo'],$result[$i]['dni'],$result[$i]['cuil'],$result[$i]['cod_postal'],$result[$i]['fecha_fin']));
+					array_push($empleados, new Empleado($result[$i]['id_empleado'],$result[$i]['nombre'],$result[$i]['apellido'],$result[$i]['puesto'],$result[$i]['fecha_inicio'],$result[$i]['sueldo'],$result[$i]['email'],$result[$i]['dni'],$result[$i]['cuil'],$result[$i]['cod_postal'],$result[$i]['fecha_fin']));
 				}
 					$respuesta =  new Respuesta(1,$empleados);
 					return $respuesta;	

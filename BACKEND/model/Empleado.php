@@ -7,12 +7,13 @@
 		protected $puesto;
 		protected $fecha_inicio;
 		protected $sueldo;
+		protected $email;
 		protected $dni;	
 		protected $cuil;
 		protected $cod_postal;
 		protected $fecha_fin;    
 		
-		public function __construct($id,$nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$dni,$cuil,$cod_postal,$fecha_fin)
+		public function __construct($id,$nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin)
 		{
 			$this->id = sprintf($id);
 			$this->nombre = sprintf($nombre);
@@ -20,6 +21,7 @@
 		    $this->puesto = sprintf($puesto);		    
 		    $this->fecha_inicio = sprintf($fecha_inicio);
 	    	$this->sueldo = sprintf($sueldo);
+	    	$this->email = sprintf($email);
 	    	$this->dni = sprintf($dni);
 	    	$this->cuil = sprintf($cuil);
 	    	$this->cod_postal = sprintf($cod_postal);
@@ -72,6 +74,14 @@
 
 		public function setSueldo($sueldo){
 			$this->sueldo = $sueldo;
+		}
+
+		public function getEmail(){
+			return $this->email;
+		}
+
+		public function setEmail($email){
+			$this->email = $email;
 		}
 
 		public function getDni(){
