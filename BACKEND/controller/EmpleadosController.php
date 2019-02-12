@@ -47,14 +47,15 @@
 
 			$result = $this->db->execute($query);
 			$id_empleado = $this->db->lastid();
-			if($result){ 
-				
-				$respuesta =  new Respuesta(1,'empleado creado correctamente');
+			if(!$result){ 
+				$respuesta =  new Respuesta(-1,'Error, el empleado no se ha podido grabar');
 				return $respuesta;
 				
+				
 			}else{
-					$respuesta =  new Respuesta(-1,'Error, el empleado no se ha podido grabar');
+					$respuesta =  new Respuesta(1,'empleado creado correctamente');
 					return $respuesta;
+					
 			}
 		}
 
