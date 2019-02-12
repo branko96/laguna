@@ -111,7 +111,7 @@ var vm=new Vue({
 				});
 		},
 		traer_empleados(){
-			MyApiClient.get("/BACKEND/apis/empleados/Traer_empleado.php")
+			MyApiClient.get("/BACKEND/apis/empleados/Traer_empleados.php")
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta="1") {
