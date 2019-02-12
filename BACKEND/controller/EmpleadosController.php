@@ -90,7 +90,7 @@
 
 			$result = $this->db->getData($query);
 
-			if(!$result) {
+			if(count($result)>0) {
 				$empleados = [];
 				for($i=0; $i< count($result);$i++){		
 
