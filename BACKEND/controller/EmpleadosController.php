@@ -47,7 +47,7 @@
 
 			$result = $this->db->execute($query);
 			$id_empleado = $this->db->lastid();
-			if(!$result){ 
+			if($result){ 
 				
 				$respuesta =  new Respuesta(1,'empleado creado correctamente');
 				return $respuesta;
