@@ -18,11 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 		//Cuando son uno o varios parametros
 
-		$body=$_GET; 
+		//$body=$_GET; 
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 
-	$rta=$EmpleadosController->Traer_Empleados($body['id_empleado']);
+	$rta=$EmpleadosController->Traer_Empleados();
 
 	//IMPRIMO RESPUESTA
 

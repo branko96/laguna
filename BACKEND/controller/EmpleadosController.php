@@ -85,26 +85,20 @@
 			}	
 		}
 
-		public function Traer_Empleados($id_empleado){
-			$query = sprintf("SELECT empleados.* FROM empleados WHERE id_empleado= %d ;",$id_empleado);
+		public function Traer_Empleados(){
+			$query = sprintf("SELECT * FROM empleados");
 
 			$result = $this->db->getData($query);
 
-			if(!$result) {
+			if(count($result)>0) {
 				$respuesta =  new Respuesta(-1,'No se ha encontrado ningun empleado asociado.'); 
 				return $respuesta;
 			}else{
-					$empleados = [];
-				for($i=0; $i< count($result);$i++){						
-					array_push($empleados, new Empleado($result[$i]['id_empleado'],$result[$i]['nombre'],$result[$i]['apellido'],$result[$i]['puesto'],$result[$i]['fecha_inicio'],$result[$i]['sueldo'],$result[$i]['dni'],$result[$i]['cuil'],$result[$i]['cod_postal'],$result[$i]['fecha_fin']));	
-				}	
 					$respuesta =  new Respuesta(1,$empleados);
 					return $respuesta;
-			}				
+			}		
 
-			}
-		
+		}
 }
-
 
 	?>
