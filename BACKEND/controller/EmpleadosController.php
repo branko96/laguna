@@ -95,20 +95,18 @@
 				for($i=0; $i< count($result);$i++){		
 
 					array_push($empleados, new Empleado($result[$i]['id_empleado'],$result[$i]['nombre'],$result[$i]['apellido'],$result[$i]['puesto'],$result[$i]['fecha_inicio'],$result[$i]['sueldo'],$result[$i]['dni'],$result[$i]['cuil'],$result[$i]['cod_postal'],$result[$i]['fecha_fin']));
-
+				}
 					$respuesta =  new Respuesta(1,$empleados);
 					return $respuesta;	
 				
-					}else{
-					$respuesta =  new Respuesta(-1,'No se ha encontrado ningun empleado asociado.'); 
-					return $respuesta;	
-					}	
-					
-			}				
+			}else{
+				$respuesta =  new Respuesta(-1,'No se ha encontrado ningun empleado asociado.'); 
+				return $respuesta;	
+			}						
 
-			}
+		}
 		
-}
+	}
 
 
 	?>
