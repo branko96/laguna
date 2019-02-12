@@ -43,10 +43,11 @@
 
 		public function AltaEmpleado($nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin){			
 
-			$query = sprintf("INSERT INTO empleados (nombre,apellido,puesto,fecha_inicio,sueldo,email,dni,cuil,cod_postal,fecha_fin) VALUES ('%s','%s','%s','%s','%f',%d,%d,%d,'%s')", $nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin);
+			$query = sprintf("INSERT INTO empleados (nombre,apellido,puesto,fecha_inicio,sueldo,email,dni,cuil,cod_postal,fecha_fin) VALUES ('%s','%s','%s','%s','%f','%s',%d,%d,%d,'%s')", $nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin);
 
 			$result = $this->db->execute($query);
 			$id_empleado = $this->db->lastid();
+			var_dump($result);
 			if(!$result){ 
 				$respuesta =  new Respuesta(-1,'Error, el empleado no se ha podido grabar');
 				return $respuesta;
