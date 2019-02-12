@@ -91,10 +91,10 @@
 			$result = $this->db->getData($query);
 
 			if(count($result)>0) {
-				$respuesta =  new Respuesta(-1,'No se ha encontrado ningun empleado asociado.'); 
-				return $respuesta;
-			}else{
-					$respuesta =  new Respuesta(1,$empleados);
+				$respuesta =  new Respuesta(1,$empleados);
+					return $respuesta;
+			}else{	
+					$respuesta =  new Respuesta(-1,'No se ha encontrado ningun empleado asociado.'); 
 					return $respuesta;
 			}		
 
