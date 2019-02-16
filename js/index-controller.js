@@ -64,6 +64,7 @@ var vm=new Vue({
 							message: respuesta.data.mensaje
 						},{
 							type: 'success',
+							z_index: 2000,
 							placement: {
 								from: "top",
 								align: "center"
@@ -75,6 +76,7 @@ var vm=new Vue({
 							message: respuesta.data.mensaje
 						},{
 							type: 'danger',
+							z_index: 2000,
 							placement: {
 								from: "top",
 								align: "center"
@@ -84,16 +86,37 @@ var vm=new Vue({
 
 			});
 		},
-		eliminar_empleado(){
-			$.notify({
-				message: 'Empleado Eliminado' 
-			},{
-				type: 'danger',
-				placement: {
-					from: "top",
-					align: "center"
-				}
-			});
+		eliminar_empleado(id_emp){
+			MyApiClient.get("/BACKEND/apis/empleados/baja_empleado.php?id_empleado="+id_emp)
+				.then((respuesta) =>{
+						console.log(respuesta);
+						if (respuesta.data.id_respuesta="1") {
+							this.traer_empleados();
+							$.notify({
+								message: respuesta.data.mensaje 
+							},{
+								type: 'success',
+								z_index: 2000,
+								placement: {
+									from: "top",
+									align: "center"
+								}
+							});
+						}else{
+							$.notify({
+								message: respuesta.data.mensaje 
+							},{
+								type: 'danger',
+								z_index: 2000,
+								placement: {
+									from: "top",
+									align: "center"
+								}
+							});
+						}
+
+				});
+			
 
 		},
 		modal_editar:function(empleado){
@@ -106,7 +129,19 @@ var vm=new Vue({
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta="1") {
 							this.empleado_editar=respuesta.data.mensaje;
+						}else{
+							$.notify({
+								message: respuesta.data.mensaje 
+							},{
+								type: 'danger',
+								z_index: 2000,
+								placement: {
+									from: "top",
+									align: "center"
+								}
+							});
 						}
+
 
 				});
 		},
@@ -115,11 +150,14 @@ var vm=new Vue({
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta="1") {
-							this.empleado_editar=respuesta.data.mensaje;
+							this.empleados=respuesta.data.mensaje;
 						}
 
 				});
 		}
+	},
+	mounted(){
+		this.traer_empleados();
 	}
 });
 

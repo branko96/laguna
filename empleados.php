@@ -56,10 +56,10 @@
                         <td>{{empleado.fecha_inicio}}</td>
                         <td>{{empleado.fecha_fin}}</td>
                         <td class="td-actions text-center">
-                          <button type="button" rel="tooltip" title="Editar" @click="modal_editar(empleado);" class="btn btn-primary btn-link btn-sm">
+                          <button type="button" title="Editar" @click="modal_editar(empleado);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
                           </button>
-                          <button type="button" @click="eliminar_empleado" rel="tooltip" title="Borrar" class="btn btn-danger btn-link btn-sm">
+                          <button type="button" @click="eliminar_empleado(empleado.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">
                             <i class="material-icons">close</i>
                           </button>
                         </td>
