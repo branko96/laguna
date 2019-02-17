@@ -46,8 +46,9 @@
 			$query = sprintf("INSERT INTO caravanas (codigo,descripcion,peso,sexo,categoria,$procedencia) VALUES (%d,'%s','%s','%s','%s','%s')", $codigo,$descripcion,$peso,$sexo,$categoria,$procedencia);
 
 			$result = $this->db->execute($query);
-			$id_caravana = $this->db->lastid();
 			var_dump($result);
+			$id_caravana = $this->db->lastid();
+			
 			if(!$result){ 
 				$respuesta =  new Respuesta(-1,'Error, la caravana no se ha podido grabar');
 				return $respuesta;

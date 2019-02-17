@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	//OBTENGO DATOS ENVIADOS
 
 	   	//Solamente cuando es json
-		$body = json_decode(file_get_contents("php://input"), true);
+		//$body = json_decode(file_get_contents("php://input"), true);
 
 		//Cuando son uno o varios parametros
 		$body=$_POST; 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 		//$fecha_inicio= date('Y-m-d H:i:s');
-		$rta=$caravanasController->AltaCaravana($body['codigo'], $body['descripcion'], $body['peso'], $body['sexo'],$body['categoria'], $body['procedencia']);
+		$rta=$caravanasController->AltaCaravana($body['codigo'], $body['descripcion'], $body['peso'], $body['sexo'], $body['categoria'], $body['procedencia']);
 
 	//IMPRIMO RESPUESTA
 
