@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	//OBTENGO DATOS ENVIADOS
 
 	   	//Solamente cuando es json
-		//$body = json_decode(file_get_contents("php://input"), true);
+		$body = json_decode(file_get_contents("php://input"), true);
 
 		//Cuando son uno o varios parametros
 		$body=$_POST; 
