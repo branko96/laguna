@@ -47,7 +47,7 @@
 
 			$result = $this->db->execute($query);
 			$id_empleado = $this->db->lastid();
-			var_dump($result);
+			//var_dump($result);
 			if(!$result){ 
 				$respuesta =  new Respuesta(-1,'Error, el empleado no se ha podido grabar');
 				return $respuesta;
