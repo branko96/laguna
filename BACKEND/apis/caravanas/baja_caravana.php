@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$caravanaController->EliminarCaravana($body['id_caravana']);
+	$rta=$caravanasController->EliminarCaravana($body['id_caravana']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));
