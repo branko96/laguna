@@ -32,7 +32,7 @@
 				$respuesta =  new Respuesta(-1,'No se ha encontrado la caravana'); 
 				return $respuesta;
 			}else{
-					$empleado =  new Caravana($result[0]['id_caravana'],$result[0]['codigo'],$result[0]['descripcion'],$result[0]['peso'],$result[0]['sexo'],$result[0]['categoria'],$result[0]['procedencia']);
+					$caravana =  new Caravana($result[0]['id_caravana'],$result[0]['codigo'],$result[0]['descripcion'],$result[0]['peso'],$result[0]['sexo'],$result[0]['categoria'],$result[0]['procedencia']);
 
 					$respuesta =  new Respuesta(1,$caravana);
 
