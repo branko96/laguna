@@ -1,13 +1,13 @@
 <?php 
 header('Access-Control-Allow-Origin: *');
 require_once '../../datos/conexion.php';
-require_once '../../controller/CaravanasController.php';
+require_once '../../controller/VentasController.php';
 
 
 
 //defino controladora
 
-$CaravanasController= new CaravanasController($basedatos,$servidor,$usuario,$paswd);
+$VentasController= new VentasController($basedatos,$servidor,$usuario,$paswd);
 
 
 //comprobar metodo
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$CaravanasController->VerCaravana($body['id_caravana']);
+	$rta=$VentasController->VerVenta($body['id_ventas']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));

@@ -43,7 +43,7 @@
 
 		public function AltaVenta($fecha,$num_fact,$cabezas,$kg,$peso_x_kg){			
 
-			$query = sprintf("INSERT INTO ventas (fecha,num_fact,cabezas,kg,peso_x_kg) VALUES ('%s',%d,%d,'%f','%f')", $fecha,$num_fact,$cabezas,$kg,$peso_x_kg);
+			$query = sprintf("INSERT INTO ventas (fecha,num_fact,cabezas,kg,peso_x_kg) VALUES ('%s','%s',%d,'%f','%f')", $fecha,$num_fact,$cabezas,$kg,$peso_x_kg);
 
 			$result = $this->db->execute($query);
 			//var_dump($result);
@@ -74,7 +74,7 @@
 		}
 
 		function EditarVenta($id_ventas,$fecha,$num_fact,$cabezas,$kg,$peso_x_kg){
-				$query = sprintf("UPDATE ventas SET fecha = '%s',num_fact = %d,cabezas = %d,kg = '%f',peso_x_kg = '%f' WHERE id_ventas = %d ;",$fecha,$num_fact,$cabezas,$kg,$peso_x_kg,$id_ventas);
+				$query = sprintf("UPDATE ventas SET fecha = '%s',num_fact = '%s',cabezas = %d,kg = '%f',peso_x_kg = '%f' WHERE id_ventas = %d ;",$fecha,$num_fact,$cabezas,$kg,$peso_x_kg,$id_ventas);
 
 			$result = $this->db->execute($query);
 			

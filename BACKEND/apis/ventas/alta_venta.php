@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		//var_dump($_FILES);
 		
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
-		//$fecha_inicio= date('Y-m-d H:i:s');
-		$rta=$ventasController->AltaVenta($body['codigo'], $body['descripcion'], $body['peso'], $body['sexo'], $body['categoria'], $body['procedencia']);
+		$fecha= date('Y-m-d H:i:s');
+		$rta=$ventasController->AltaVenta($fecha, $body['num_fact'], $body['cabezas'], $body['kg'], $body['peso_x_kg']);
 
 	//IMPRIMO RESPUESTA
 

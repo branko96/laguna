@@ -2,13 +2,13 @@
 
 //FIJAS
 require_once '../../datos/conexion.php';
-require_once '../../controller/CaravanasController.php';
+require_once '../../controller/MovimientosController.php';
 
 header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$caravanasController= new CaravanasController($basedatos,$servidor,$usuario,$paswd);
+$movimientosController= new MovimientosController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 
@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		//var_dump($_FILES);
 		
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
-		//$fecha_inicio= date('Y-m-d H:i:s');
-		$rta=$caravanasController->AltaCaravana($body['codigo'], $body['descripcion'], $body['peso'], $body['sexo'], $body['categoria'], $body['procedencia']);
+		$fecha_mov= date('Y-m-d H:i:s');
+		$rta=$movimientosController->AltaMovimiento($body['id_caravana'], $fecha_mov, $body['cantidad'], $body['tipo_mov']);
 
 	//IMPRIMO RESPUESTA
 

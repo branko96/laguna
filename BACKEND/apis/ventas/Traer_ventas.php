@@ -1,11 +1,11 @@
 <?php 
 header('Access-Control-Allow-Origin: *');
 require_once '../../datos/conexion.php';
-require_once '../../controller/CaravanasController.php';
+require_once '../../controller/VentasController.php';
 
 //defino controladora
 
-$CaravanasController= new CaravanasController($basedatos,$servidor,$usuario,$paswd);
+$VentasController= new VentasController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 
-	$rta=$CaravanasController->Traer_Caravanas();
+	$rta=$VentasController->Traer_Ventas();
 
 	//IMPRIMO RESPUESTA
 
