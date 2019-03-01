@@ -144,10 +144,10 @@ var vm=new Vue({
 		},
 		traer_caravanas(){
 			MyApiClient.get("/BACKEND/apis/caravanas/Traer_caravanas.php")
-				.then((respuesta) =>{
-						console.log(respuesta);
-						if (respuesta.data.id_respuesta="1") {
-							this.caravanas=respuesta.data.mensaje;
+				.then((rta) =>{
+						console.log(rta);
+						if (rta.data.id_respuesta="1") {
+							this.caravanas=rta.data.mensaje;
 						}else{
 							this.caravanas=[];
 						}

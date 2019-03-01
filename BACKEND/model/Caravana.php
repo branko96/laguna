@@ -16,6 +16,7 @@
 		    $this->descripcion = sprintf($descripcion);
 		    $this->peso = sprintf($peso);		    
 		    $this->sexo = sprintf($sexo);
+		    $this->categoria = sprintf($categoria);
 	    	$this->procedencia = sprintf($procedencia);
 
 		}

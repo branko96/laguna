@@ -46,7 +46,7 @@
 			$query = sprintf("INSERT INTO caravanas (codigo,descripcion,peso,sexo,categoria,procedencia) VALUES (%d,'%s','%s','%s','%s','%s')", $codigo,$descripcion,$peso,$sexo,$categoria,$procedencia);
 
 			$result = $this->db->execute($query);
-			var_dump($result);
+			
 			$id_caravana = $this->db->lastid();
 			
 			if(!$result){ 
@@ -95,16 +95,18 @@
 
 			if(count($result)>0) {
 				$caravanas = [];
-				//var_dump($result);
+				var_dump($result);
 				for($i=0; $i< count($result);$i++){		
 
 					array_push($caravanas, new Caravana($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia']));
 				}
-					$respuesta =  new Respuesta(1,$caravanas);
-				
+					//$respuesta =  new Respuesta(1,$caravanas);
+					$respuesta["id_respuesta"]=1;
+					$respuesta["mensaje"]=$caravanas;	
 			}else{
-				$respuesta =  new Respuesta(-1,'No se ha encontrado ninguna caravana asociada.'); 
-					
+				//$respuesta =  new Respuesta(0,'No se ha encontrado ninguna caravana asociada.'); 
+				  $respuesta["id_respuesta"]=-1;
+				  $respuesta["mensaje"]='No se ha encontrado ninguna caravana asociada.';	
 			}	
 			//var_dump($respuesta);
 			return $respuesta;					
