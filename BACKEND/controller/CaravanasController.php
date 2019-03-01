@@ -95,7 +95,7 @@
 
 			if(count($result)>0) {
 				$caravanas = [];
-				var_dump($result);
+				//var_dump($result);
 				for($i=0; $i< count($result);$i++){		
 
 					array_push($caravanas, new Caravana($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia']));
