@@ -15,13 +15,13 @@
 	
 		//Metodos//
 
-		public function DevolverCaravanas()
+		/*public function DevolverCaravanas()
 		{	
 					$query = sprintf("SELECT * FROM caravanas");
 					$result = $this->db->getData($query);
 
 			return $result;
-		}
+		}*/
 		
 		public function VerCaravana($caravanapk){
 			$query = sprintf("SELECT * FROM caravanas WHERE id_caravana = %d",$caravanapk);
@@ -95,17 +95,19 @@
 
 			if(count($result)>0) {
 				$caravanas = [];
+				//var_dump($result);
 				for($i=0; $i< count($result);$i++){		
 
 					array_push($caravanas, new Caravana($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia']));
 				}
 					$respuesta =  new Respuesta(1,$caravanas);
-					return $respuesta;	
 				
 			}else{
 				$respuesta =  new Respuesta(-1,'No se ha encontrado ninguna caravana asociada.'); 
-				return $respuesta;	
-			}						
+					
+			}	
+			//var_dump($respuesta);
+			return $respuesta;					
 
 		}
 		
