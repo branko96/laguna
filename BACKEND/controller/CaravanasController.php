@@ -97,8 +97,8 @@
 				$caravanas = [];
 				//var_dump($result);
 				for($i=0; $i< count($result);$i++){		
-
-					array_push($caravanas, new Caravana($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia'])->getJson());
+					$caravana= new Caravana($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia']);
+					array_push($caravanas,$caravana->getJson());
 				}
 					//$respuesta =  new Respuesta(1,$caravanas);
 					$respuesta["id_respuesta"]=1;
