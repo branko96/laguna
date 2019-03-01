@@ -68,6 +68,8 @@ var vm=new Vue({
 							}
 						});
 
+						this.traer_caravanas();
+
 					}else{
 						$.notify({
 							message: respuesta.data.mensaje
