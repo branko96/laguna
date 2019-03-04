@@ -9,10 +9,7 @@ var vm=new Vue({
 	el: '#app',
 	data: {
 		empleado_editar:{id:0,nombre:'',apellido: '',dni:'',cuil:'',cod_postal:'',puesto:'',sueldo:0.0,fecha_inicio:'',fecha_fin:''},
-		empleados: [
-			{id:1,nombre:'Branko',apellido: 'Ottavianelli',dni:'39412217',cuil:'20-39412217-4',cod_postal:'8000',puesto:'peon',sueldo:22.500,fecha_inicio:'20-9-2018',fecha_fin:''},
-			{id:2,nombre:'Federico',apellido: 'Osovnikar',dni:'39412131',cuil:'20-39412131-4',cod_postal:'8000',puesto:'peon',sueldo:24.500,fecha_inicio:'20-2-2018',fecha_fin:''}
-		],
+		empleados: [],
 		nuevo_emp:{id:0,nombre:'',apellido: '',dni:'',cuil:'',cod_postal:'',puesto:'',sueldo:null,fecha_inicio:'',fecha_fin:''},
 		showModal:false
 	},
@@ -148,9 +145,11 @@ var vm=new Vue({
 		traer_empleados(){
 			MyApiClient.get("/BACKEND/apis/empleados/Traer_empleados.php")
 				.then((respuesta) =>{
-						console.log(respuesta);
-						if (respuesta.data.id_respuesta="1") {
+						//console.log(respuesta);
+						if (respuesta.data.id_respuesta == "1") {
 							this.empleados=respuesta.data.mensaje;
+						}else{
+							this.empleados=[];
 						}
 
 				});
