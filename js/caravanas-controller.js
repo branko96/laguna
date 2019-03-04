@@ -1,5 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
+var obj_caravana_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
 
 const MyApiClient = axios.create({
   baseURL: 'http://localhost:80/laguna/',
@@ -8,9 +9,9 @@ const MyApiClient = axios.create({
 var vm=new Vue({
 	el: '#app',
 	data: {
-		caravana_editar:{id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''},
+		caravana_editar:obj_caravana_base,
 		caravanas: [],
-		nuev_caravana:{codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''},
+		nuev_caravana:obj_caravana_base,
 		showModal:false
 	},
 	methods:{
@@ -22,7 +23,9 @@ var vm=new Vue({
 			MyApiClient.post("/BACKEND/apis/caravanas/alta_caravana.php",form_data)
 			.then((respuesta) =>{
 					console.log(respuesta);
-					if (respuesta.data.id_respuesta="1") {
+					if (respuesta.data.id_respuesta == "1") {
+						this.traer_caravanas();
+						vm.nuev_caravana=obj_caravana_base;
 						$.notify({
 							message: respuesta.data.mensaje
 						},{
@@ -33,6 +36,9 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
+						vm.nueva_caravana={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
+						setTimeout(function(){$("#modal_nueva_caravana").modal("hide");},500);
+						
 					}else{
 						$.notify({
 							message: respuesta.data.mensaje
@@ -56,7 +62,7 @@ var vm=new Vue({
 			MyApiClient.post("/BACKEND/apis/caravanas/edit_caravana.php",form_data)
 			.then((respuesta) =>{
 					console.log(respuesta);
-					if (respuesta.data.id_respuesta="1") {
+					if (respuesta.data.id_respuesta=="1") {
 						$.notify({
 							message: respuesta.data.mensaje
 						},{
@@ -67,8 +73,9 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-
-						this.traer_caravanas();
+						vm.caravana_editar={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
+						vm.traer_caravanas();
+						setTimeout(function(){$("#modal_editar_caravana").modal("hide");},500);
 
 					}else{
 						$.notify({
@@ -89,7 +96,7 @@ var vm=new Vue({
 			MyApiClient.get("/BACKEND/apis/caravanas/baja_caravana.php?id_caravana="+id_emp)
 				.then((respuesta) =>{
 						console.log(respuesta);
-						if (respuesta.data.id_respuesta="1") {
+						if (respuesta.data.id_respuesta=="1") {
 							this.traer_caravanas();
 							$.notify({
 								message: respuesta.data.mensaje 
@@ -119,14 +126,14 @@ var vm=new Vue({
 
 		},
 		modal_editar:function(caravana){
-			$("#modal_editar_user").modal("show");
+			$("#modal_editar_caravana").modal("show");
 			this.ver_caravana(caravana);
 		},
 		ver_caravana(caravana){
 			MyApiClient.get("/BACKEND/apis/caravanas/VerCaravana.php?id_caravana="+caravana.id)
 				.then((respuesta) =>{
 						console.log(respuesta);
-						if (respuesta.data.id_respuesta="1") {
+						if (respuesta.data.id_respuesta=="1") {
 							this.caravana_editar=respuesta.data.mensaje;
 						}else{
 							$.notify({
@@ -148,8 +155,8 @@ var vm=new Vue({
 			MyApiClient.get("/BACKEND/apis/caravanas/Traer_caravanas.php")
 				.then((rta) =>{
 						//console.log(rta);
-						if (respuesta.data.id_respuesta == "1") {
-							this.caravanas=respuesta.data.mensaje;
+						if (rta.data.id_respuesta == "1") {
+							this.caravanas=rta.data.mensaje;
 						}else{
 							this.caravanas=[];
 						}

@@ -23,7 +23,7 @@
                       <h4 class="card-title">Caravanas</h4>
                     </div>
                     <div class="col-md-6 text-right">
-                      <a href="#" id="nuevo_empleado" data-target="#modal_nuevo_user" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
+                      <a href="#" data-target="#modal_nueva_caravana" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
                     </div>
                   </div>
 
@@ -66,7 +66,7 @@
         </div>
 
 
-<div class="modal fade" id="modal_editar_user">
+<div class="modal fade" id="modal_editar_caravana">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
 
@@ -157,7 +157,7 @@
   </div>
 </div>
 <!-- The Modal -->
-<div class="modal fade" id="modal_nuevo_user">
+<div class="modal fade" id="modal_nueva_caravana">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
 

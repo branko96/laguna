@@ -56,7 +56,7 @@
                         <td>{{empleado.fecha_inicio}}</td>
                         <td>{{empleado.fecha_fin}}</td>
                         <td class="td-actions text-center">
-                          <button type="button" title="Editar" @click="modal_editar(empleado);" class="btn btn-primary btn-link btn-sm">
+                          <button type="button" title="Editar" @click="modal_editar(empleado.id);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
                           </button>
                           <button type="button" @click="eliminar_empleado(empleado.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">
@@ -102,19 +102,19 @@
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Nombre</label>
+                          <label class="">Nombre</label>
                           <input type="text" v-model="empleado_editar.nombre" name="nombre" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Apellido</label>
+                          <label class="">Apellido</label>
                           <input type="text" v-model="empleado_editar.apellido" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Dni</label>
+                          <label class="">Dni</label>
                           <input type="text" v-model="empleado_editar.dni" max-length="10" class="form-control">
                         </div>
                       </div>
@@ -122,13 +122,13 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Email</label>
+                          <label class="">Email</label>
                           <input type="email" v-model="empleado_editar.email" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Cuil</label>
+                          <label class="">Cuil</label>
                           <input type="text" v-model="empleado_editar.cuil" class="form-control">
                         </div>
                       </div>
@@ -136,13 +136,13 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Puesto</label>
+                          <label class="">Puesto</label>
                           <input type="text" v-model="empleado_editar.puesto" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Sueldo</label>
+                          <label class="">Sueldo</label>
                           <input type="text" v-model="empleado_editar.sueldo" class="form-control">
                         </div>
                       </div>
@@ -150,19 +150,19 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Fecha Inicio</label>
+                          <label class="">Fecha Inicio</label>
                           <input type="text" v-model="empleado_editar.fecha_inicio" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Fecha Fin</label>
+                          <label class="">Fecha Fin</label>
                           <input type="text" v-model="empleado_editar.fecha_fin" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Codigo Postal</label>
+                          <label class="">Codigo Postal</label>
                           <input type="text" v-model="empleado_editar.cod_postal" class="form-control">
                         </div>
                       </div>
