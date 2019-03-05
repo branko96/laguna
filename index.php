@@ -4,6 +4,7 @@
 <head>
   <title>Home</title>
   <!-- Required meta tags -->
+  <?php $_SESSION['pagina_actual']='inicio'; ?>
   <?php include('header.php');?>
 </head>
 
