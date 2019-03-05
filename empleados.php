@@ -7,7 +7,7 @@
 <html lang="en">
 
 <head>
-  <title>Inicio</title>
+  <title>Empleados</title>
   <!-- Required meta tags -->
   <?php// setcookie('pagina_actual','empleados',time()+60); ?>
    <?php $_SESSION['pagina_actual']='empleados'; ?>

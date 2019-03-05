@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Inicio</title>
+  <title>Caravanas</title>
   <!-- Required meta tags -->
   <?php include('header.php');?>
 </head>
