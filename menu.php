@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="green" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="blue" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -8,7 +8,7 @@
         <!-- <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           CT
         </a> -->
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="http://www.perros-soft.com" class="simple-text logo-normal">
           Laguna del Monte
         </a>
       </div>
@@ -27,6 +27,7 @@
               <p>Inicio</p>
             </a>
           </li>
+
            <?php $activo='';
                 if($_SESSION['pagina_actual']== 'empleados'){ 
                   $activo=' active';
@@ -38,7 +39,8 @@
               <p>Empleados</p>
             </a>
           </li>
-          <?php $activo='';
+
+            <?php $activo='';
                 if($_SESSION['pagina_actual']== 'ventas'){ 
                   $activo=' active';
                 }
@@ -48,8 +50,8 @@
               <i class="material-icons">content_paste</i>
               <p>Ventas</p>
             </a>
-          </li>
-          <?php $activo='';
+          </li>        
+                 <?php $activo='';
                 if($_SESSION['pagina_actual']== 'movimientos'){ 
                   $activo=' active';
                 }
@@ -60,7 +62,7 @@
               <p>Movimientos</p>
             </a>
           </li>
-          <?php $activo='';
+        <?php $activo='';
                 if($_SESSION['pagina_actual']== 'caravanas'){ 
                   $activo=' active';
                 }
@@ -71,6 +73,7 @@
               <p>Caravanas</p>
             </a>
           </li>
+   
           <!-- your sidebar here -->
         </ul>
       </div>
