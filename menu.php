@@ -14,13 +14,23 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
+          <?php $activo='';
+                if($_COOKIE['pagina_actual']== 'inicio'){ 
+                  $activo=' active';
+                }
+            ?>
+          <li class="nav-item <?php echo $activo;?>">
             <a class="nav-link" href="#">
               <i class="material-icons">dashboard</i>
               <p>Inicio</p>
             </a>
           </li>
-           <li class="nav-item ">
+           <?php $activo='';
+                if($_COOKIE['pagina_actual']== 'empleados'){ 
+                  $activo=' active';
+                }
+            ?>
+           <li class="nav-item <?php echo $activo;?>">
             <a class="nav-link" href="empleados.php">
               <i class="material-icons">person</i>
               <p>Empleados</p>

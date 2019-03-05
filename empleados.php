@@ -1,3 +1,8 @@
+<?php
+$pagina_actual='empleados';
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -5,6 +10,7 @@
   <title>Inicio</title>
   <!-- Required meta tags -->
   <?php include('header.php');?>
+  <link rel="stylesheet" type="text/css" href="plugins/v-calendar/v-calendar.min.css">
 </head>
 
 <body>
@@ -157,7 +163,9 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="">Fecha Fin</label>
-                          <input type="text" v-model="empleado_editar.fecha_fin" class="form-control">
+                          <!-- <input type="text" v-model="empleado_editar.fecha_fin" class="form-control"> -->
+                          <v-date-picker :mode="mode" :formats="formats" v-model="empleado_editar.fecha_fin">
+                          </v-date-picker>
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -320,6 +328,8 @@
 <script src="js/vue-axios.min.js"></script>
 <script src="js/index.js"></script>
 <script src="assets/js/plugins/bootstrap-notify.js"></script>
+<script src="plugins/v-calendar/v-calendar.min.js"></script>
+<script src="assets/js/plugins/moment.min.js"></script>
 <script src="js/empleados-controller.js"></script>
 </body>
 

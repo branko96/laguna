@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-let obj_empleado_base={id:0,nombre:'',apellido: '',dni:'',cuil:'',cod_postal:'',puesto:'',sueldo:0.0,fecha_inicio:'',fecha_fin:''};
+let obj_empleado_base={id:0,nombre:'',apellido: '',dni:'',cuil:'',cod_postal:'',puesto:'',sueldo:0.0,fecha_inicio:'',fecha_fin:null};
 
 const MyApiClient = axios.create({
   baseURL: 'http://localhost:80/laguna/',
@@ -9,13 +9,22 @@ const MyApiClient = axios.create({
 var vm=new Vue({
 	el: '#app',
 	data: {
-		empleado_editar:obj_empleado_base,
+		empleado_editar:{id:0,nombre:'',apellido: '',dni:'',cuil:'',cod_postal:'',puesto:'',sueldo:0.0,fecha_inicio:'',fecha_fin:null},
 		empleados: [],
 		nuevo_emp:obj_empleado_base,
-		showModal:false
+		showModal:false,
+		mode: 'single',
+	    formats: {
+	      title: 'MMMM YYYY',
+	      weekdays: 'W',
+	      navMonths: 'MMM',
+	      input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'], // Only for `v-date-picker`
+	      dayPopover: 'L', // Only for `v-date-picker`
+	    }
 	},
 	methods:{
 		nuevo_empleado(){
+			
 			var form_data = new FormData();
 			for ( var key in this.nuevo_emp ) {
 			    form_data.append(key, this.nuevo_emp[key]);
@@ -53,6 +62,8 @@ var vm=new Vue({
 			});
 		},
 		editar_empleado(){
+			var fecha_fin=this.empleado_editar.fecha_fin;
+      		this.empleado_editar.fecha_fin=moment(String(fecha_fin)).format('DD/MM/YYYY');
 			var form_data = new FormData();
 			for ( var key in this.empleado_editar ) {
 			    form_data.append(key, this.empleado_editar[key]);
