@@ -1,5 +1,5 @@
 <?php
-$pagina_actual='empleados';
+
 
 ?>
 
@@ -9,6 +9,8 @@ $pagina_actual='empleados';
 <head>
   <title>Inicio</title>
   <!-- Required meta tags -->
+  <?php// setcookie('pagina_actual','empleados',time()+60); ?>
+   <?php $_SESSION['pagina_actual']='empleados'; ?>
   <?php include('header.php');?>
   <link rel="stylesheet" type="text/css" href="plugins/v-calendar/v-calendar.min.css">
 </head>
@@ -164,7 +166,7 @@ $pagina_actual='empleados';
                         <div class="form-group">
                           <label class="">Fecha Fin</label>
                           <!-- <input type="text" v-model="empleado_editar.fecha_fin" class="form-control"> -->
-                          <v-date-picker :mode="mode" :formats="formats" v-model="empleado_editar.fecha_fin">
+                          <v-date-picker :mode='mode' :formats="formats" v-model='empleado_editar.fecha_inicio'>
                           </v-date-picker>
                         </div>
                       </div>
