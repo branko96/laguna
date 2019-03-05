@@ -157,7 +157,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="">Fecha Fin</label>
-                          <input type="text" v-model="empleado_editar.fecha_fin" class="form-control">
+                          <input type="date" v-model="empleado_editar.fecha_fin" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
