@@ -164,7 +164,7 @@ $pagina_actual='empleados';
                         <div class="form-group">
                           <label class="">Fecha Fin</label>
                           <!-- <input type="text" v-model="empleado_editar.fecha_fin" class="form-control"> -->
-                          <v-date-picker :mode="mode" :formats="formats" v-model="empleado_editar.fecha_fin">
+                          <v-date-picker :mode='mode' :formats="formats" v-model='empleado_editar.fecha_fin'>
                           </v-date-picker>
                         </div>
                       </div>
