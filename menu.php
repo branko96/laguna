@@ -15,18 +15,20 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <?php $activo='';
-                if($_COOKIE['pagina_actual']== 'inicio'){ 
+          //var_dump($_COOKIE);
+                if($_SESSION['pagina_actual'] == 'inicio'){ 
+                 // echo "entro";
                   $activo=' active';
                 }
             ?>
           <li class="nav-item <?php echo $activo;?>">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="index.php">
               <i class="material-icons">dashboard</i>
               <p>Inicio</p>
             </a>
           </li>
            <?php $activo='';
-                if($_COOKIE['pagina_actual']== 'empleados'){ 
+                if($_SESSION['pagina_actual']== 'empleados'){ 
                   $activo=' active';
                 }
             ?>
