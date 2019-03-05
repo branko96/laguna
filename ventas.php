@@ -45,7 +45,7 @@
                     </thead>
                     <tbody>
                       <tr v-show="nueva_venta_ver">
-                        <form @submit.prevent="nueva_venta">
+                        <form >
                           <td><input type="text" v-model="nuev_venta.num_fact" class="form-control" placeholder="Nro Fact"></td>
                           <td><input type="text" v-model="nuev_venta.fecha" class="form-control" placeholder="Fecha"></td>
                           <td><input type="text" v-model="nuev_venta.cabezas" class="form-control" placeholder="Cabezas"></td>
@@ -56,15 +56,15 @@
                           <td><input type="text" v-model="nuev_venta.neto" class="form-control" placeholder="Neto"></td>
                           <td><input type="text" v-model="nuev_venta.retencion" class="form-control" placeholder="Retencion"></td>
                           <td>
-                            <button type="submit" class="btn btn-success btn-link btn-sm waves-effect">
+                            <button type="button" @click="nueva_venta" class="btn btn-success btn-link btn-sm waves-effect">
                               <i class="material-icons">add</i>
                             </button>
                           </td>
                         </form>
                       </tr>
-                      
+                        <form >
                         <tr v-show="ver_edicion">
-                          <form @submit.prevent="editar_venta">
+                          
                             <td><input type="text" v-model="venta_editar.num_fact" class="form-control" placeholder="Nro Fact"></td>
                             <td><input type="text" v-model="venta_editar.fecha" class="form-control" placeholder="Fecha"></td>
                             <td><input type="text" v-model="venta_editar.cabezas" class="form-control" placeholder="Cabezas"></td>
@@ -75,12 +75,13 @@
                             <td><input type="text" v-model="venta_editar.neto" class="form-control" placeholder="Neto"></td>
                             <td><input type="text" v-model="venta_editar.retencion" class="form-control" placeholder="Retencion"></td>
                             <td>
-                              <button type="submit" class="btn btn-success btn-link btn-sm waves-effect">
+                              <button type="button" @click="editar_venta" class="btn btn-success btn-link btn-sm waves-effect">
                                 <i class="material-icons">edit</i>
                               </button>
                             </td>
-                          </form>
+                          
                         </tr>
+                        </form>
                       <tr v-for="venta in ventas">
                         <td>{{venta.num_fact}}</td>
                         <td>{{venta.fecha}}</td>

@@ -69,7 +69,7 @@ var vm=new Vue({
 			for ( var key in this.caravana_editar ) {
 			    form_data.append(key, this.caravana_editar[key]);
 			}
-			MyApiClient.post("/BACKEND/apis/caravanas/edit_caravana.php",form_data)
+			MyApiClient.post("/BACKEND/apis/ventas/edit_venta.php",form_data)
 			.then((respuesta) =>{
 					console.log(respuesta);
 					if (respuesta.data.id_respuesta=="1") {
