@@ -41,21 +41,48 @@
                       <th>Iva</th>
                       <th>Neto</th>
                       <th>Retención</th>
+                      <th>Acción</th>
                     </thead>
                     <tbody>
                       <tr v-show="nueva_venta_ver">
-                        <td><input type="text" v-model="nuev_venta.num_fact" class="form-control" placeholder="Nro Fact"></td>
-                        <td><input type="text" v-model="nuev_venta.fecha" class="form-control" placeholder="Fecha"></td>
-                        <td><input type="text" v-model="nuev_venta.cabezas" class="form-control" placeholder="Cabezas"></td>
-                        <td><input type="text" v-model="nuev_venta.kg" class="form-control" placeholder="Kg"></td>
-                        <td><input type="text" v-model="nuev_venta.peso_x_kg" class="form-control" placeholder="Peso Kg"></td>
-                        <td><input type="text" v-model="nuev_venta.bruto" class="form-control" placeholder="Bruto"></td>
-                        <td><input type="text" v-model="nuev_venta.iva" class="form-control" placeholder="Iva"></td>
-                        <td><input type="text" v-model="nuev_venta.neto" class="form-control" placeholder="Neto"></td>
-                        <td><input type="text" v-model="nuev_venta.retencion" class="form-control" placeholder="Retencion"></td>
+                        <form @submit.prevent="nueva_venta">
+                          <td><input type="text" v-model="nuev_venta.num_fact" class="form-control" placeholder="Nro Fact"></td>
+                          <td><input type="text" v-model="nuev_venta.fecha" class="form-control" placeholder="Fecha"></td>
+                          <td><input type="text" v-model="nuev_venta.cabezas" class="form-control" placeholder="Cabezas"></td>
+                          <td><input type="text" v-model="nuev_venta.kg" class="form-control" placeholder="Kg"></td>
+                          <td><input type="text" v-model="nuev_venta.peso_x_kg" class="form-control" placeholder="Peso Kg"></td>
+                          <td><input type="text" v-model="nuev_venta.bruto" class="form-control" placeholder="Bruto"></td>
+                          <td><input type="text" v-model="nuev_venta.iva" class="form-control" placeholder="Iva"></td>
+                          <td><input type="text" v-model="nuev_venta.neto" class="form-control" placeholder="Neto"></td>
+                          <td><input type="text" v-model="nuev_venta.retencion" class="form-control" placeholder="Retencion"></td>
+                          <td>
+                            <button type="submit" class="btn btn-success btn-link btn-sm waves-effect">
+                              <i class="material-icons">add</i>
+                            </button>
+                          </td>
+                        </form>
                       </tr>
+                      
+                        <tr v-show="ver_edicion">
+                          <form @submit.prevent="editar_venta">
+                            <td><input type="text" v-model="venta_editar.num_fact" class="form-control" placeholder="Nro Fact"></td>
+                            <td><input type="text" v-model="venta_editar.fecha" class="form-control" placeholder="Fecha"></td>
+                            <td><input type="text" v-model="venta_editar.cabezas" class="form-control" placeholder="Cabezas"></td>
+                            <td><input type="text" v-model="venta_editar.kg" class="form-control" placeholder="Kg"></td>
+                            <td><input type="text" v-model="venta_editar.peso_x_kg" class="form-control" placeholder="Peso Kg"></td>
+                            <td><input type="text" v-model="venta_editar.bruto" class="form-control" placeholder="Bruto"></td>
+                            <td><input type="text" v-model="venta_editar.iva" class="form-control" placeholder="Iva"></td>
+                            <td><input type="text" v-model="venta_editar.neto" class="form-control" placeholder="Neto"></td>
+                            <td><input type="text" v-model="venta_editar.retencion" class="form-control" placeholder="Retencion"></td>
+                            <td>
+                              <button type="submit" class="btn btn-success btn-link btn-sm waves-effect">
+                                <i class="material-icons">edit</i>
+                              </button>
+                            </td>
+                          </form>
+                        </tr>
                       <tr v-for="venta in ventas">
-                        
+                        <td>{{venta.num_fact}}</td>
                         <td>{{venta.fecha}}</td>
                         <td>{{venta.cabezas}}</td>
                         <td>{{venta.kg}}</td>

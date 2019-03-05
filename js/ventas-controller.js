@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={id:"1",fecha:"2019-03-05",num_fact:"0",cabezas:"38",kg:"15354.6",peso_x_kg:"1557.78",bruto:"0",iva:"",neto:"0",retencion:"0"};
+var obj_caravana_base={id:"0",fecha:new Date(),num_fact:"0",cabezas:"38",kg:"15354.6",peso_x_kg:"1557.78",bruto:"0",iva:"",neto:"0",retencion:"0"};
 
 const MyApiClient = axios.create({
   baseURL: 'http://localhost:80/laguna/',
@@ -9,13 +9,18 @@ const MyApiClient = axios.create({
 var vm=new Vue({
 	el: '#app',
 	data: {
-		caravana_editar:obj_caravana_base,
+		venta_editar:obj_caravana_base,
 		ventas: [],
 		nuev_venta:obj_caravana_base,
 		showModal:false,
-		nueva_venta_ver:false
+		nueva_venta_ver:false,
+		ver_edicion:false
 	},
 	methods:{
+		habilitar_edicion(venta){
+			this.ver_edicion=true;
+			this.venta_editar=venta;
+		},
 		habilitar_nueva_venta(){
 			this.nueva_venta_ver=true;
 
@@ -129,10 +134,6 @@ var vm=new Vue({
 				});
 			
 
-		},
-		habilitar_edicion:function(venta){
-			$("#modal_editar_caravana").modal("show");
-			this.ver_venta(venta);
 		},
 		ver_venta(venta){
 			MyApiClient.get("/BACKEND/apis/ventas/VerVenta.php?id_ventas="+venta.id)
