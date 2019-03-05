@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Inicio</title>
+  <title>Caravanas</title>
   <!-- Required meta tags -->
   <?php $_SESSION['pagina_actual']='caravanas'; ?>
   <?php include('header.php');?>

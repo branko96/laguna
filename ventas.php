@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Inicio</title>
+  <title>Ventas</title>
   <!-- Required meta tags -->
   <?php $_SESSION['pagina_actual']='ventas'; ?>
   <?php include('header.php');?>
@@ -21,10 +21,10 @@
                 <div class="card-header card-header-warning">
                   <div class="row">
                     <div class="col-md-6">
-                      <h4 class="card-title">Caravanas</h4>
+                      <h4 class="card-title">Ventas</h4>
                     </div>
                     <div class="col-md-6 text-right">
-                      <a href="#" data-target="#modal_nueva_caravana" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
+                      <a href="#" @click="habilitar_nueva_venta" data-target="#modal_nuevo" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
                     </div>
                   </div>
 
@@ -32,31 +32,72 @@
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
-                      <th>ID</th>
-                      <th>Codigo</th>
-                      <th>Descripcion</th>
-                      <th>Peso</th>
-                      <th>Sexo</th>
-                      <th>Categoria</th>
-                      <th>Procedencia</th>
-                      <th>Accion</th>
+                      <th>Nro Fact</th>
+                      <th>Fecha</th>
+                      <th>Cabezas</th>
+                      <th>Kg</th>
+                      <th>Peso Kg</th>
+                      <th>Bruto</th>
+                      <th>Iva</th>
+                      <th>Neto</th>
+                      <th>Retención</th>
+                      <th>Acción</th>
                     </thead>
                     <tbody>
-                      <tr v-for="caravana in caravanas">
-                        <td>{{caravana.id}}</td>
-                        <td>{{caravana.codigo}}</td>
-                        <td>{{caravana.descripcion}}</td>
-                        <td>{{caravana.peso}}</td>
-                        <td>{{caravana.sexo}}</td>
-                        <td>{{caravana.categoria}}</td>
-                        <td>{{caravana.procedencia}}</td>
+                      <tr v-show="nueva_venta_ver">
+                        <form @submit.prevent="nueva_venta">
+                          <td><input type="text" v-model="nuev_venta.num_fact" class="form-control" placeholder="Nro Fact"></td>
+                          <td><input type="text" v-model="nuev_venta.fecha" class="form-control" placeholder="Fecha"></td>
+                          <td><input type="text" v-model="nuev_venta.cabezas" class="form-control" placeholder="Cabezas"></td>
+                          <td><input type="text" v-model="nuev_venta.kg" class="form-control" placeholder="Kg"></td>
+                          <td><input type="text" v-model="nuev_venta.peso_x_kg" class="form-control" placeholder="Peso Kg"></td>
+                          <td><input type="text" v-model="nuev_venta.bruto" class="form-control" placeholder="Bruto"></td>
+                          <td><input type="text" v-model="nuev_venta.iva" class="form-control" placeholder="Iva"></td>
+                          <td><input type="text" v-model="nuev_venta.neto" class="form-control" placeholder="Neto"></td>
+                          <td><input type="text" v-model="nuev_venta.retencion" class="form-control" placeholder="Retencion"></td>
+                          <td>
+                            <button type="submit" class="btn btn-success btn-link btn-sm waves-effect">
+                              <i class="material-icons">add</i>
+                            </button>
+                          </td>
+                        </form>
+                      </tr>
+                      
+                        <tr v-show="ver_edicion">
+                          <form @submit.prevent="editar_venta">
+                            <td><input type="text" v-model="venta_editar.num_fact" class="form-control" placeholder="Nro Fact"></td>
+                            <td><input type="text" v-model="venta_editar.fecha" class="form-control" placeholder="Fecha"></td>
+                            <td><input type="text" v-model="venta_editar.cabezas" class="form-control" placeholder="Cabezas"></td>
+                            <td><input type="text" v-model="venta_editar.kg" class="form-control" placeholder="Kg"></td>
+                            <td><input type="text" v-model="venta_editar.peso_x_kg" class="form-control" placeholder="Peso Kg"></td>
+                            <td><input type="text" v-model="venta_editar.bruto" class="form-control" placeholder="Bruto"></td>
+                            <td><input type="text" v-model="venta_editar.iva" class="form-control" placeholder="Iva"></td>
+                            <td><input type="text" v-model="venta_editar.neto" class="form-control" placeholder="Neto"></td>
+                            <td><input type="text" v-model="venta_editar.retencion" class="form-control" placeholder="Retencion"></td>
+                            <td>
+                              <button type="submit" class="btn btn-success btn-link btn-sm waves-effect">
+                                <i class="material-icons">edit</i>
+                              </button>
+                            </td>
+                          </form>
+                        </tr>
+                      <tr v-for="venta in ventas">
+                        <td>{{venta.num_fact}}</td>
+                        <td>{{venta.fecha}}</td>
+                        <td>{{venta.cabezas}}</td>
+                        <td>{{venta.kg}}</td>
+                        <td>{{venta.peso_x_kg}}</td>
+                        <td>{{venta.bruto}}</td>
+                        <td>{{venta.iva}}</td>
+                        <td>{{venta.neto}}</td>
+                        <td>{{venta.retencion}}</td>
                         <td class="td-actions text-center">
-                          <button type="button" title="Editar" @click="modal_editar(caravana);" class="btn btn-primary btn-link btn-sm">
+                          <button type="button" title="Editar" @click="habilitar_edicion(venta);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
                           </button>
-                          <button type="button" @click="eliminar_caravana(caravana.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">
+                          <!-- <button type="button" @click="eliminar_caravana(caravana.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">
                             <i class="material-icons">close</i>
-                          </button>
+                          </button> -->
                         </td>
                       </tr>
                     </tbody>
@@ -67,184 +108,7 @@
         </div>
 
 
-<div class="modal fade" id="modal_editar_caravana">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
 
-      <!-- Modal Header
-      <div class="modal-header">
-        <h4 class="modal-title text-center">Nuevo Empleado</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div> -->
-
-      <!-- Modal body -->
-      <div class="modal-body">
-          <div class="card">
-                <div class="card-header card-header-success">
-                  <div class="row">
-                    <div class="col-md-10">
-                      <h4 class="card-title">Editar Caravana</h4>
-                    </div>
-                    <div class="col-md-2">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                  </div>
-                  <!-- <p class="card-category">Complete your profile</p> -->
-                  
-                </div>
-                <div class="card-body">
-                  <form @submit.prevent="editar_caravana">
-                     <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="">Código</label>
-                          <input type="text" name="nombre" v-model="caravana_editar.codigo" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="">Descripción</label>
-                          <input type="text" v-model="caravana_editar.descripcion" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="">Peso</label>
-                          <input type="text" v-model="caravana_editar.peso" max-length="10" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="">Sexo</label>
-                          <input type="text" v-model="caravana_editar.sexo" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="">Categoría</label>
-                          <input type="text" v-model="caravana_editar.categoria" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="">Procedencia</label>
-                          <input type="text" v-model="caravana_editar.procedencia" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                   <!--  <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <div class="form-group">
-                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                            <textarea class="form-control" rows="5"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-                    <button type="submit" class="btn btn-success pull-right">Guardar</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <div class="clearfix"></div>
-                  </form>
-                </div>
-              </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- The Modal -->
-<div class="modal fade" id="modal_nueva_caravana">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-
-      <!-- Modal Header
-      <div class="modal-header">
-        <h4 class="modal-title text-center">Nuevo Empleado</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div> -->
-
-      <!-- Modal body -->
-      <div class="modal-body">
-          <div class="card">
-                <div class="card-header card-header-success">
-                  <div class="row">
-                    <div class="col-md-10">
-                      <h4 class="card-title">Nueva Caravana</h4>
-                    </div>
-                    <div class="col-md-2">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                  </div>
-                  <!-- <p class="card-category">Complete your profile</p> -->
-                  
-                </div>
-                <div class="card-body">
-                  <form @submit.prevent="nueva_caravana">
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Código</label>
-                          <input type="text" name="nombre" v-model="nuev_caravana.codigo" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Descripción</label>
-                          <input type="text" v-model="nuev_caravana.descripcion" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Peso</label>
-                          <input type="text" v-model="nuev_caravana.peso" max-length="10" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Sexo</label>
-                          <input type="text" v-model="nuev_caravana.sexo" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Categoría</label>
-                          <input type="text" v-model="nuev_caravana.categoria" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Procedencia</label>
-                          <input type="text" v-model="nuev_caravana.procedencia" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-success pull-right">Guardar</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <div class="clearfix"></div>
-                  </form>
-                </div>
-              </div>
-      </div>
-
-      <!-- Modal footer 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-      </div>-->
-
-    </div>
-  </div>
-</div>
-<!--fin modal-->
       </div>
       <!-- FOOTER -->
       <?php include('footer.php');?>
@@ -259,6 +123,7 @@
 <script src="js/vue-axios.min.js"></script>
 <script src="js/index.js"></script>
 <script src="assets/js/plugins/bootstrap-notify.js"></script>
+<script src="assets/js/plugins/moment.min.js"></script>
 <script src="js/ventas-controller.js"></script>
 </body>
 

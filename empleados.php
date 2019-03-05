@@ -7,7 +7,7 @@
 <html lang="en">
 
 <head>
-  <title>Inicio</title>
+  <title>Empleados</title>
   <!-- Required meta tags -->
   <?php// setcookie('pagina_actual','empleados',time()+60); ?>
    <?php $_SESSION['pagina_actual']='empleados'; ?>
@@ -166,7 +166,7 @@
                         <div class="form-group">
                           <label class="">Fecha Fin</label>
                           <!-- <input type="text" v-model="empleado_editar.fecha_fin" class="form-control"> -->
-                          <v-date-picker :mode='mode' :formats="formats" v-model='empleado_editar.fecha_inicio'>
+                          <v-date-picker :mode='mode' :formats="formats" v-model='empleado_editar.fecha_fin'>
                           </v-date-picker>
                         </div>
                       </div>

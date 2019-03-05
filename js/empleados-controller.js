@@ -142,6 +142,11 @@ var vm=new Vue({
 				.then((respuesta) =>{
 						//console.log(respuesta);
 						if (respuesta.data.id_respuesta=="1") {
+							
+							var fecha=respuesta.data.mensaje.fecha_fin;
+							console.log(fecha);
+							fecha2=new Date("2019-01-03");
+							respuesta.data.mensaje.fecha_fin=fecha2;
 							this.empleado_editar=respuesta.data.mensaje;
 						}else{
 							$.notify({
