@@ -38,18 +38,33 @@
               <p>Empleados</p>
             </a>
           </li>
+          <?php $activo='';
+                if($_SESSION['pagina_actual']== 'ventas'){ 
+                  $activo=' active';
+                }
+            ?>
           <li class="nav-item ">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="ventas.php">
               <i class="material-icons">content_paste</i>
               <p>Ventas</p>
             </a>
           </li>
+          <?php $activo='';
+                if($_SESSION['pagina_actual']== 'movimientos'){ 
+                  $activo=' active';
+                }
+            ?>
           <li class="nav-item ">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="movimientos.php">
               <i class="material-icons">library_books</i>
               <p>Movimientos</p>
             </a>
           </li>
+          <?php $activo='';
+                if($_SESSION['pagina_actual']== 'caravanas'){ 
+                  $activo=' active';
+                }
+            ?>
           <li class="nav-item ">
             <a class="nav-link" href="caravanas.php">
               <i class="material-icons">library_books</i>
