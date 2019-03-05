@@ -4,6 +4,7 @@
 <head>
   <title>Inicio</title>
   <!-- Required meta tags -->
+  <?php $_SESSION['pagina_actual']='ventas'; ?>
   <?php include('header.php');?>
 </head>
 
