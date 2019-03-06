@@ -18,7 +18,7 @@ var vm=new Vue({
 	      title: 'MMMM YYYY',
 	      weekdays: 'W',
 	      navMonths: 'MMM',
-	      input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'], // Only for `v-date-picker`
+	      input: ['L', 'YYYY-MM-DD', 'YYYY-MM-DD'], // Only for `v-date-picker`
 	      dayPopover: 'L', // Only for `v-date-picker`
 	    }
 	},
@@ -63,7 +63,7 @@ var vm=new Vue({
 		},
 		editar_empleado(){
 			var fecha_fin=this.empleado_editar.fecha_fin;
-      		this.empleado_editar.fecha_fin=moment(String(fecha_fin)).format('DD/MM/YYYY');
+      		this.empleado_editar.fecha_fin=moment(String(fecha_fin)).format('DD-MM-YYYY');
 			var form_data = new FormData();
 			for ( var key in this.empleado_editar ) {
 			    form_data.append(key, this.empleado_editar[key]);
@@ -145,7 +145,7 @@ var vm=new Vue({
 							
 							var fecha=respuesta.data.mensaje.fecha_fin;
 							console.log(fecha);
-							fecha2=new Date("2019-01-03");
+							fecha2=new Date(fecha);
 							respuesta.data.mensaje.fecha_fin=fecha2;
 							this.empleado_editar=respuesta.data.mensaje;
 						}else{
