@@ -184,7 +184,7 @@
                   
                 </div>
                 <div class="card-body">
-                  <form @submit.prevent="nueva_caravana">
+                  <form method="POST" id="form_alta" @submit.prevent="nueva_caravana">
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">

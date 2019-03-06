@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="blue" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="orange" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -45,7 +45,7 @@
                   $activo=' active';
                 }
             ?>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo $activo;?>">
             <a class="nav-link" href="ventas.php">
               <i class="material-icons">content_paste</i>
               <p>Ventas</p>
@@ -56,7 +56,7 @@
                   $activo=' active';
                 }
             ?>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo $activo;?>">
             <a class="nav-link" href="movimientos.php">
               <i class="material-icons">library_books</i>
               <p>Movimientos</p>
@@ -67,7 +67,7 @@
                   $activo=' active';
                 }
             ?>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo $activo;?>">
             <a class="nav-link" href="caravanas.php">
               <i class="material-icons">library_books</i>
               <p>Caravanas</p>

@@ -25,7 +25,7 @@ var vm=new Vue({
 					console.log(respuesta);
 					if (respuesta.data.id_respuesta == "1") {
 						this.traer_caravanas();
-						vm.nuev_caravana=obj_caravana_base;
+						//vm.nuev_caravana=obj_caravana_base;
 						$.notify({
 							message: respuesta.data.mensaje
 						},{
@@ -36,7 +36,7 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.nueva_caravana={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
+						vm.nuev_caravana={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
 						setTimeout(function(){$("#modal_nueva_caravana").modal("hide");},500);
 						
 					}else{
