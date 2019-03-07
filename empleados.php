@@ -21,7 +21,7 @@
     <?php include('menu.php');?>
       <!-- End Navbar -->
       <div class="content" id="app">
-        <!-- <div class="container-fluid" style="background-image: url(assets/img/cartel.jpeg);"> -->
+        <div class="container-fluid" style="background-image: url(assets/img/cartel.jpeg);">
           <!-- your content here -->
         </div>
 
