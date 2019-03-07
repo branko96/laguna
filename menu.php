@@ -1,15 +1,14 @@
-<div class="sidebar" data-color="orange" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="orange" data-background-color="black" data-image="assets/img/caballos.jpeg">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
-        <!-- <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
-        </a> -->
+        <!-- <a data-image="assets/img/logo.jpeg" class="simple-text logo-mini"> -->
+        </a> 
         <a href="http://www.perros-soft.com" class="simple-text logo-normal">
-          Laguna del Monte
+          <div class="img-redond" style="background-image: url('assets/img/logo.jpeg');""></div>
         </a>
       </div>
       <div class="sidebar-wrapper">

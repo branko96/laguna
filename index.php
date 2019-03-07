@@ -15,8 +15,7 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <!-- your content here -->
-        
+          <img src="assets/img/cartel.jpeg"></img>
         </div>
       </div>
       <!-- FOOTER -->

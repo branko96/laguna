@@ -14665,7 +14665,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   height: 100%;
   width: 100%;
   display: block;
-  top: 0;
+  top: 92px;
   left: 0;
   background-size: cover;
   background-position: center center;
@@ -18435,6 +18435,14 @@ Copyright (c) 2015 Daniel Eden
   .bar2,
   .bar3 {
     outline: 1px solid transparent;
+  }
+  .div.img-redond{
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
   }
   @keyframes topbar-x {
     0% {
