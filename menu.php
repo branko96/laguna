@@ -8,7 +8,7 @@
         <!-- <a data-image="assets/img/logo.jpeg" class="simple-text logo-mini"> -->
         </a> 
         <a href="http://www.perros-soft.com" class="simple-text logo-normal">
-          <div class="img-redond" style="background-image: url('assets/img/logo.jpeg');""></div>
+          <img src="assets/img/logo.jpeg" style="border-radius: 50%"></img>
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -82,7 +82,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Inicio</a>
+            <!-- <a class="navbar-brand" href="#pablo">Inicio</a> -->
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -93,7 +93,7 @@
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
+                <input type="text" value="" class="form-control" placeholder="Buscar...">
                 <button type="submit" class="btn btn-white btn-round btn-just-icon">
                   <i class="material-icons">search</i>
                   <div class="ripple-container"></div>

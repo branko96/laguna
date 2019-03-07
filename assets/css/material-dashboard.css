@@ -18307,6 +18307,14 @@ Copyright (c) 2015 Daniel Eden
   .off-canvas-sidebar .navbar .navbar-collapse.collapsing {
     display: block !important;
   }
+  /*.img-redond{
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+  }*/
   .navbar-nav>li {
     float: none;
     position: relative;
@@ -18436,14 +18444,7 @@ Copyright (c) 2015 Daniel Eden
   .bar3 {
     outline: 1px solid transparent;
   }
-  .div.img-redond{
-    height: 100px;
-    width: 100px;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 50%;
-    background-size: 100% auto;
-  }
+  
   @keyframes topbar-x {
     0% {
       top: 0px;
