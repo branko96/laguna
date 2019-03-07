@@ -4,7 +4,7 @@
             <ul>
               <li>
                 <a href="#">
-                  LosPibesWeb
+                  lost π best w
                 </a>
               </li>
             </ul>
@@ -14,7 +14,7 @@
             <script>
               document.write(new Date().getFullYear())
             </script>, made with <i class="material-icons">favorite</i> by
-            <a href="#" target="_blank">LosPibesWeb</a>
+            <a href="#" target="_blank">lost π best w</a>
           </div>
           <!-- your footer here -->
         </div>
