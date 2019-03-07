@@ -165,9 +165,9 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="">Fecha Fin</label>
-                          <!-- <input type="text" v-model="empleado_editar.fecha_fin" class="form-control"> -->
-                          <v-date-picker :mode='mode' :formats="formats" v-model='empleado_editar.fecha_fin'>
-                          </v-date-picker>
+                          <input type="date" v-model="empleado_editar.fecha_fin" class="form-control">
+                          <!-- <v-date-picker :mode='mode' :formats="formats" v-model='empleado_editar.fecha_fin'>
+                          </v-date-picker> -->
                         </div>
                       </div>
                       <div class="col-md-4">

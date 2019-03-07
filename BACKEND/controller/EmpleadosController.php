@@ -43,7 +43,7 @@
 
 		public function AltaEmpleado($nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin){			
 
-			$query = sprintf("INSERT INTO empleados (nombre,apellido,puesto,fecha_inicio,sueldo,email,dni,cuil,cod_postal,fecha_fin) VALUES ('%s','%s','%s','%s','%f','%s',%d,%d,%d,'%s')", $nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin);
+			$query = sprintf("INSERT INTO empleados (nombre,apellido,puesto,fecha_inicio,sueldo,email,dni,cuil,cod_postal,fecha_fin) VALUES ('%s','%s','%s','%s','%f','%s','%s',%d,%d,'%s')", $nombre,$apellido,$puesto,$fecha_inicio,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin);
 
 			$result = $this->db->execute($query);
 			$id_empleado = $this->db->lastid();
@@ -72,8 +72,8 @@
 			}	
 		}
 
-		function EditarEmpleado($id_empleado,$nombre,$apellido,$puesto,$sueldo,$email,$cod_postal,$fecha_fin){
-				$query = sprintf("UPDATE empleados SET nombre = '%s',apellido = '%s',puesto = '%s',sueldo = %f,email = '%s',cod_postal = %d,fecha_fin = '%s' WHERE id_empleado = %d ;",$nombre,$apellido,$puesto,$sueldo,$email,$cod_postal,$fecha_fin,$id_empleado);
+		function EditarEmpleado($id_empleado,$nombre,$apellido,$puesto,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin){
+				$query = sprintf("UPDATE empleados SET nombre = '%s',apellido = '%s',puesto = '%s',sueldo = %f,email = '%s',dni = '%s',cuil = %d,cod_postal = %d,fecha_fin = '%s' WHERE id_empleado = %d ;",$nombre,$apellido,$puesto,$sueldo,$email,$dni,$cuil,$cod_postal,$fecha_fin,$id_empleado);
 
 			$result = $this->db->execute($query);
 			
