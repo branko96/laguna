@@ -21,8 +21,10 @@
     <?php include('menu.php');?>
       <!-- End Navbar -->
       <div class="content" id="app">
-        <div class="container-fluid">
+        <!-- <div class="container-fluid" style="background-image: url(assets/img/cartel.jpeg);"> -->
           <!-- your content here -->
+        </div>
+
            <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-warning">
