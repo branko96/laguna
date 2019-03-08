@@ -19,6 +19,7 @@ var vm=new Vue({
 	methods:{
 		habilitar_edicion(venta,event){
 			$("#tabla_ventas tr.tr_normal").show();
+			this.nueva_venta_ver=false;
 			this.ver_edicion=true;
 			this.venta_editar=venta;
 			var padretr=$(event.target).closest("tr.tr_normal");
@@ -30,8 +31,24 @@ var vm=new Vue({
 			$(this.$refs.tr_edicion).show();
 			$(this.$refs.tr_edicion).find("input.nro_fact").focus();
 		},
+		calcular_netos_edicion(){
+			var venta_actual1=this.venta_editar;
+			venta_actual1.bruto=venta_actual1.kg * venta_actual1.peso_x_kg;
+			venta_actual1.iva=venta_actual1.bruto *  0.105;
+			venta_actual1.neto=venta_actual1.bruto + venta_actual1.iva;
+			venta_actual1.neto=venta_actual1.bruto * 0.0171717213;
+		},
+		calcular_netos_nuevo(){
+			var venta_actual=this.nuev_venta;
+			venta_actual.bruto=venta_actual.kg * venta_actual.peso_x_kg;
+			venta_actual.iva=venta_actual.bruto *  0.105;
+			venta_actual.neto=venta_actual.bruto + venta_actual.iva;
+			venta_actual.retencion=venta_actual.bruto * 0.0171717213;
+		},
 		habilitar_nueva_venta(){
-			this.nueva_venta_ver=true;
+			this.ver_edicion=false;
+			$("#tabla_ventas tr.tr_normal").show();
+			this.nueva_venta_ver= !this.nueva_venta_ver;
 
 		},
 		nueva_venta(){
