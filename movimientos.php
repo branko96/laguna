@@ -33,18 +33,19 @@
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
-                      <th>Codigo</th>
-                      <th>Fecha de Movimiento</th>
                       <th>Cantidad</th>
+                      <th>Fecha de Movimiento</th>
+                      <th>Caravana Id</th>
                       <th>Tipo Transacción</th>
+                      <th>Acción</th>
                     </thead>
                     <tbody>
                       <tr v-for="movimiento in movimientos">
                         <td>{{movimiento.id}}</td>
-                        <td>{{movimiento.codigo}}</td>
-                        <td>{{movimiento.fecha}}</td>
                         <td>{{movimiento.cantidad}}</td>
-                        <td>{{movimiento.tipo}}</td>
+                        <td>{{movimiento.fecha_mov}}</td>
+                        <td>{{movimiento.id_caravana}}</td>
+                        <td>{{movimiento.tipo_mov}}</td>
                         <td class="td-actions text-center">
                           <button type="button" title="Editar" @click="modal_editar(movimiento);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
@@ -59,7 +60,7 @@
                 </div>
               </div>
             </div>
-        </div>
+
 
 
 <div class="modal fade" id="modal_editar_movimiento">
@@ -92,28 +93,28 @@
                      <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="">Código</label>
-                          <input type="text" name="nombre" v-model="movimiento_editar.codigo" class="form-control">
+                          <label class="">Cantidad</label>
+                          <input type="text" name="nombre" v-model="movimiento_editar.cantidad" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label class="">Fecha</label>
-                          <input type="text" v-model="movimiento_editar.fecha" class="form-control">
+                          <label class="">Fecha Movimiento</label>
+                          <input type="text" v-model="movimiento_editar.fecha_mov" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="">Cantidad</label>
-                          <input type="text" v-model="movimiento_editar.cantidad" max-length="10" class="form-control">
+                          <label class="">Caravana</label>
+                          <input type="text" v-model="movimiento_editar.id_caravana" max-length="10" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="">Tipo</label>
-                          <input type="text" v-model="movimiento_editar.tipo" class="form-control">
+                          <label class="">Tipo Transacción</label>
+                          <input type="text" v-model="movimiento_editar.tipo_mov" class="form-control">
                         </div>
                       </div>
                    <!--  <div class="row">
@@ -168,28 +169,28 @@
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Código</label>
-                          <input type="text" name="nombre" v-model="nuev_movimiento.codigo" class="form-control">
+                          <label class="bmd-label-floating">Cantidad</label>
+                          <input type="text" name="nombre" v-model="nuev_movimiento.cantidad" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Fecha</label>
-                          <input type="text" v-model="nuev_movimiento.fecha" class="form-control">
+                          <label class="bmd-label-floating">Fecha Movimiento</label>
+                          <input type="text" v-model="nuev_movimiento.fecha_mov" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Cantidad</label>
-                          <input type="text" v-model="nuev_movimiento.cantidad" max-length="10" class="form-control">
+                          <label class="bmd-label-floating">Caravana</label>
+                          <input type="text" v-model="nuev_movimiento.id_caravana" max-length="10" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Tipo</label>
-                          <input type="text" v-model="nuev_movimiento.tipo" class="form-control">
+                          <label class="bmd-label-floating">Tipo Transacción</label>
+                          <input type="text" v-model="nuev_movimiento.tipo_mov" class="form-control">
                         </div>
                       </div>
                     
@@ -210,6 +211,9 @@
   </div>
 </div>
 <!--fin modal-->
+
+        </div>
+<!--         FIN APP -->
       </div>
       <!-- FOOTER -->
       <?php include('footer.php');?>

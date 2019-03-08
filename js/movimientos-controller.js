@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_movimiento_base={id:0,codigo:'',fecha: '',cantidad:'',tipo:''};
+var obj_movimiento_base={id_mov:0,cantidad:'',fecha_mov: '',id_caravana:'',tipo_mov:''};
 
 const MyApiClient = axios.create({
   baseURL: 'http://localhost:80/laguna/',
@@ -9,13 +9,13 @@ const MyApiClient = axios.create({
 var vm=new Vue({
 	el: '#app',
 	data: {
-		movimiento_editar:obj_movimiento_base,
+		movimiento_editar:{id_mov:0,cantidad:'',fecha_mov: '',id_caravana:'',tipo_mov:''},
 		movimientos: [],
 		nuev_movimiento:obj_movimiento_base,
 		showModal:false
 	},
 	methods:{
-		nueva_movimiento(){
+		nuevo_movimiento(){
 			var form_data = new FormData();
 			for ( var key in this.nuev_movimiento ) {
 			    form_data.append(key, this.nuev_movimiento[key]);
