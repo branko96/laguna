@@ -31,7 +31,7 @@ var vm=new Vue({
 			//console.log(this.$refs.tr_edicion);
 			padretr.before(this.$refs.tr_edicion);
 			$(this.$refs.tr_edicion).show();
-
+			$(this.$refs.tr_edicion).find("input.nro_fact").focus();
 		},
 		habilitar_nueva_venta(){
 			this.nueva_venta_ver=true;

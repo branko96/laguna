@@ -6,6 +6,7 @@
   <!-- Required meta tags -->
   <?php $_SESSION['pagina_actual']='ventas'; ?>
   <?php include('header.php');?>
+  <link rel="stylesheet" type="text/css" href="assets/css/ventas.css">
 </head>
 
 <body>
@@ -63,9 +64,9 @@
                         </form>
                       </tr>
                         <form >
-                        <tr v-show="ver_edicion" ref="tr_edicion">
+                        <tr v-show="ver_edicion" id="tr_edicion" ref="tr_edicion">
                           
-                            <td><input type="text" v-model="venta_editar.num_fact" class="form-control" placeholder="Nro Fact"></td>
+                            <td><input type="text" v-model="venta_editar.num_fact" class="form-control nro_fact" placeholder="Nro Fact"></td>
                             <td><input type="text" v-model="venta_editar.fecha" class="form-control" placeholder="Fecha"></td>
                             <td><input type="text" v-model="venta_editar.cabezas" class="form-control" placeholder="Cabezas"></td>
                             <td><input type="text" v-model="venta_editar.kg" class="form-control" placeholder="Kg"></td>
