@@ -23,7 +23,7 @@
 	    	$this->bruto = sprintf($bruto);
 	    	$this->iva = sprintf($iva);
 	    	$this->neto = sprintf($neto);
-	    	$this->retencion = sprintf($neto);
+	    	$this->retencion = sprintf($retencion);
 
 		}
 
