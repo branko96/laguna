@@ -114,8 +114,8 @@ var vm=new Vue({
 
 			});
 		},
-		eliminar_caravana(id_emp){
-			MyApiClient.get("/BACKEND/apis/caravanas/baja_caravana.php?id_ventas="+id_emp)
+		eliminar_venta(id_venta){
+			MyApiClient.get("/BACKEND/apis/ventas/baja_venta.php?id_ventas="+id_venta)
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta=="1") {

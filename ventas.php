@@ -97,9 +97,9 @@
                           <button type="button" title="Editar" @click="habilitar_edicion(venta,$event);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
                           </button>
-                          <!-- <button type="button" @click="eliminar_caravana(caravana.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">
+                          <button type="button" @click="eliminar_venta(venta.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">
                             <i class="material-icons">close</i>
-                          </button> -->
+                          </button>
                         </td>
                       </tr>
                     </tbody>
