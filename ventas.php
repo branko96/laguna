@@ -30,7 +30,7 @@
 
                 </div>
                 <div class="card-body table-responsive">
-                  <table class="table table-hover">
+                  <table class="table table-hover" id="tabla_ventas">
                     <thead class="text-warning">
                       <th>Nro Fact</th>
                       <th>Fecha</th>
@@ -44,7 +44,7 @@
                       <th>Acción</th>
                     </thead>
                     <tbody>
-                      <tr v-show="nueva_venta_ver">
+                      <tr v-show="nueva_venta_ver" id="tr_nueva">
                         <form >
                           <td><input type="text" v-model="nuev_venta.num_fact" class="form-control" placeholder="Nro Fact"></td>
                           <td><input type="text" v-model="nuev_venta.fecha" class="form-control" placeholder="Fecha"></td>
@@ -63,7 +63,7 @@
                         </form>
                       </tr>
                         <form >
-                        <tr v-show="ver_edicion">
+                        <tr v-show="ver_edicion" ref="tr_edicion">
                           
                             <td><input type="text" v-model="venta_editar.num_fact" class="form-control" placeholder="Nro Fact"></td>
                             <td><input type="text" v-model="venta_editar.fecha" class="form-control" placeholder="Fecha"></td>
@@ -82,7 +82,7 @@
                           
                         </tr>
                         </form>
-                      <tr v-for="venta in ventas">
+                      <tr v-for="venta in ventas" class="tr_normal">
                         <td>{{venta.num_fact}}</td>
                         <td>{{venta.fecha}}</td>
                         <td>{{venta.cabezas}}</td>
@@ -93,7 +93,7 @@
                         <td>{{venta.neto}}</td>
                         <td>{{venta.retencion}}</td>
                         <td class="td-actions text-center">
-                          <button type="button" title="Editar" @click="habilitar_edicion(venta);" class="btn btn-primary btn-link btn-sm">
+                          <button type="button" title="Editar" @click="habilitar_edicion(venta,$event);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
                           </button>
                           <!-- <button type="button" @click="eliminar_caravana(caravana.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">

@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={id:"0",fecha:moment(String(new Date())).format('DD-MM-YYYY'),num_fact:"0",cabezas:"38",kg:"15354.6",peso_x_kg:"1557.78",bruto:"0",iva:"",neto:"0",retencion:"0"};
+var obj_caravana_base={id:"0",fecha:moment(String(new Date())).format('DD-MM-YYYY'),num_fact:"0",cabezas:"",kg:"",peso_x_kg:"",bruto:"0",iva:"",neto:"0",retencion:"0"};
 
 const MyApiClient = axios.create({
   baseURL: 'http://localhost:80/laguna/',
@@ -9,7 +9,7 @@ const MyApiClient = axios.create({
 var vm=new Vue({
 	el: '#app',
 	data: {
-		venta_editar:obj_caravana_base,
+		venta_editar:{id:"0",fecha:"",num_fact:"0",cabezas:"",kg:"",peso_x_kg:"",bruto:"0",iva:"",neto:"0",retencion:"0"},
 		ventas: [],
 		nuev_venta:obj_caravana_base,
 		showModal:false,
@@ -17,9 +17,18 @@ var vm=new Vue({
 		ver_edicion:false
 	},
 	methods:{
-		habilitar_edicion(venta){
-			this.ver_edicion=true;
+		habilitar_edicion(venta,event){
+			//this.ver_edicion=true;
 			this.venta_editar=venta;
+			//console.log(event.target)
+			$("#tabla_ventas tr.tr_normal").show();
+			
+			var padretr=$(event.target).parent().parent().parent();
+			padretr.hide();
+			//console.log(this.$refs.tr_edicion);
+			padretr.after(this.$refs.tr_edicion);
+			//$(this.$refs.tr_edicion).show();
+
 		},
 		habilitar_nueva_venta(){
 			this.nueva_venta_ver=true;
@@ -46,7 +55,7 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.nuev_venta={id:"1",fecha:"2019-03-05",num_fact:"0",cabezas:"38",kg:"15354.6",peso_x_kg:"1557.78",bruto:"0",iva:"",neto:"0",retencion:"0"};
+						vm.nuev_venta={id:"0",fecha:"",num_fact:"0",cabezas:"",kg:"",peso_x_kg:"",bruto:"0",iva:"",neto:"0",retencion:"0"};
 						setTimeout(function(){$("#modal_nueva_caravana").modal("hide");},500);
 						
 					}else{
@@ -65,9 +74,11 @@ var vm=new Vue({
 			});
 		},
 		editar_venta(){
+
+			$(this.$refs.tr_edicion).hide();
 			var form_data = new FormData();
-			for ( var key in this.caravana_editar ) {
-			    form_data.append(key, this.caravana_editar[key]);
+			for ( var key in this.venta_editar ) {
+			    form_data.append(key, this.venta_editar[key]);
 			}
 			MyApiClient.post("/BACKEND/apis/ventas/edit_venta.php",form_data)
 			.then((respuesta) =>{
@@ -83,9 +94,9 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.caravana_editar={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
+						vm.venta_editar={id:"0",fecha:"",num_fact:"0",cabezas:"",kg:"",peso_x_kg:"",bruto:"0",iva:"",neto:"0",retencion:"0"};
 						vm.traer_ventas();
-						setTimeout(function(){$("#modal_editar_caravana").modal("hide");},500);
+						//setTimeout(function(){$("#modal_editar_caravana").modal("hide");},500);
 
 					}else{
 						$.notify({
