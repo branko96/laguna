@@ -36,7 +36,7 @@ var vm=new Vue({
 			venta_actual1.bruto=venta_actual1.kg * venta_actual1.peso_x_kg;
 			venta_actual1.iva=venta_actual1.bruto *  0.105;
 			venta_actual1.neto=venta_actual1.bruto + venta_actual1.iva;
-			venta_actual1.neto=venta_actual1.bruto * 0.0171717213;
+			venta_actual1.retencion=venta_actual1.bruto * 0.0171717213;
 		},
 		calcular_netos_nuevo(){
 			var venta_actual=this.nuev_venta;
