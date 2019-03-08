@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 		$fecha= date('Y-m-d H:i:s');
-		$rta=$ventasController->AltaVenta($fecha, $body['num_fact'], $body['cabezas'], $body['kg'], $body['peso_x_kg']);
+		$rta=$ventasController->AltaVenta($fecha, $body['num_fact'], $body['cabezas'], $body['kg'], $body['peso_x_kg'],$body['bruto'],$body['iva'],$body['neto'],$body['retencion']);
 
 	//IMPRIMO RESPUESTA
 
