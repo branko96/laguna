@@ -44,6 +44,7 @@
                       <th>ID</th>
                       <th>Nombre</th>
                       <th>Apellido</th>
+                      <th>Mail</th>
                       <th>DNI</th>
                       <th>Cuil</th>
                       <th>Codigo Postal</th>
@@ -58,6 +59,7 @@
                         <td>{{empleado.id}}</td>
                         <td>{{empleado.nombre}}</td>
                         <td>{{empleado.apellido}}</td>
+                        <td>{{empleado.email}}</td>
                         <td>{{empleado.dni}}</td>
                         <td>{{empleado.cuil}}</td>
                         <td>{{empleado.cod_postal}}</td>
