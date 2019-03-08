@@ -88,7 +88,7 @@
                   
                 </div>
                 <div class="card-body">
-                  <form @submit.prevent="editar_caravana">
+                  <form @submit.prevent="editar_movimiento">
                      <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
