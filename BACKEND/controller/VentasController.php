@@ -73,8 +73,8 @@
 			}	
 		}
 
-		function EditarVenta($id_ventas,$fecha,$num_fact,$cabezas,$kg,$peso_x_kg){
-				$query = sprintf("UPDATE ventas SET fecha = '%s',num_fact = '%s',cabezas = %d,kg = '%f',peso_x_kg = '%f' WHERE id_ventas = %d ;",$fecha,$num_fact,$cabezas,$kg,$peso_x_kg,$id_ventas);
+		function EditarVenta($id_ventas,$fecha,$num_fact,$cabezas,$kg,$peso_x_kg,$bruto,$iva,$neto,$retencion){
+				$query = sprintf("UPDATE ventas SET fecha = '%s',num_fact = '%s',cabezas = %d,kg = '%f',peso_x_kg = '%f',bruto = '%f',iva = '%f',neto = '%f',retencion = '%f' WHERE id_ventas = %d ;",$fecha,$num_fact,$cabezas,$kg,$peso_x_kg,$bruto,$iva,$neto,$retencion,$id_ventas);
 
 			$result = $this->db->execute($query);
 			

@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$body=$_POST; 
 	//var_dump($body);
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
-	$fecha_fin = date("d-m-Y", strtotime($fech_fin));
-	$rta=$empleadosController->EditarEmpleado($body['id_empleado'],$body['nombre'],$body['apellido'],$body['puesto'],$body['sueldo'],$body['email'],$body['dni'],$body['cuil'], $body['cod_postal'], $fecha_fin);
+	$fecha_fin = date("Y-m-d H:i:s", strtotime($_POST['fecha_fin']));
+	$rta=$empleadosController->EditarEmpleado($body['id'],$body['nombre'],$body['apellido'],$body['puesto'],$body['sueldo'],$body['email'],$body['dni'],$body['cuil'], $body['cod_postal'], $fecha_fin);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));
