@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$bruto = $_POST['kg'] * $_POST['peso_x_kg'];
 		$iva = $bruto * 0.105;
 		$neto = $bruto + $iva;
-		$retencion = $bruto * 0.0171717213;
+		$retencion = $_POST['bruto'] * 0.0171;
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 		$fecha= date('Y-m-d H:i:s');
