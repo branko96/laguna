@@ -18,16 +18,19 @@ var vm=new Vue({
 	},
 	methods:{
 		habilitar_edicion(venta,event){
-			//this.ver_edicion=true;
-			this.venta_editar=venta;
-			//console.log(event.target)
 			$("#tabla_ventas tr.tr_normal").show();
+			this.ver_edicion=true;
+			this.venta_editar=venta;
 			
-			var padretr=$(event.target).parent().parent().parent();
+			
+			
+			var padretr=$(event.target).closest("tr.tr_normal");
+
+			console.log(padretr);
 			padretr.hide();
 			//console.log(this.$refs.tr_edicion);
-			padretr.after(this.$refs.tr_edicion);
-			//$(this.$refs.tr_edicion).show();
+			padretr.before(this.$refs.tr_edicion);
+			$(this.$refs.tr_edicion).show();
 
 		},
 		habilitar_nueva_venta(){
@@ -76,6 +79,7 @@ var vm=new Vue({
 		editar_venta(){
 
 			$(this.$refs.tr_edicion).hide();
+			$("#tabla_ventas tr.tr_normal").show();
 			var form_data = new FormData();
 			for ( var key in this.venta_editar ) {
 			    form_data.append(key, this.venta_editar[key]);
