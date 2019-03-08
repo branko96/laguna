@@ -41,9 +41,9 @@
 			
 		}
 
-		public function AltaVenta($fecha,$num_fact,$cabezas,$kg,$peso_x_kg){			
+		public function AltaVenta($fecha,$num_fact,$cabezas,$kg,$peso_x_kg,$bruto,$iva,$neto,$retencion){			
 
-			$query = sprintf("INSERT INTO ventas (fecha,num_fact,cabezas,kg,peso_x_kg) VALUES ('%s','%s',%d,'%f','%f')", $fecha,$num_fact,$cabezas,$kg,$peso_x_kg);
+			$query = sprintf("INSERT INTO ventas (fecha,num_fact,cabezas,kg,peso_x_kg,bruto,iva,neto,retencion) VALUES ('%s','%s',%d,'%f','%f','%f','%f','%f','%f')", $fecha,$num_fact,$cabezas,$kg,$peso_x_kg,$bruto,$iva,$neto,$retencion);
 
 			$result = $this->db->execute($query);
 			//var_dump($result);
