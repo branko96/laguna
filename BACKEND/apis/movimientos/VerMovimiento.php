@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$MovimientosController->VerMovimiento($body['id_movimiento']);
+	$rta=$MovimientosController->VerMovimiento($body['id_mov']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));
