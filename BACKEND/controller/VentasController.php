@@ -95,6 +95,7 @@
 
 			if(count($result)>0) {
 				$ventas = [];
+				
 				for($i=0; $i< count($result);$i++){		
 
 					array_push($ventas, new Venta($result[$i]['id_ventas'],$result[$i]['fecha'],$result[$i]['num_fact'],$result[$i]['cabezas'],$result[$i]['kg'],$result[$i]['peso_x_kg'],$result[$i]['bruto'],$result[$i]['iva'],$result[$i]['neto'],$result[$i]['retencion']));
