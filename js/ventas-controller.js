@@ -21,9 +21,6 @@ var vm=new Vue({
 			$("#tabla_ventas tr.tr_normal").show();
 			this.ver_edicion=true;
 			this.venta_editar=venta;
-			
-			
-			
 			var padretr=$(event.target).closest("tr.tr_normal");
 
 			console.log(padretr);
