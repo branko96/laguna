@@ -2,10 +2,15 @@
 <html lang="en">
 
 <head>
-  <title>Home</title>
+  <title>Inicio</title>
   <!-- Required meta tags -->
-  <?php $_SESSION['pagina_actual']='inicio'; ?>
+  <?php
+  session_start();
+  $_SESSION['pagina_actual']='inicio';
+    //var_dump($_SESSION);
+  ?>
   <?php include('header.php');?>
+
 </head>
 
 <body>
@@ -15,7 +20,7 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <img src="assets/img/cartel.jpeg"></img>
+<!--          <img src="assets/img/cartel.jpeg"></img>-->
         </div>
       </div>
       <!-- FOOTER -->
@@ -25,6 +30,7 @@
   </div>
 
 <script src="js/index.js"></script>
+
 </body>
 
 </html>

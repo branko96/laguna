@@ -60,6 +60,7 @@
 			}
 		}
 
+
 		public function EliminarEmpleado($id_empleado){
 			$query = sprintf("DELETE from empleados WHERE id_empleado = %d", $id_empleado);
 			$result = $this->db->execute($query);	

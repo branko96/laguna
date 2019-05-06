@@ -2,10 +2,10 @@ var ruta = 'https://'+window.location.host;
 
 let obj_empleado_base={id:0,nombre:'',apellido: '',dni:'',cuil:'',cod_postal:'',puesto:'',sueldo:0.0,fecha_inicio:'',fecha_fin:null};
 
-const MyApiClient = axios.create({
-  baseURL: 'http://localhost:80/laguna/',
-  headers: {'X-Custom-Header': 'foobar'}
-});
+// const MyApiClient = axios.create({
+//   baseURL: 'http://localhost:80/laguna/',
+//   headers: {'X-Custom-Header': 'foobar'}
+// });
 var vm=new Vue({
 	el: '#app',
 	data: {
@@ -24,7 +24,6 @@ var vm=new Vue({
 	},
 	methods:{
 		nuevo_empleado(){
-			
 			var form_data = new FormData();
 			for ( var key in this.nuevo_emp ) {
 			    form_data.append(key, this.nuevo_emp[key]);

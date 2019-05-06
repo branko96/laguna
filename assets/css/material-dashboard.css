@@ -13031,7 +13031,8 @@ fieldset[disabled] .form-group .form-control {
   margin-bottom: 20px;
   height: auto !important;
   color: #555;
-  background-color: #fff !important;
+  background-color: #DA813F;
+  /*background-color: #fff !important;*/
   box-shadow: 0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15);
 }
 
@@ -13282,7 +13283,7 @@ fieldset[disabled] .form-group .form-control {
 }
 
 .navbar.navbar-transparent {
-  background-color: transparent !important;
+  /*background-color: transparent !important;*/
   box-shadow: none;
 }
 
@@ -14880,12 +14881,17 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   float: right;
   width: calc(100% - 260px);
   transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
+
 }
 
 .main-panel>.content {
   margin-top: 70px;
   padding: 30px 15px;
   min-height: calc(100vh - 123px);
+  background-image: url(http://localhost/PerroSoft/lagunacampo/assets/img/cartel.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .main-panel>.footer {
@@ -18827,5 +18833,28 @@ Copyright (c) 2015 Daniel Eden
     display: none !important;
   }
 }
+.boton-ingresar{
+  background-color: orange;
+  color:black;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid black;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  width: 100px;
+  cursor: pointer;
+  box-shadow:0 8px #999;
 
+}
+.boton-ingresar:hover {
+  background-color: orange;
+  color: black;
+}
+.boton-ingresar:active{
+  background-color: orange;
+  box-shadow:0 5px #666;
+  transform: translateY(4px);
+
+}
 /*# sourceMappingURL=dashboard-free.css.map */

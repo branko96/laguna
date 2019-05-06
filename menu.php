@@ -81,9 +81,9 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <!-- <a class="navbar-brand" href="#pablo">Inicio</a> -->
-          </div>
+<!--          <div class="navbar-wrapper">-->
+<!--             <a class="navbar-brand" href="#pablo">Inicio</a> -->
+<!--          </div>-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -117,6 +117,8 @@
                   <a class="dropdown-item" href="#">Another One</a>
                 </div>
               </li> -->
+
+
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
@@ -132,6 +134,14 @@
                 </div>
               </li>
             </ul>
+
+
+                <?php if(!isset($_SESSION['objetoCliente'])){ ?>
+                      <a href="login.php"<button type="button" class="boton-ingresar "style="font-family: 'Lato', sans-serif;" >INGRESAR	</button></a>
+                <?php }else{ ?>
+                    <button type="button" class="btn btn-dark">Hola, <?php echo $_SESSION['objetoCliente']['nombre'];?></button>
+                <?php } ?>
+
           </div>
-        </div>
+<!--        </div>-->
       </nav>

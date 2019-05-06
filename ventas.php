@@ -126,6 +126,7 @@
 <script src="js/index.js"></script>
 <script src="assets/js/plugins/bootstrap-notify.js"></script>
 <script src="assets/js/plugins/moment.min.js"></script>
+  <script src="js/rutas.js"></script>
 <script src="js/ventas-controller.js"></script>
 </body>
 

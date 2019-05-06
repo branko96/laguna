@@ -2,10 +2,10 @@ var ruta = 'https://'+window.location.host;
 
 var obj_movimiento_base={id_mov:0,cantidad:'',fecha_mov: '',id_caravana:'',tipo_mov:''};
 
-const MyApiClient = axios.create({
-  baseURL: 'http://localhost:80/laguna/',
-  headers: {'X-Custom-Header': 'foobar'}
-});
+// const MyApiClient = axios.create({
+//   baseURL: 'http://localhost:80/laguna/',
+//   headers: {'X-Custom-Header': 'foobar'}
+// });
 var vm=new Vue({
 	el: '#app',
 	data: {
