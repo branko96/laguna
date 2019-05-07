@@ -1,3 +1,6 @@
+<?php 
+include('verificar_login.php');
+?>
 <div class="sidebar" data-color="orange" data-background-color="black" data-image="assets/img/caballos.jpeg">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -70,6 +73,17 @@
             <a class="nav-link" href="caravanas.php">
               <i class="material-icons">library_books</i>
               <p>Caravanas</p>
+            </a>
+          </li>
+           <?php $activo='';
+                if($_SESSION['pagina_actual']== 'gastos'){ 
+                  $activo=' active';
+                }
+            ?>
+          <li class="nav-item <?php echo $activo;?>">
+            <a class="nav-link" href="gastos.php">
+              <i class="material-icons">library_books</i>
+              <p>Gastos</p>
             </a>
           </li>
    
