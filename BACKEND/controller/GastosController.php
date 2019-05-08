@@ -61,7 +61,7 @@
 			}
 		}
 
-		public function EliminarVenta($id_gasto){
+		public function EliminarGasto($id_gasto){
 			$query = sprintf("DELETE from gastos_reales WHERE id_gasto = %d", $id_gasto);
 			$result = $this->db->execute($query);	
 			if(!$result) {

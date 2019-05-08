@@ -16,7 +16,7 @@
 		    $this->id_categoria = sprintf($id_categoria);
 		    $this->detalle = sprintf($detalle);		    
 		    $this->valor = sprintf($valor);
-	    	$this->id_proveedor = sprintf($peso_x_kg);
+	    	$this->id_proveedor = sprintf($id_proveedor);
 	    	$this->tipo_recibo = sprintf($tipo_recibo);
 
 		}

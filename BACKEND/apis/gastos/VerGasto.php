@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$GastosController->VerVenta($body['id_gasto']);
+	$rta=$GastosController->VerGasto($body['id_gasto']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));
