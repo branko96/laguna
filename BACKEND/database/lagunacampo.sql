@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-03-2019 a las 21:06:55
--- Versión del servidor: 10.1.9-MariaDB
--- Versión de PHP: 5.6.15
+-- Tiempo de generación: 10-05-2019 a las 23:46:03
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -43,8 +45,6 @@ CREATE TABLE `caravanas` (
 INSERT INTO `caravanas` (`id_caravana`, `codigo`, `descripcion`, `peso`, `sexo`, `categoria`, `procedencia`) VALUES
 (2, '55', 'caballo', '124', 'femenino', 'potrilloddsa', 'chubut'),
 (4, '12', 'vaca grande', '2345', 'femenino', 'adulta', 'neuquen'),
-(5, '56456', 'sdsffsd', '546', 'sdf', 'dsfg', 'ffff'),
-(6, '4445', 'ffsd', '675', 'afasfadd', 'sdfsd', 'fsdf'),
 (10, 'fsfs', 'asdasf', '2342', 'asf', 'asf', 'asf'),
 (8, 'affffe', 'asdfas', '324', 'asdadsdq', 'fefe', 'fasdas');
 
@@ -79,14 +79,42 @@ CREATE TABLE `empleados` (
   `fecha_fin` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `empleados`
+-- Estructura de tabla para la tabla `gastos_categorias`
 --
 
-INSERT INTO `empleados` (`id_empleado`, `nombre`, `apellido`, `puesto`, `fecha_inicio`, `sueldo`, `email`, `dni`, `cuil`, `cod_postal`, `fecha_fin`) VALUES
-(6, 'nuevo', 'edicion', 'peonero', '2019-02-08', 350.56, 'fefefe@hotmail.com', '34534', 345345, 1212, '2019-03-30'),
-(18, 'asd', 'fwfw', 'adad', '2019-03-07', 123.4, 'fede@hotmail.com', '124', 1234, 123, '2019-01-02'),
-(21, 'asdasd', 'asdasf', 'sdf', '2019-03-08', 435, 'fede@ad', '345345', 345, 43, '2019-03-21');
+CREATE TABLE `gastos_categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `establecimientos` varchar(30) NOT NULL,
+  `concepto` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `gastos_reales`
+--
+
+CREATE TABLE `gastos_reales` (
+  `id_gasto` int(11) NOT NULL,
+  `fecha` datetime(6) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `detalle` varchar(25) NOT NULL,
+  `valor` float NOT NULL,
+  `id_proveedor` int(11) NOT NULL,
+  `tipo_recibo` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `gastos_reales`
+--
+
+INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `valor`, `id_proveedor`, `tipo_recibo`) VALUES
+(2, '2019-05-09 01:23:38.000000', 2, 'gasto por vacunas', 15354.6, 15, 'fact a'),
+(3, '2001-11-11 00:00:00.000000', 15, 'edit gasto', 11, 1, 'A'),
+(4, '2019-05-09 01:34:36.000000', 24, 'semillas 2', 3412, 15, 'fact b');
 
 -- --------------------------------------------------------
 
@@ -108,6 +136,17 @@ CREATE TABLE `movimientos` (
 
 INSERT INTO `movimientos` (`id_mov`, `id_caravana`, `fecha_mov`, `cantidad`, `tipo_mov`) VALUES
 (2, 125, '2019-02-21', 344, 'entrada');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `id_proveedor` int(11) NOT NULL,
+  `nombre` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -166,12 +205,6 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id_ventas`, `fecha`, `num_fact`, `cabezas`, `kg`, `peso_x_kg`, `bruto`, `iva`, `neto`, `retencion`) VALUES
-(3, '2001-11-11', 'fc 1243', 1244, 12412.6, 32555600, 12, 34534, 12, 12),
-(4, '2019-02-21', 'fc 15654', 38443534, 15354.7, 1557.78, 1, 1, 1, 1),
-(5, '2019-03-07', '0', 38, 15354.6, 1557.78, 45, 0, 0, 56),
-(6, '2019-03-07', '0', 38, 15354.6, 1557.78, 0, 0, 0, 0),
-(7, '2019-03-07', '0', 38, 15354.6, 1557.78, 0, 0, 0, 0),
-(8, '2019-03-07', '0', 38, 15354.6, 1557.78, 0, 0, 0, 0),
 (9, '2019-03-08', '0fdsf', 38, 15354.6, 1557.78, 0, 0, 0, 0),
 (10, '2019-03-08', '0fdda', 45, 45, 44, 0, 0, 0, 0),
 (11, '2019-03-08', 'fact 23', 15, 15, 15, 15, 15, 15, 15);
@@ -197,6 +230,18 @@ ALTER TABLE `categorias`
 --
 ALTER TABLE `empleados`
   ADD PRIMARY KEY (`id_empleado`);
+
+--
+-- Indices de la tabla `gastos_categorias`
+--
+ALTER TABLE `gastos_categorias`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `gastos_reales`
+--
+ALTER TABLE `gastos_reales`
+  ADD PRIMARY KEY (`id_gasto`);
 
 --
 -- Indices de la tabla `movimientos`
@@ -231,36 +276,56 @@ ALTER TABLE `ventas`
 --
 ALTER TABLE `caravanas`
   MODIFY `id_caravana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `gastos_categorias`
+--
+ALTER TABLE `gastos_categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `gastos_reales`
+--
+ALTER TABLE `gastos_reales`
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
   MODIFY `id_mov` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `stock`
 --
 ALTER TABLE `stock`
   MODIFY `id_stock` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
   MODIFY `id_ventas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
