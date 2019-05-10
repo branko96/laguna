@@ -152,7 +152,7 @@ var vm=new Vue({
 				});
 		},
 		traer_gastos(){
-			MyApiClient.get("/BACKEND/apis/gastos/Traer_caravanas.php")
+			MyApiClient.get("/BACKEND/apis/gastos/Traer_gastos.php")
 				.then((rta) =>{
 						//console.log(rta);
 						if (rta.data.id_respuesta == "1") {
