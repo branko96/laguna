@@ -24,7 +24,7 @@
                       <h4 class="card-title">Gastos</h4>
                     </div>
                     <div class="col-md-6 text-right">
-                      <a href="#" data-target="#modal_nueva_caravana" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
+                      <a href="#" data-target="#modal_nuevo_gasto" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
                     </div>
                   </div>
 
@@ -33,28 +33,28 @@
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
-                      <th>Codigo</th>
-                      <th>Descripcion</th>
-                      <th>Peso</th>
-                      <th>Sexo</th>
+                      <th>Fecha</th>
                       <th>Categoria</th>
-                      <th>Procedencia</th>
+                      <th>Detalle</th>
+                      <th>Valor</th>
+                      <th>Proveedor</th>
+                      <th>Tipo Recibo</th>
                       <th>Accion</th>
                     </thead>
                     <tbody>
-                      <tr v-for="caravana in caravanas">
-                        <td>{{caravana.id}}</td>
-                        <td>{{caravana.codigo}}</td>
-                        <td>{{caravana.descripcion}}</td>
-                        <td>{{caravana.peso}}</td>
-                        <td>{{caravana.sexo}}</td>
-                        <td>{{caravana.categoria}}</td>
-                        <td>{{caravana.procedencia}}</td>
+                      <tr v-for="gasto in gastos">
+                        <td>{{gasto.id}}</td>
+                        <td>{{gasto.fecha}}</td>
+                        <td>{{gasto.id_categoria}}</td>
+                        <td>{{gasto.detalle}}</td>
+                        <td>{{gasto.valor}}</td>
+                        <td>{{gasto.id_proveedor}}</td>
+                        <td>{{gasto.tipo_recibo}}</td>
                         <td class="td-actions text-center">
-                          <button type="button" title="Editar" @click="modal_editar(caravana);" class="btn btn-primary btn-link btn-sm">
+                          <button type="button" title="Editar" @click="modal_editar(gasto);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
                           </button>
-                          <button type="button" @click="eliminar_caravana(caravana.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">
+                          <button type="button" @click="eliminar_gasto(gasto.id)" title="Borrar" class="btn btn-danger btn-link btn-sm">
                             <i class="material-icons">close</i>
                           </button>
                         </td>
@@ -67,7 +67,7 @@
         </div>
 
 
-<div class="modal fade" id="modal_editar_caravana">
+<div class="modal fade" id="modal_editar_gasto">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
 
@@ -93,46 +93,46 @@
                   
                 </div>
                 <div class="card-body">
-                  <form @submit.prevent="editar_caravana">
+                  <form @submit.prevent="editar_gasto">
                      <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="">Código</label>
-                          <input type="text" name="nombre" v-model="caravana_editar.codigo" class="form-control">
+                          <label class="">Fecha</label>
+                          <input type="date" name="nombre" v-model="gasto_editar.fecha" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label class="">Descripción</label>
-                          <input type="text" v-model="caravana_editar.descripcion" class="form-control">
+                          <label class="">Categoria</label>
+                          <input type="text" v-model="gasto_editar.id_categoria" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="">Peso</label>
-                          <input type="text" v-model="caravana_editar.peso" max-length="10" class="form-control">
+                          <label class="">Detalle</label>
+                          <input type="text" v-model="gasto_editar.detalle" max-length="10" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="">Sexo</label>
-                          <input type="text" v-model="caravana_editar.sexo" class="form-control">
+                          <label class="">Valor</label>
+                          <input type="number" v-model="gasto_editar.valor" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="">Categoría</label>
-                          <input type="text" v-model="caravana_editar.categoria" class="form-control">
+                          <label class="">Proveedor</label>
+                          <input type="text" v-model="gasto_editar.id_proveedor" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="">Procedencia</label>
-                          <input type="text" v-model="caravana_editar.procedencia" class="form-control">
+                          <label class="">Tipo Recibo</label>
+                          <input type="text" v-model="gasto_editar.tipo_recibo" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -158,7 +158,7 @@
   </div>
 </div>
 <!-- The Modal -->
-<div class="modal fade" id="modal_nueva_caravana">
+<div class="modal fade" id="modal_nuevo_gasto">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
 
@@ -184,46 +184,46 @@
                   
                 </div>
                 <div class="card-body">
-                  <form method="POST" id="form_alta" @submit.prevent="nueva_caravana">
+                  <form method="POST" id="form_alta" @submit.prevent="nuevo_gasto">
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Código</label>
-                          <input type="text" name="nombre" v-model="nuev_caravana.codigo" class="form-control">
+                          <label class="bmd-label-floating">Fecha</label>
+                          <input type="date" name="nombre" v-model="nuev_gasto.fecha" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Descripción</label>
-                          <input type="text" v-model="nuev_caravana.descripcion" class="form-control">
+                          <label class="bmd-label-floating">Categoría</label>
+                          <input type="text" v-model="nuev_gasto.categoria" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Peso</label>
-                          <input type="text" v-model="nuev_caravana.peso" max-length="10" class="form-control">
+                          <label class="bmd-label-floating">Detalle</label>
+                          <input type="text" v-model="nuev_gasto.detalle" max-length="10" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Sexo</label>
-                          <input type="text" v-model="nuev_caravana.sexo" class="form-control">
+                          <label class="bmd-label-floating">Valor</label>
+                          <input type="text" v-model="nuev_gasto.valor" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Categoría</label>
-                          <input type="text" v-model="nuev_caravana.categoria" class="form-control">
+                          <label class="bmd-label-floating">Proveedor</label>
+                          <input type="text" v-model="nuev_gasto.id_proveedor" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Procedencia</label>
-                          <input type="text" v-model="nuev_caravana.procedencia" class="form-control">
+                          <label class="bmd-label-floating">Tipo Recibo</label>
+                          <input type="text" v-model="nuev_gasto.tipo_recibo" class="form-control">
                         </div>
                       </div>
                     </div>
