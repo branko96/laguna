@@ -41,8 +41,7 @@
 			
 		}
 
-		public function AltaGasto($fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo){			
-id_establecimiento
+		public function AltaGasto($fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo){		
 			$query = sprintf("INSERT INTO gastos_reales (fecha,id_categoria,detalle,valor,id_establecimiento,tipo_recibo) VALUES ('%s',%d,'%s','%f',%d,'%s')", $fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo);
 
 			$result = $this->db->execute($query);
