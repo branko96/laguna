@@ -32,7 +32,7 @@
 				$respuesta =  new Respuesta(-1,'No se ha encontrado el gasto'); 
 				return $respuesta;
 			}else{
-					$gasto =  new Gasto($result[0]['id_gasto'],$result[0]['fecha'],$result[0]['id_categoria'],$result[0]['id_categoria'],$result[0]['detalle'],$result[0]['valor'],$result[0]['id_proveedor'],$result[0]['tipo_recibo']);
+					$gasto =  new Gasto($result[0]['id_gasto'],$result[0]['fecha'],$result[0]['id_categoria'],$result[0]['detalle'],$result[0]['valor'],$result[0]['id_proveedor'],$result[0]['tipo_recibo']);
 
 					$respuesta =  new Respuesta(1,$gasto);
 
