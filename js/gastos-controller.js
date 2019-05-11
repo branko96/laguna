@@ -93,7 +93,7 @@ var vm=new Vue({
 			});
 		},
 		eliminar_gasto(id_gasto){
-			MyApiClient.get("/BACKEND/apis/caravanas/baja_gasto.php?id_gasto="+id_gasto)
+			MyApiClient.get("/BACKEND/apis/gastos/baja_gasto.php?id_gasto="+id_gasto)
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta=="1") {
@@ -130,7 +130,7 @@ var vm=new Vue({
 			this.ver_caravana(gasto);
 		},
 		ver_caravana(gasto){
-			MyApiClient.get("/BACKEND/apis/gastos/VerGasto.php?id_gasto="+caravana.id)
+			MyApiClient.get("/BACKEND/apis/gastos/VerGasto.php?id_gasto="+gasto.id)
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta=="1") {

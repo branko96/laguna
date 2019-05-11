@@ -1,5 +1,5 @@
 
 const MyApiClient = axios.create({
-    baseURL: 'http://localhost:80/PerroSoft/lagunacampo/',
+    baseURL: 'http://localhost:80/laguna/',
     headers: {'X-Custom-Header': 'foobar'}
 });
