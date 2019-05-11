@@ -6,17 +6,17 @@
 		protected $id_categoria;
 		protected $detalle;
 		protected $valor;
-		protected $id_proveedor;  
+		protected $id_establecimiento;  
 		protected $tipo_recibo;   
 
-		public function __construct($id,$fecha,$id_categoria,$detalle,$valor,$id_proveedor,$tipo_recibo)
+		public function __construct($id,$fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo)
 		{
 			$this->id = sprintf($id);
 			$this->fecha = sprintf($fecha);
 		    $this->id_categoria = sprintf($id_categoria);
 		    $this->detalle = sprintf($detalle);		    
 		    $this->valor = sprintf($valor);
-	    	$this->id_proveedor = sprintf($id_proveedor);
+	    	$this->id_establecimiento = sprintf($id_establecimiento);
 	    	$this->tipo_recibo = sprintf($tipo_recibo);
 
 		}
@@ -61,12 +61,12 @@
 			$this->valor = $valor;
 		}
 
-		public function getProveedor(){
-			return $this->id_proveedor;
+		public function getEstablecimiento(){
+			return $this->id_establecimiento;
 		}
 
-		public function setProveedor($id_proveedor){
-			$this->id_proveedor = $id_proveedor;
+		public function setEstablecimiento($id_establecimiento){
+			$this->id_establecimiento = $id_establecimiento;
 		}
 
 		public function getTipo_recibo(){
