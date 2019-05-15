@@ -48,7 +48,7 @@
                         <td>{{gasto.id_categoria}}</td>
                         <td>{{gasto.detalle}}</td>
                         <td>{{gasto.valor}}</td>
-                        <td>{{gasto.id_proveedor}}</td>
+                        <td>{{gasto.id_establecimiento}}</td>
                         <td>{{gasto.tipo_recibo}}</td>
                         <td class="td-actions text-center">
                           <button type="button" title="Editar" @click="modal_editar(gasto);" class="btn btn-primary btn-link btn-sm">
