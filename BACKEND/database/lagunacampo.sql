@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2019 a las 23:46:03
+-- Tiempo de generación: 16-05-2019 a las 23:55:03
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -82,12 +82,30 @@ CREATE TABLE `empleados` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `establecimientos`
+--
+
+CREATE TABLE `establecimientos` (
+  `id_establecimiento` int(11) NOT NULL,
+  `nombre` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `establecimientos`
+--
+
+INSERT INTO `establecimientos` (`id_establecimiento`, `nombre`) VALUES
+(1, 'Laguna del Monte'),
+(2, 'Ceferino');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `gastos_categorias`
 --
 
 CREATE TABLE `gastos_categorias` (
   `id_categoria` int(11) NOT NULL,
-  `establecimientos` varchar(30) NOT NULL,
   `concepto` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -103,7 +121,7 @@ CREATE TABLE `gastos_reales` (
   `id_categoria` int(11) NOT NULL,
   `detalle` varchar(25) NOT NULL,
   `valor` float NOT NULL,
-  `id_proveedor` int(11) NOT NULL,
+  `id_establecimiento` int(11) NOT NULL,
   `tipo_recibo` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -111,10 +129,12 @@ CREATE TABLE `gastos_reales` (
 -- Volcado de datos para la tabla `gastos_reales`
 --
 
-INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `valor`, `id_proveedor`, `tipo_recibo`) VALUES
-(2, '2019-05-09 01:23:38.000000', 2, 'gasto por vacunas', 15354.6, 15, 'fact a'),
-(3, '2001-11-11 00:00:00.000000', 15, 'edit gasto', 11, 1, 'A'),
-(4, '2019-05-09 01:34:36.000000', 24, 'semillas 2', 3412, 15, 'fact b');
+INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `valor`, `id_establecimiento`, `tipo_recibo`) VALUES
+(2, '2019-05-09 01:23:38.000000', 2, 'gasto por vacunas', 15354.6, 0, 'fact a'),
+(3, '2001-11-11 00:00:00.000000', 15, 'edit gasto', 11, 0, 'A'),
+(4, '2019-05-09 01:34:36.000000', 24, 'semillas 2', 3412, 0, 'fact b'),
+(5, '2019-05-11 23:47:14.000000', 24, 'semillas 2', 3412, 0, 'fact b'),
+(6, '2019-05-11 23:48:15.000000', 24, 'semillas 2', 3412, 0, 'fact b');
 
 -- --------------------------------------------------------
 
@@ -232,6 +252,12 @@ ALTER TABLE `empleados`
   ADD PRIMARY KEY (`id_empleado`);
 
 --
+-- Indices de la tabla `establecimientos`
+--
+ALTER TABLE `establecimientos`
+  ADD PRIMARY KEY (`id_establecimiento`);
+
+--
 -- Indices de la tabla `gastos_categorias`
 --
 ALTER TABLE `gastos_categorias`
@@ -290,6 +316,12 @@ ALTER TABLE `empleados`
   MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT de la tabla `establecimientos`
+--
+ALTER TABLE `establecimientos`
+  MODIFY `id_establecimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `gastos_categorias`
 --
 ALTER TABLE `gastos_categorias`
@@ -299,7 +331,7 @@ ALTER TABLE `gastos_categorias`
 -- AUTO_INCREMENT de la tabla `gastos_reales`
 --
 ALTER TABLE `gastos_reales`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
