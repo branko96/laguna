@@ -123,8 +123,8 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="">Proveedor</label>
-                          <input type="text" v-model="gasto_editar.id_proveedor" class="form-control">
+                          <label class="">Establecimiento</label>
+                          <input type="text" v-model="gasto_editar.id_establecimiento" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -195,7 +195,7 @@
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Categoría</label>
-                          <input type="text" v-model="nuev_gasto.categoria" class="form-control">
+                          <input type="text" v-model="nuev_gasto.id_categoria" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -209,13 +209,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Valor</label>
-                          <input type="text" v-model="nuev_gasto.valor" class="form-control">
+                          <input type="number" v-model="nuev_gasto.valor" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Proveedor</label>
-                          <input type="text" v-model="nuev_gasto.id_proveedor" class="form-control">
+                          <label class="bmd-label-floating">Establecimiento</label>
+                          <input type="text" v-model="nuev_gasto.id_establecimiento" class="form-control">
                         </div>
                       </div>
                     </div>
