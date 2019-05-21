@@ -2,6 +2,8 @@
 	include_once dirname(__FILE__). '/../model/Respuesta.php';
 	include_once dirname(__FILE__). '/../datos/DbGastos.php';
 	include_once dirname(__FILE__). '/../model/Gasto.php';
+	include_once dirname(__FILE__). '/../model/Establecimiento.php';
+	include_once dirname(__FILE__). '/../model/Categoria.php';
 	//include_once dirname(__FILE__). '/../datos/conexion.php';
 
 	class GastosController
@@ -104,6 +106,50 @@
 				
 			}else{
 				$respuesta =  new Respuesta(-1,'No se ha encontrado ningun gasto asociado.'); 
+				return $respuesta;	
+			}						
+
+		}
+
+		public function Traer_establecimientos(){
+			$query = sprintf("SELECT * FROM establecimientos");
+			
+			$result = $this->db->getData($query);
+			var_dump($result);
+			if(count($result)>0) {
+				$establecimientos = [];
+				
+				for($i=0; $i< count($result);$i++){		
+
+					array_push($establecimientos, new Establecimiento($result[$i]['id_establecimiento'],$result[$i]['nombre']));
+				}
+					$respuesta =  new Respuesta(1,$establecimientos);
+					return $respuesta;	
+				
+			}else{
+				$respuesta =  new Respuesta(-1,'No se ha encontrado ningun establecimiento.'); 
+				return $respuesta;	
+			}						
+
+		}
+
+		public function Traer_categorias(){
+			$query = sprintf("SELECT * FROM gastos_categorias");
+
+			$result = $this->db->getData($query);
+
+			if(count($result)>0) {
+				$gastos_categorias = [];
+				
+				for($i=0; $i< count($result);$i++){		
+
+					array_push($gastos_categorias, new Categoria($result[$i]['id_categoria'],$result[$i]['concepto']));
+				}
+					$respuesta =  new Respuesta(1,$gastos_categorias);
+					return $respuesta;	
+				
+			}else{
+				$respuesta =  new Respuesta(-1,'No se ha encontrado ninguna categoria.'); 
 				return $respuesta;	
 			}						
 
