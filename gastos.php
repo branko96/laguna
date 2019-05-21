@@ -83,7 +83,7 @@
                 <div class="card-header card-header-success">
                   <div class="row">
                     <div class="col-md-10">
-                      <h4 class="card-title">Editar Caravana</h4>
+                      <h4 class="card-title">Editar Gasto</h4>
                     </div>
                     <div class="col-md-2">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -174,7 +174,7 @@
                 <div class="card-header card-header-success">
                   <div class="row">
                     <div class="col-md-10">
-                      <h4 class="card-title">Nueva Caravana</h4>
+                      <h4 class="card-title">Nuevo Gasto</h4>
                     </div>
                     <div class="col-md-2">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
