@@ -23,10 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 
 	$rta=$GastosController->Traer_establecimientos();
-
+	
 	//IMPRIMO RESPUESTA
-
-	print(json_encode($rta));
+	
+	print(json_encode($rta->getJson()));
 
 }
 

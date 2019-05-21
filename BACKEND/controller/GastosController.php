@@ -113,9 +113,9 @@
 
 		public function Traer_establecimientos(){
 			$query = sprintf("SELECT * FROM establecimientos");
-			
+
 			$result = $this->db->getData($query);
-			var_dump($result);
+			//var_dump($result);
 			if(count($result)>0) {
 				$establecimientos = [];
 				

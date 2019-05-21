@@ -37,8 +37,9 @@
                       <th>Categoria</th>
                       <th>Detalle</th>
                       <th>Valor</th>
-                      <th>Proveedor</th>
+                      <th>Establecimiento</th>
                       <th>Tipo Recibo</th>
+                      <th>Total $</th>
                       <th>Accion</th>
                     </thead>
                     <tbody>
@@ -50,6 +51,7 @@
                         <td>{{gasto.valor}}</td>
                         <td>{{gasto.id_establecimiento}}</td>
                         <td>{{gasto.tipo_recibo}}</td>
+                        <td>{{gasto.total}}</td>
                         <td class="td-actions text-center">
                           <button type="button" title="Editar" @click="modal_editar(gasto);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
@@ -136,6 +138,14 @@
                         </div>
                       </div>
                     </div>
+                    <!-- <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="">Total $</label>
+                          <input type="text" v-model="gasto_editar.total" class="form-control">
+                        </div>
+                      </div>
+                    </div> -->
                    <!--  <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">

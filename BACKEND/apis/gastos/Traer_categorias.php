@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 	//IMPRIMO RESPUESTA
 
-	print(json_encode($rta));
+	print(json_encode($rta->getJson()));
 
 }
 
