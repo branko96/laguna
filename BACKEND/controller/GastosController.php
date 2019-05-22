@@ -43,8 +43,8 @@
 			
 		}
 
-		public function AltaGasto($fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo){		
-			$query = sprintf("INSERT INTO gastos_reales (fecha,id_categoria,detalle,valor,id_establecimiento,tipo_recibo) VALUES ('%s',%d,'%s','%f',%d,'%s')", $fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo);
+		public function AltaGasto($fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo){		
+			$query = sprintf("INSERT INTO gastos_reales (fecha,id_categoria,detalle,valor,cantidad,id_establecimiento,tipo_recibo) VALUES ('%s',%d,'%s','%f',%d,'%s')", $fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo);
 
 			$result = $this->db->execute($query);
 			//var_dump($result);
@@ -74,7 +74,7 @@
 			}	
 		}
 
-		function EditarGasto($id_gasto,$fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo){
+		function EditarGasto($id_gasto,$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo){
 				$query = sprintf("UPDATE gastos_reales SET fecha = '%s',id_categoria = %d,detalle = '%s',valor = '%f',id_establecimiento = %d,tipo_recibo = '%s' WHERE id_gasto = %d ;",$fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo,$id_gasto);
 
 			$result = $this->db->execute($query);

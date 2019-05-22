@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 21-05-2019 a las 01:48:41
--- Versión del servidor: 5.7.26
--- Versión de PHP: 7.2.18
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-05-2019 a las 03:01:08
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,17 +28,15 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `caravanas`
 --
 
-DROP TABLE IF EXISTS `caravanas`;
-CREATE TABLE IF NOT EXISTS `caravanas` (
-  `id_caravana` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `caravanas` (
+  `id_caravana` int(11) NOT NULL,
   `codigo` varchar(11) NOT NULL,
   `descripcion` varchar(25) NOT NULL,
   `peso` varchar(25) NOT NULL,
   `sexo` varchar(20) NOT NULL,
   `categoria` varchar(25) NOT NULL,
-  `procedencia` varchar(20) NOT NULL,
-  PRIMARY KEY (`id_caravana`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `procedencia` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `caravanas`
@@ -56,11 +54,9 @@ INSERT INTO `caravanas` (`id_caravana`, `codigo`, `descripcion`, `peso`, `sexo`,
 -- Estructura de tabla para la tabla `categorias`
 --
 
-DROP TABLE IF EXISTS `categorias`;
-CREATE TABLE IF NOT EXISTS `categorias` (
-  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(25) NOT NULL,
-  PRIMARY KEY (`id_categoria`)
+CREATE TABLE `categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `descripcion` varchar(25) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -69,9 +65,8 @@ CREATE TABLE IF NOT EXISTS `categorias` (
 -- Estructura de tabla para la tabla `empleados`
 --
 
-DROP TABLE IF EXISTS `empleados`;
-CREATE TABLE IF NOT EXISTS `empleados` (
-  `id_empleado` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `empleados` (
+  `id_empleado` int(11) NOT NULL,
   `nombre` varchar(25) NOT NULL,
   `apellido` varchar(25) NOT NULL,
   `puesto` varchar(25) NOT NULL,
@@ -81,9 +76,8 @@ CREATE TABLE IF NOT EXISTS `empleados` (
   `dni` varchar(20) NOT NULL,
   `cuil` int(25) NOT NULL,
   `cod_postal` int(15) NOT NULL,
-  `fecha_fin` date NOT NULL,
-  PRIMARY KEY (`id_empleado`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+  `fecha_fin` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -91,12 +85,10 @@ CREATE TABLE IF NOT EXISTS `empleados` (
 -- Estructura de tabla para la tabla `establecimientos`
 --
 
-DROP TABLE IF EXISTS `establecimientos`;
-CREATE TABLE IF NOT EXISTS `establecimientos` (
-  `id_establecimiento` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(25) NOT NULL,
-  PRIMARY KEY (`id_establecimiento`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+CREATE TABLE `establecimientos` (
+  `id_establecimiento` int(11) NOT NULL,
+  `nombre` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `establecimientos`
@@ -104,7 +96,8 @@ CREATE TABLE IF NOT EXISTS `establecimientos` (
 
 INSERT INTO `establecimientos` (`id_establecimiento`, `nombre`) VALUES
 (1, 'Laguna del Monte'),
-(2, 'Ceferino');
+(2, 'Ceferino'),
+(3, 'Chara');
 
 -- --------------------------------------------------------
 
@@ -112,12 +105,31 @@ INSERT INTO `establecimientos` (`id_establecimiento`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `gastos_categorias`
 --
 
-DROP TABLE IF EXISTS `gastos_categorias`;
-CREATE TABLE IF NOT EXISTS `gastos_categorias` (
-  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
-  `concepto` varchar(30) NOT NULL,
-  PRIMARY KEY (`id_categoria`)
+CREATE TABLE `gastos_categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `concepto` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `gastos_categorias`
+--
+
+INSERT INTO `gastos_categorias` (`id_categoria`, `concepto`) VALUES
+(1, 'Sueldos y aguinaldo'),
+(2, 'Cargas sociales'),
+(3, 'compras de semilla'),
+(4, 'Rollos'),
+(5, 'Siembra'),
+(6, 'combustible'),
+(7, 'Veterinario'),
+(8, 'Productos veterinario'),
+(9, 'Mantenimiento Bienes de uso'),
+(10, 'Comida Peones'),
+(11, 'Fumigada'),
+(12, 'Garrafas'),
+(13, 'Limpieza acequias'),
+(14, 'Riego'),
+(15, 'Gastos varios');
 
 -- --------------------------------------------------------
 
@@ -125,32 +137,24 @@ CREATE TABLE IF NOT EXISTS `gastos_categorias` (
 -- Estructura de tabla para la tabla `gastos_reales`
 --
 
-DROP TABLE IF EXISTS `gastos_reales`;
-CREATE TABLE IF NOT EXISTS `gastos_reales` (
-  `id_gasto` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gastos_reales` (
+  `id_gasto` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `id_categoria` int(11) NOT NULL,
   `detalle` varchar(25) NOT NULL,
   `valor` float NOT NULL,
   `id_establecimiento` int(11) NOT NULL,
   `tipo_recibo` varchar(25) NOT NULL,
-  PRIMARY KEY (`id_gasto`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `total` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `gastos_reales`
 --
 
-INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `valor`, `id_establecimiento`, `tipo_recibo`) VALUES
-(2, '2019-05-09', 2, 'gasto por vacunas', 15354.6, 0, 'fact a'),
-(3, '2001-11-11', 15, 'edit gasto', 11, 0, 'A'),
-(4, '2019-05-09', 24, 'semillas 2', 3412, 0, 'fact b'),
-(5, '2019-05-11', 24, 'semillas 2', 3412, 0, 'fact b'),
-(6, '2019-05-11', 24, 'semillas 2', 3412, 0, 'fact b'),
-(7, '2019-05-21', 0, 'det', 1545, 0, 'A'),
-(8, '2019-05-21', 0, 'det', 200, 0, 'A'),
-(9, '2019-05-30', 33, 'dett', 22, 0, 'b'),
-(10, '2019-05-22', 33, 'det', 2, 0, 'A');
+INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `valor`, `id_establecimiento`, `tipo_recibo`, `total`) VALUES
+(2, '2019-05-09', 2, 'gasto por vacunas', 123, 0, 'fact a', 0),
+(11, '2019-05-22', 1, 'asd', 6, 1, 'a', 0);
 
 -- --------------------------------------------------------
 
@@ -158,15 +162,13 @@ INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `va
 -- Estructura de tabla para la tabla `movimientos`
 --
 
-DROP TABLE IF EXISTS `movimientos`;
-CREATE TABLE IF NOT EXISTS `movimientos` (
-  `id_mov` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `movimientos` (
+  `id_mov` int(11) NOT NULL,
   `id_caravana` int(11) NOT NULL,
   `fecha_mov` date NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `tipo_mov` varchar(15) NOT NULL,
-  PRIMARY KEY (`id_mov`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `tipo_mov` varchar(15) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `movimientos`
@@ -181,8 +183,7 @@ INSERT INTO `movimientos` (`id_mov`, `id_caravana`, `fecha_mov`, `cantidad`, `ti
 -- Estructura de tabla para la tabla `proveedores`
 --
 
-DROP TABLE IF EXISTS `proveedores`;
-CREATE TABLE IF NOT EXISTS `proveedores` (
+CREATE TABLE `proveedores` (
   `id_proveedor` int(11) NOT NULL,
   `nombre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -193,12 +194,10 @@ CREATE TABLE IF NOT EXISTS `proveedores` (
 -- Estructura de tabla para la tabla `stock`
 --
 
-DROP TABLE IF EXISTS `stock`;
-CREATE TABLE IF NOT EXISTS `stock` (
-  `id_stock` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `stock` (
+  `id_stock` int(11) NOT NULL,
   `id_caravana` int(11) NOT NULL,
-  `total` int(11) NOT NULL,
-  PRIMARY KEY (`id_stock`)
+  `total` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -207,15 +206,13 @@ CREATE TABLE IF NOT EXISTS `stock` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `usuario` varchar(100) NOT NULL,
-  `pass` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `pass` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -230,9 +227,8 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `usuario`, `pass`) VALUES
 -- Estructura de tabla para la tabla `ventas`
 --
 
-DROP TABLE IF EXISTS `ventas`;
-CREATE TABLE IF NOT EXISTS `ventas` (
-  `id_ventas` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ventas` (
+  `id_ventas` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `num_fact` varchar(25) NOT NULL,
   `cabezas` int(10) NOT NULL,
@@ -241,9 +237,8 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   `bruto` float NOT NULL,
   `iva` float NOT NULL,
   `neto` float NOT NULL,
-  `retencion` float NOT NULL,
-  PRIMARY KEY (`id_ventas`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `retencion` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `ventas`
@@ -253,6 +248,134 @@ INSERT INTO `ventas` (`id_ventas`, `fecha`, `num_fact`, `cabezas`, `kg`, `peso_x
 (9, '2019-03-08', '0fdsf', 38, 15354.6, 1557.78, 0, 0, 0, 0),
 (10, '2019-03-08', '0fdda', 45, 45, 44, 0, 0, 0, 0),
 (11, '2019-03-08', 'fact 23', 15, 15, 15, 15, 15, 15, 15);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `caravanas`
+--
+ALTER TABLE `caravanas`
+  ADD PRIMARY KEY (`id_caravana`);
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  ADD PRIMARY KEY (`id_empleado`);
+
+--
+-- Indices de la tabla `establecimientos`
+--
+ALTER TABLE `establecimientos`
+  ADD PRIMARY KEY (`id_establecimiento`);
+
+--
+-- Indices de la tabla `gastos_categorias`
+--
+ALTER TABLE `gastos_categorias`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `gastos_reales`
+--
+ALTER TABLE `gastos_reales`
+  ADD PRIMARY KEY (`id_gasto`);
+
+--
+-- Indices de la tabla `movimientos`
+--
+ALTER TABLE `movimientos`
+  ADD PRIMARY KEY (`id_mov`);
+
+--
+-- Indices de la tabla `stock`
+--
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`id_stock`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id_ventas`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `caravanas`
+--
+ALTER TABLE `caravanas`
+  MODIFY `id_caravana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `establecimientos`
+--
+ALTER TABLE `establecimientos`
+  MODIFY `id_establecimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `gastos_categorias`
+--
+ALTER TABLE `gastos_categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `gastos_reales`
+--
+ALTER TABLE `gastos_reales`
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `movimientos`
+--
+ALTER TABLE `movimientos`
+  MODIFY `id_mov` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `stock`
+--
+ALTER TABLE `stock`
+  MODIFY `id_stock` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id_ventas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
