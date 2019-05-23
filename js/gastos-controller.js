@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_gasto_base={id_gasto:0,fecha:'',id_categoria:'',detalle: '',valor:0,id_proveedor:'','tipo_recibo':''};
+var obj_gasto_base={id_gasto:0,fecha:'',cantidad:0,id_categoria:'',detalle: '',valor:0,id_proveedor:'','tipo_recibo':''};
 
 // const MyApiClient = axios.create({
 //   baseURL: 'http://localhost:80/laguna/',
@@ -36,7 +36,7 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.nuev_gasto={id:0,fecha:'',id_categoria:'',detalle: '',valor:0,id_proveedor:'','tipo_recibo':''};
+						vm.nuev_gasto={id:0,fecha:'',id_categoria:'',cantidad:0,detalle: '',valor:0,id_proveedor:'','tipo_recibo':''};
 						setTimeout(function(){$("#modal_nuevo_gasto").modal("hide");},500);
 						
 					}else{
@@ -73,7 +73,7 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.gasto_editar={id:0,fecha:'',id_categoria:'',detalle: '',valor:0,id_proveedor:'','tipo_recibo':''};
+						vm.gasto_editar={id:0,fecha:'',id_categoria:'',cantidad:0,detalle: '',valor:0,id_proveedor:'','tipo_recibo':''};
 						vm.traer_gastos();
 						setTimeout(function(){$("#modal_editar_gasto").modal("hide");},500);
 

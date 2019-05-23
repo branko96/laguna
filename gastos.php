@@ -37,6 +37,7 @@
                       <th>Categoria</th>
                       <th>Detalle</th>
                       <th>Valor</th>
+                      <th>Cantidad</th>
                       <th>Establecimiento</th>
                       <th>Tipo Recibo</th>
                       <th>Total $</th>
@@ -49,6 +50,7 @@
                         <td>{{gasto.id_categoria}}</td>
                         <td>{{gasto.detalle}}</td>
                         <td>{{gasto.valor}}</td>
+                        <td>{{gasto.cantidad}}</td>
                         <td>{{gasto.id_establecimiento}}</td>
                         <td>{{gasto.tipo_recibo}}</td>
                         <td>{{gasto.total}}</td>
@@ -111,8 +113,8 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="">Detalle</label>
-                          <input type="text" v-model="gasto_editar.detalle" max-length="10" class="form-control">
+                          <label class="">Establecimiento</label>
+                          <input type="text" v-model="gasto_editar.id_establecimiento" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -125,8 +127,8 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="">Establecimiento</label>
-                          <input type="text" v-model="gasto_editar.id_establecimiento" class="form-control">
+                          <label class="">Cantidad</label>
+                          <input type="number" min="1" v-model="gasto_editar.cantidad" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -135,6 +137,12 @@
                         <div class="form-group">
                           <label class="">Tipo Recibo</label>
                           <input type="text" v-model="gasto_editar.tipo_recibo" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="">Detalle</label>
+                          <input type="text" v-model="gasto_editar.detalle" max-length="10" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -210,9 +218,10 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Detalle</label>
-                          <input type="text" v-model="nuev_gasto.detalle" max-length="10" class="form-control">
+                          <label class="bmd-label-floating">Establecimiento</label>
+                          <input type="text" v-model="nuev_gasto.id_establecimiento" class="form-control">
                         </div>
+                        
                       </div>
                     </div>
                     <div class="row">
@@ -224,8 +233,8 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Establecimiento</label>
-                          <input type="text" v-model="nuev_gasto.id_establecimiento" class="form-control">
+                          <label class="">Cantidad</label>
+                          <input type="number" min="1" v-model="nuev_gasto.cantidad" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -234,6 +243,12 @@
                         <div class="form-group">
                           <label class="bmd-label-floating">Tipo Recibo</label>
                           <input type="text" v-model="nuev_gasto.tipo_recibo" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Detalle</label>
+                          <input type="text" v-model="nuev_gasto.detalle" max-length="10" class="form-control">
                         </div>
                       </div>
                     </div>
