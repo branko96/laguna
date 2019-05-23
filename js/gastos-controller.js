@@ -12,7 +12,9 @@ var vm=new Vue({
 		gasto_editar:obj_gasto_base,
 		gastos: [],
 		nuev_gasto:obj_gasto_base,
-		showModal:false
+		showModal:false,
+		establecimientos:[],
+		categorias:[]
 	},
 	methods:{
 		nuevo_gasto(){
@@ -162,10 +164,36 @@ var vm=new Vue({
 						}
 
 				});
+		},
+		traer_categorias(){
+			MyApiClient.get("/BACKEND/apis/gastos/Traer_categorias.php")
+				.then((rta) =>{
+						//console.log(rta);
+						if (rta.data.id_respuesta == "1") {
+							this.categorias=rta.data.mensaje;
+						}else{
+							this.categorias=[];
+						}
+
+				});
+		},
+		traer_establecimientos(){
+			MyApiClient.get("/BACKEND/apis/gastos/Traer_establecimientos.php")
+				.then((rta) =>{
+						//console.log(rta);
+						if (rta.data.id_respuesta == "1") {
+							this.establecimientos=rta.data.mensaje;
+						}else{
+							this.establecimientos=[];
+						}
+
+				});
 		}
 	},
 	mounted(){
 		this.traer_gastos();
+		this.traer_categorias();
+		this.traer_establecimientos();
 	}
 });
 
