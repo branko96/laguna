@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$GastosController->EditarGasto($body['id'],$body['fecha'],$body['id_categoria'],$body['detalle'],$body['valor'],$body['id_establecimiento'],$body['tipo_recibo']);
+	$rta=$GastosController->EditarGasto($body['id'],$body['fecha'],$body['id_categoria'],$body['detalle'],$body['valor'],$body['cantidad'],$body['id_establecimiento'],$body['tipo_recibo']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));

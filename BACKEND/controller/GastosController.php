@@ -34,7 +34,7 @@
 				$respuesta =  new Respuesta(-1,'No se ha encontrado el gasto'); 
 				return $respuesta;
 			}else{
-					$gasto =  new Gasto($result[0]['id_gasto'],$result[0]['fecha'],$result[0]['id_categoria'],$result[0]['detalle'],$result[0]['valor'],$result[0]['id_establecimiento'],$result[0]['tipo_recibo']);
+					$gasto =  new Gasto($result[0]['id_gasto'],$result[0]['fecha'],$result[0]['id_categoria'],$result[0]['detalle'],$result[0]['valor'],$result[0]['cantidad'],$result[0]['id_establecimiento'],$result[0]['tipo_recibo']);
 
 					$respuesta =  new Respuesta(1,$gasto);
 
@@ -44,7 +44,7 @@
 		}
 
 		public function AltaGasto($fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo){		
-			$query = sprintf("INSERT INTO gastos_reales (fecha,id_categoria,detalle,valor,cantidad,id_establecimiento,tipo_recibo) VALUES ('%s',%d,'%s','%f',%d,'%s')", $fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo);
+			$query = sprintf("INSERT INTO gastos_reales (fecha,id_categoria,detalle,valor,cantidad,id_establecimiento,tipo_recibo) VALUES ('%s',%d,'%s','%f',%d,%d,'%s')", $fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo);
 
 			$result = $this->db->execute($query);
 			//var_dump($result);
@@ -75,7 +75,7 @@
 		}
 
 		function EditarGasto($id_gasto,$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo){
-				$query = sprintf("UPDATE gastos_reales SET fecha = '%s',id_categoria = %d,detalle = '%s',valor = '%f',id_establecimiento = %d,tipo_recibo = '%s' WHERE id_gasto = %d ;",$fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo,$id_gasto);
+				$query = sprintf("UPDATE gastos_reales SET fecha = '%s',id_categoria = %d,detalle = '%s',valor = '%f',cantidad = %d,id_establecimiento = %d,tipo_recibo = '%s' WHERE id_gasto = %d ;",$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo,$id_gasto);
 
 			$result = $this->db->execute($query);
 			
@@ -99,7 +99,7 @@
 				
 				for($i=0; $i< count($result);$i++){		
 
-					array_push($gastos_reales, new Gasto($result[$i]['id_gasto'],$result[$i]['fecha'],$result[$i]['id_categoria'],$result[$i]['detalle'],$result[$i]['valor'],$result[$i]['id_establecimiento'],$result[$i]['tipo_recibo']));
+					array_push($gastos_reales, new Gasto($result[$i]['id_gasto'],$result[$i]['fecha'],$result[$i]['id_categoria'],$result[$i]['detalle'],$result[$i]['valor'],$result[$i]['cantidad'],$result[$i]['id_establecimiento'],$result[$i]['tipo_recibo']));
 				}
 					$respuesta =  new Respuesta(1,$gastos_reales);
 					return $respuesta;	

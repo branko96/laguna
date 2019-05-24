@@ -1,13 +1,14 @@
 <?php
 
-	Class Categoria{
+	Class Establecimiento{
 		protected $id;
-		protected $concepto;  
+		protected $nombre;
+ 
 
-		public function __construct($id,$concepto)
+		public function __construct($id,$nombre)
 		{
 			$this->id = sprintf($id);
-			$this->concepto = sprintf($concepto);
+			$this->nombre = sprintf($nombre);
 		}
 
 		public function getId(){
@@ -18,12 +19,12 @@
 			$this->id = $id;
 		}
 
-		public function getConcepto(){
-				return $this->concepto;
+		public function getNombre(){
+				return $this->nombre;
 			}
 
-		public function setConcepto($concepto){
-			$this->concepto = $concepto;
+		public function setNombre($nombre){
+			$this->nombre = $nombre;
 		}
 
 		public function getJson(){

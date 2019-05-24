@@ -6,16 +6,18 @@
 		protected $id_categoria;
 		protected $detalle;
 		protected $valor;
+		protected $cantidad;
 		protected $id_establecimiento;  
 		protected $tipo_recibo;   
 
-		public function __construct($id,$fecha,$id_categoria,$detalle,$valor,$id_establecimiento,$tipo_recibo)
+		public function __construct($id,$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo)
 		{
 			$this->id = sprintf($id);
 			$this->fecha = sprintf($fecha);
 		    $this->id_categoria = sprintf($id_categoria);
 		    $this->detalle = sprintf($detalle);		    
 		    $this->valor = sprintf($valor);
+		    $this->cantidad = sprintf($cantidad);
 	    	$this->id_establecimiento = sprintf($id_establecimiento);
 	    	$this->tipo_recibo = sprintf($tipo_recibo);
 
@@ -59,6 +61,14 @@
 
 		public function setValor($valor){
 			$this->valor = $valor;
+		}
+
+		public function getCantidad(){
+			return $this->cantidad;
+		}
+
+		public function setCantidad($cantidad){
+			$this->cantidad = $cantidad;
 		}
 
 		public function getEstablecimiento(){
