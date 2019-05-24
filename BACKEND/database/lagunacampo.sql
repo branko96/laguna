@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2019 a las 03:01:08
+-- Tiempo de generación: 24-05-2019 a las 22:34:34
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -143,18 +143,11 @@ CREATE TABLE `gastos_reales` (
   `id_categoria` int(11) NOT NULL,
   `detalle` varchar(25) NOT NULL,
   `valor` float NOT NULL,
+  `cantidad` int(11) DEFAULT NULL,
   `id_establecimiento` int(11) NOT NULL,
   `tipo_recibo` varchar(25) NOT NULL,
   `total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `gastos_reales`
---
-
-INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `valor`, `id_establecimiento`, `tipo_recibo`, `total`) VALUES
-(2, '2019-05-09', 2, 'gasto por vacunas', 123, 0, 'fact a', 0),
-(11, '2019-05-22', 1, 'asd', 6, 1, 'a', 0);
 
 -- --------------------------------------------------------
 
@@ -351,7 +344,7 @@ ALTER TABLE `gastos_categorias`
 -- AUTO_INCREMENT de la tabla `gastos_reales`
 --
 ALTER TABLE `gastos_reales`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
