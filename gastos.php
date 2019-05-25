@@ -108,14 +108,17 @@
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="">Categoria</label>
-                          <input type="text" v-model="gasto_editar.id_categoria" class="form-control">
+                          <select class="form-control" v-model="gasto_editar.id_categoria">
+                            <option value="0">Seleccione Categoria</option>
+                            <option v-for="cat in categorias" :value="cat.id">{{cat.concepto}}</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="">Establecimiento</label>
                           <select class="form-control" v-model="gasto_editar.id_establecimiento">
-                            <option v-for="est in establecimientos" :value="est.id_establecimiento">{{est.nombre}}</option>
+                            <option v-for="est in establecimientos" :value="est.id">{{est.nombre}}</option>
                           </select>
                         </div>
                       </div>
@@ -216,8 +219,8 @@
                         <div class="form-group">
                           <label class="bmd-label-floating">Categoría</label>
                           <select class="form-control" v-model="nuev_gasto.id_categoria">
-                            <option value="0">Seleccione Establecimiento</option>
-                            <option v-for="cat in categorias" :value="cat.id_categoria">{{cat.descripcion}}</option>
+                            <option value="0">Seleccione Categoria</option>
+                            <option v-for="cat in categorias" :value="cat.id">{{cat.concepto}}</option>
                           </select>
                         </div>
                       </div>
@@ -226,7 +229,7 @@
                           <label class="bmd-label-floating">Establecimiento</label>
                           <select class="form-control" v-model="nuev_gasto.id_establecimiento">
                             <option value="0">Seleccione Establecimiento</option>
-                            <option v-for="est in establecimientos" :value="est.id_establecimiento">{{est.nombre}}</option>
+                            <option v-for="est in establecimientos" :value="est.id">{{est.nombre}}</option>
                           </select>
                         </div>
                         
