@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		//var_dump($_FILES);
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
-		$fecha= date('Y-m-d H:i:s');
-		$rta=$gastosController->AltaGasto($fecha, $body['id_categoria'], $body['detalle'], $body['valor'],$body['cantidad'], $body['id_establecimiento'], $body['tipo_recibo']);
+		//$fecha= date('Y-m-d H:i:s');
+		$rta=$gastosController->AltaGasto($body['fecha'], $body['id_categoria'], $body['detalle'], $body['valor'],$body['cantidad'], $body['id_establecimiento'], $body['tipo_recibo']);
 
 	//IMPRIMO RESPUESTA
 
