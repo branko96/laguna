@@ -10,8 +10,8 @@ include('verificar_login.php');
       <div class="logo">
         <!-- <a data-image="assets/img/logo.jpeg" class="simple-text logo-mini"> -->
         </a> 
-        <a href="http://www.perros-soft.com" class="simple-text logo-normal">
-          <img src="assets/img/logo.jpeg" style="border-radius: 50%"></img>
+        <a href="#" class="simple-text logo-normal">
+          <img src="assets/img/logo.jpeg" style="border-radius: 50%" />
         </a>
       </div>
       <div class="sidebar-wrapper">
