@@ -6,10 +6,10 @@ class DbConfig
 	
 	public function __construct()
 	{	
-		 $basedatos='c1520705_laguna';
+		 $basedatos='lagunacampo';
 	 $servidor='localhost';
-	 $usuario='c1520705_perros';
-	 $paswd='Perros2019';
+	 $usuario='root';
+	 $paswd='';
 
 		$this->dbName = $basedatos;
 

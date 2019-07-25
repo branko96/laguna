@@ -14,7 +14,9 @@ var vm=new Vue({
 		nuev_gasto:obj_gasto_base,
 		showModal:false,
 		establecimientos:[],
-		categorias:[]
+		categorias:[],
+        filtro_estab:0,
+        filtro_cat:0
 	},
 	methods:{
 		nuevo_gasto(){
@@ -154,7 +156,7 @@ var vm=new Vue({
 				});
 		},
 		traer_gastos(){
-			MyApiClient.get("/BACKEND/apis/gastos/Traer_gastos.php")
+			MyApiClient.get("/BACKEND/apis/gastos/Traer_gastos.php?categoria="+this.filtro_cat+"establecimiento="+this.filtro_estab)
 				.then((rta) =>{
 						//console.log(rta);
 						if (rta.data.id_respuesta == "1") {

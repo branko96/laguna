@@ -21,8 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$body=$_GET; 
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
+    if(isset($body['categoria'])){
+        $categoria=$body['categoria'];
+    }else{
+        $categoria=0;
+    }
 
-	$rta=$GastosController->Traer_Gastos($body['categoria'],$body['establecimiento']);
+    if(isset($body['establecimiento'])){
+        $establecimiento=$body['establecimiento'];
+    }else{
+        $establecimiento=0;
+    }
+	$rta=$GastosController->Traer_Gastos($categoria,$establecimiento);
 
 	//IMPRIMO RESPUESTA
 

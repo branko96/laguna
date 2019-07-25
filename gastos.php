@@ -32,6 +32,14 @@ session_start();
                   </div>
                 </div>
                 <div class="card-body table-responsive">
+                    <select name="cate" id="select_cat" v-model="filtro_cat" @change="traer_gastos">
+                        <option value="0">Categorias</option>
+                        <option v-for="categ in categorias" :value="categ.id">{{categ.concepto}}</option>
+                    </select>
+                    <select name="estab" id="select_estab" v-model="filtro_estab" @change="traer_gastos">
+                        <option value="0">Establecimientos</option>
+                        <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
+                    </select>
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>

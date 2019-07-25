@@ -1,5 +1,5 @@
 
 const MyApiClient = axios.create({
-    baseURL: 'http://c1520705.ferozo.com/laguna/',
+    baseURL: 'http://localhost:80/laguna/',
     headers: {'Cache-Control': 'no-cache'}
 });
