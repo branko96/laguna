@@ -92,14 +92,14 @@
 		public function Traer_gastos($categoria=0,$establecimiento=0){
 			if (($categoria == 0)&&($establecimiento == 0)) {
 				$query = sprintf("SELECT * FROM gastos_reales");	
-			}elseif ($categoria > 0) {
+			}elseif ($categoria > 0 && $establecimiento == 0) {
 				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_categoria = %d",$categoria);					
-			}elseif ($establecimiento > 0) {
+			}elseif ($establecimiento > 0 && $categoria == 0) {
 				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_establecimiento = %d",$establecimiento);	
 			}elseif (($establecimiento > 0) && ($categoria > 0)){
 				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_categoria = %d AND gastos_reales.id_establecimiento = %d",$categoria,$establecimiento );
 			}
-			
+			//var_dump($query);
 			$result = $this->db->getData($query);
 
 			if(count($result)>0) {

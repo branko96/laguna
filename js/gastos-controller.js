@@ -156,7 +156,7 @@ var vm=new Vue({
 				});
 		},
 		traer_gastos(){
-			MyApiClient.get("/BACKEND/apis/gastos/Traer_gastos.php?categoria="+this.filtro_cat+"establecimiento="+this.filtro_estab)
+			MyApiClient.get("/BACKEND/apis/gastos/Traer_gastos.php?categoria="+this.filtro_cat+"&establecimiento="+this.filtro_estab)
 				.then((rta) =>{
 						//console.log(rta);
 						if (rta.data.id_respuesta == "1") {
@@ -192,6 +192,10 @@ var vm=new Vue({
 				});
 		}
 	},
+    updated () {
+        $(this.$refs.sel1).selectpicker('refresh');
+        $(this.$refs.sel2).selectpicker('refresh');
+    },
 	mounted(){
 		this.traer_gastos();
 		this.traer_categorias();

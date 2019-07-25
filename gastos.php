@@ -25,6 +25,14 @@ session_start();
                   <div class="row">
                     <div class="col-md-6">
                       <h4 class="card-title">Gastos</h4>
+                        <select name="cate" class="selectpicker" data-live-search="true" ref="sel1" id="select_cat" v-model="filtro_cat" @change="traer_gastos">
+                            <option value="0">Categorias</option>
+                            <option v-for="categ in categorias" :value="categ.id">{{categ.concepto}}</option>
+                        </select>
+                        <select name="estab" id="select_estab" data-live-search="true" class="selectpicker" ref="sel2" v-model="filtro_estab" @change="traer_gastos">
+                            <option value="0">Establecimientos</option>
+                            <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
+                        </select>
                     </div>
                     <div class="col-md-6 text-right">
                       <a href="#" data-target="#modal_nuevo_gasto" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
@@ -32,14 +40,7 @@ session_start();
                   </div>
                 </div>
                 <div class="card-body table-responsive">
-                    <select name="cate" id="select_cat" v-model="filtro_cat" @change="traer_gastos">
-                        <option value="0">Categorias</option>
-                        <option v-for="categ in categorias" :value="categ.id">{{categ.concepto}}</option>
-                    </select>
-                    <select name="estab" id="select_estab" v-model="filtro_estab" @change="traer_gastos">
-                        <option value="0">Establecimientos</option>
-                        <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
-                    </select>
+
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
@@ -300,13 +301,15 @@ session_start();
 <!--fin todo-->
 
 
-
+  <link rel="stylesheet" href="plugins/bootstrap-select/css/bootstrap-select.css">
+  <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/vue-axios.min.js"></script>
 <script src="js/index.js"></script>
 <script src="assets/js/plugins/bootstrap-notify.js"></script>
   <script src="js/rutas.js"></script>
 <script src="js/gastos-controller.js"></script>
+
 </body>
 
 </html>
