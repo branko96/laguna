@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -27,7 +30,6 @@
                       <a href="#" data-target="#modal_nuevo_gasto" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
                     </div>
                   </div>
-
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">

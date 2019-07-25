@@ -43,8 +43,8 @@
 			
 		}
 
-		public function AltaGasto($fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo){		
-			$query = sprintf("INSERT INTO gastos_reales (fecha,id_categoria,detalle,valor,cantidad,id_establecimiento,tipo_recibo) VALUES ('%s',%d,'%s','%f',%d,%d,'%s')", $fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo);
+		public function AltaGasto($fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo,$total){		
+			$query = sprintf("INSERT INTO gastos_reales (fecha,id_categoria,detalle,valor,cantidad,id_establecimiento,tipo_recibo,total) VALUES ('%s',%d,'%s','%f',%d,%d,'%s',%d)", $fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo,$total);
 
 			$result = $this->db->execute($query);
 			//var_dump($result);
@@ -74,8 +74,8 @@
 			}	
 		}
 
-		function EditarGasto($id_gasto,$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo){
-				$query = sprintf("UPDATE gastos_reales SET fecha = '%s',id_categoria = %d,detalle = '%s',valor = '%f',cantidad = %d,id_establecimiento = %d,tipo_recibo = '%s' WHERE id_gasto = %d ;",$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo,$id_gasto);
+		function EditarGasto($id_gasto,$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo,$total){
+				$query = sprintf("UPDATE gastos_reales SET fecha = '%s',id_categoria = %d,detalle = '%s',valor = '%f',cantidad = %d,id_establecimiento = %d,tipo_recibo = '%s', total = %d WHERE id_gasto = %d ;",$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo,$total,$id_gasto);
 
 			$result = $this->db->execute($query);
 			
@@ -89,17 +89,37 @@
 			}	
 		}
 
-		public function Traer_gastos(){
-			$query = sprintf("SELECT * FROM gastos_reales");
-
+		public function Traer_gastos($categoria=0,$establecimiento=0){
+			if (($categoria == 0)&&($establecimiento == 0)) {
+				$query = sprintf("SELECT * FROM gastos_reales");	
+			}elseif ($categoria > 0) {
+				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_categoria = %d",$categoria);					
+			}elseif ($establecimiento > 0) {
+				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_establecimiento = %d",$establecimiento);	
+			}elseif (($establecimiento > 0) && ($categoria > 0)){
+				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_categoria = %d AND gastos_reales.id_establecimiento = %d",$categoria,$establecimiento );
+			}
+			
 			$result = $this->db->getData($query);
 
 			if(count($result)>0) {
 				$gastos_reales = [];
 				
 				for($i=0; $i< count($result);$i++){		
+					
+					$id_categoria = $result[$i]['id_categoria'];
+					$id_establecimiento = $result[$i]['id_establecimiento'];
 
-					array_push($gastos_reales, new Gasto($result[$i]['id_gasto'],$result[$i]['fecha'],$result[$i]['id_categoria'],$result[$i]['detalle'],$result[$i]['valor'],$result[$i]['cantidad'],$result[$i]['id_establecimiento'],$result[$i]['tipo_recibo']));
+					$query1 = sprintf("SELECT gastos_categorias.concepto FROM gastos_categorias WHERE gastos_categorias.id_categoria = %d ",$id_categoria);
+					$result2 = $this->db->getData($query1);
+
+					$query2 = sprintf("SELECT establecimientos.nombre FROM establecimientos WHERE establecimientos.id_establecimiento = %d ",$id_establecimiento);
+					$result1 = $this->db->getData($query2);
+					
+					$nombre_cat = $result2[0]['concepto'];
+					$nombre_est = $result1[0]['nombre'];
+
+					array_push($gastos_reales, new Gasto($result[$i]['id_gasto'],$result[$i]['fecha'],$nombre_cat,$result[$i]['detalle'],$result[$i]['valor'],$result[$i]['cantidad'],$nombre_est,$result[$i]['tipo_recibo'],$result[$i]['total']));
 				}
 					$respuesta =  new Respuesta(1,$gastos_reales);
 					return $respuesta;	

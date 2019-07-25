@@ -18,11 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 		//Cuando son uno o varios parametros
 
-		//$body=$_GET; 
+		$body=$_GET; 
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 
-	$rta=$GastosController->Traer_Gastos();
+	$rta=$GastosController->Traer_Gastos($body['categoria'],$body['establecimiento']);
 
 	//IMPRIMO RESPUESTA
 

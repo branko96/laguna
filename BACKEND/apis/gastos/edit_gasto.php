@@ -21,10 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		//Cuando son uno o varios parametros
 		$body=$_POST; 
 	//var_dump($body);
-
+		$total=$_POST['cantidad']*$_POST['valor'];
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$GastosController->EditarGasto($body['id'],$body['fecha'],$body['id_categoria'],$body['detalle'],$body['valor'],$body['cantidad'],$body['id_establecimiento'],$body['tipo_recibo']);
+	$rta=$GastosController->EditarGasto($body['id'],$body['fecha'],$body['id_categoria'],$body['detalle'],$body['valor'],$body['cantidad'],$body['id_establecimiento'],$body['tipo_recibo'],$total);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));

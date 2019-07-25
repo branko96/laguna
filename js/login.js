@@ -93,7 +93,7 @@ var vm=new Vue({
                                     align: "center"
                                 }
                             });
-                            setTimeout(function(){window.location.href="index.php"},2000)
+                            setTimeout(function(){window.location.href="index.php"},3000)
                         } else {
                             $.notify({
                                 message:respuesta.data.mensaje,

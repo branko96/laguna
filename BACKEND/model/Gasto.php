@@ -9,8 +9,9 @@
 		protected $cantidad;
 		protected $id_establecimiento;  
 		protected $tipo_recibo;   
+		protected $total;   
 
-		public function __construct($id,$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo)
+		public function __construct($id,$fecha,$id_categoria,$detalle,$valor,$cantidad,$id_establecimiento,$tipo_recibo,$total)
 		{
 			$this->id = sprintf($id);
 			$this->fecha = sprintf($fecha);
@@ -20,6 +21,7 @@
 		    $this->cantidad = sprintf($cantidad);
 	    	$this->id_establecimiento = sprintf($id_establecimiento);
 	    	$this->tipo_recibo = sprintf($tipo_recibo);
+	    	$this->total = sprintf($total);
 
 		}
 
@@ -85,6 +87,14 @@
 
 		public function setTipo_recibo($tipo_recibo){
 			$this->tipo_recibo = $tipo_recibo;
+		}
+
+		public function getTotal(){
+			return $this->total;
+		}
+
+		public function setTotal($total){
+			$this->total = $total;
 		}
 
 		public function getJson(){

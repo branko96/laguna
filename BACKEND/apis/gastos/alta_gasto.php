@@ -23,10 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$body=$_POST; 
 		//var_dump($body);
 		//var_dump($_FILES);
+		$total=$_POST['cantidad']*$_POST['valor'];
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 		//$fecha= date('Y-m-d H:i:s');
-		$rta=$gastosController->AltaGasto($body['fecha'], $body['id_categoria'], $body['detalle'], $body['valor'],$body['cantidad'], $body['id_establecimiento'], $body['tipo_recibo']);
+		$rta=$gastosController->AltaGasto($body['fecha'], $body['id_categoria'], $body['detalle'], $body['valor'],$body['cantidad'], $body['id_establecimiento'], $body['tipo_recibo'], $total);
 
 	//IMPRIMO RESPUESTA
 

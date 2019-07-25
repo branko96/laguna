@@ -144,14 +144,14 @@ include('verificar_login.php');
                   <a class="dropdown-item" href="#">Perfil</a>
                   <!-- <a class="dropdown-item" href="#">Settings</a> -->
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Salir</a>
+                  <a class="dropdown-item" href="logout.php">Salir</a>
                 </div>
               </li>
             </ul>
 
 
                 <?php if(!isset($_SESSION['objetoCliente'])){ ?>
-                      <a href="login.php"<button type="button" class="boton-ingresar "style="font-family: 'Lato', sans-serif;" >INGRESAR	</button></a>
+                      <a href="login.php"><button type="button" class="boton-ingresar "style="font-family: 'Lato', sans-serif;" >INGRESAR	</button></a>
                 <?php }else{ ?>
                     <button type="button" class="btn btn-dark">Hola, <?php echo $_SESSION['objetoCliente']['nombre'];?></button>
                 <?php } ?>

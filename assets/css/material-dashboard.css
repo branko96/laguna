@@ -14887,7 +14887,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   margin-top: 70px;
   padding: 30px 15px;
   min-height: calc(100vh - 123px);
-  background-image: url(http://localhost/PerroSoft/lagunacampo/assets/img/cartel.jpeg);
+  background-image: url(../img/cartel.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
