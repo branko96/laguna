@@ -204,7 +204,10 @@ var vm=new Vue({
 });
 
 $(function(){
-	$("#abrir_modal").click(function(){
-
+	$("#select_cat").selectpicker();
+	$("#select_estab").selectpicker();
+	$('.dropdown').on('hide.bs.dropdown', function() {
+		console.log("activado");
+		$('.bootstrap-select.open').removeClass('open');
 	});
 });
