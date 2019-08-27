@@ -25,6 +25,9 @@ session_start();
                   <div class="row">
                     <div class="col-md-6">
                       <h4 class="card-title">Gastos</h4>
+                      <div class="form-group pull-right">
+                        <h5>Total: ${{total}}</h5>
+                      </div>
                         <select name="cate" class="selectpicker" data-live-search="true" ref="sel1" id="select_cat" v-model="filtro_cat" @change="traer_gastos">
                             <option value="0">Categorias</option>
                             <option v-for="categ in categorias" :value="categ.id">{{categ.concepto}}</option>
@@ -33,9 +36,21 @@ session_start();
                             <option value="0">Establecimientos</option>
                             <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
                         </select>
+
                     </div>
                     <div class="col-md-6 text-right">
                       <a href="#" data-target="#modal_nuevo_gasto" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
+
+                      <div class="form-group row">
+                        <div class="col-sm-6">
+                          <label class="">Fecha Desde</label>
+                          <input type="date" v-model="fecha_desde" class="form-control">
+                        </div>
+                        <div class="col-sm-6">
+                          <label class="">Fecha Hasta</label>
+                          <input type="date" v-model="fecha_hasta" class="form-control">
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -64,7 +79,7 @@ session_start();
                         <td>{{gasto.cantidad}}</td>
                         <td>{{gasto.id_establecimiento}}</td>
                         <td>{{gasto.tipo_recibo}}</td>
-                        <td>{{gasto.total}}</td>
+                        <td>$ {{gasto.total}}</td>
                         <td class="td-actions text-center">
                           <button type="button" title="Editar" @click="modal_editar(gasto);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>

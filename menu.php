@@ -53,17 +53,17 @@ include('verificar_login.php');
               <p>Ventas</p>
             </a>
           </li>        
-                 <?php $activo='';
-                if($_SESSION['pagina_actual']== 'movimientos'){ 
-                  $activo=' active';
-                }
+                 <?php // $activo='';
+                //if($_SESSION['pagina_actual']== 'movimientos'){
+                //  $activo=' active';
+                //}
             ?>
-          <li class="nav-item <?php echo $activo;?>">
+         <!-- <li class="nav-item <?php echo $activo;?>">
             <a class="nav-link" href="movimientos.php">
               <i class="material-icons">library_books</i>
               <p>Movimientos</p>
             </a>
-          </li>
+          </li>-->
         <?php $activo='';
                 if($_SESSION['pagina_actual']== 'caravanas'){ 
                   $activo=' active';

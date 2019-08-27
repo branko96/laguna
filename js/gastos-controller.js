@@ -6,6 +6,11 @@ var obj_gasto_base={id_gasto:0,fecha:'',cantidad:0,id_categoria:'',detalle: '',v
 //   baseURL: 'http://localhost:80/laguna/',
 //   headers: {'X-Custom-Header': 'foobar'}
 // });
+
+var date = new Date();
+var primerDia = new Date(date.getFullYear(), date.getMonth(), 1);
+var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
 var vm=new Vue({
 	el: '#app',
 	data: {
@@ -15,8 +20,11 @@ var vm=new Vue({
 		showModal:false,
 		establecimientos:[],
 		categorias:[],
+		total:0,
         filtro_estab:0,
-        filtro_cat:0
+        filtro_cat:0,
+		fecha_desde:primerDia.toISOString().split('T')[0],
+		fecha_hasta:ultimoDia.toISOString().split('T')[0],
 	},
 	methods:{
 		nuevo_gasto(){
@@ -156,11 +164,17 @@ var vm=new Vue({
 				});
 		},
 		traer_gastos(){
+			this.total=0;
 			MyApiClient.get("/BACKEND/apis/gastos/Traer_gastos.php?categoria="+this.filtro_cat+"&establecimiento="+this.filtro_estab)
 				.then((rta) =>{
 						//console.log(rta);
 						if (rta.data.id_respuesta == "1") {
 							this.gastos=rta.data.mensaje;
+							if (rta.data.mensaje.length >0){
+								for (let i=0;i<rta.data.mensaje.length;i++){
+									this.total=this.total+parseInt(rta.data.mensaje[i].total);
+								}
+							}
 						}else{
 							this.gastos=[];
 						}
