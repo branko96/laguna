@@ -22,7 +22,10 @@ $data = json_decode($response);
 $currentTime = time();
 
 //var_dump($data);
-date_default_timezone_set('UTC');
+date_default_timezone_set('america/argentina/buenos_aires');
+
+setlocale(LC_TIME, 'es_CO.UTF-8');
+//date_default_timezone_set('UTC');
 ?>
 <!doctype html>
 <html lang="en">
