@@ -23,8 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	$fechaDesde=$body['fechaDesde'];
 	$fechaHasta=$body['fechaHasta'];
-	var_dump($fechaDesde);
-	var_dump($fechaHasta);
+	
     if(isset($body['categoria'])){
         $categoria=$body['categoria'];
     }else{
