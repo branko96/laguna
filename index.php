@@ -1,5 +1,28 @@
 <?php
 session_start();
+
+$apiKey = "410463b3935acea56c8171825dbb4440";
+$cityId = "3435910";
+$lat=-38.7167;
+$lng=-62.2833;
+$googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=".$lat."&lon=".$lng."&lang=es&units=metric&APPID=" . $apiKey;
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_URL, $googleApiUrl);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_VERBOSE, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+$response = curl_exec($ch);
+
+curl_close($ch);
+$data = json_decode($response);
+$currentTime = time();
+
+//var_dump($data);
+date_default_timezone_set('UTC');
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,10 +53,27 @@ session_start();
                      data-language="es"
                      data-inline="true"
                      data-position="top left"/>
-              
+
             </div>
             <div class="col-sm-6">
-              <h2>Información del Clima</h2>
+              <!--<div id="openweathermap-widget-15"></div>-->
+              <div class="report-container" style="background: white; padding: 20px; border-radius: 10px;">
+                <h2><?php echo $data->name; ?> Clima</h2>
+                <div class="time">
+                  <div><?php echo date("l g:i a", $currentTime); ?></div>
+                  <div><?php echo date("jS F, Y",$currentTime); ?></div>
+                  <div><?php echo ucwords($data->weather[0]->description); ?></div>
+                </div>
+                <div class="weather-forecast">
+                  <img src="http://openweathermap.org/img/w/<?php echo $data->weather[0]->icon; ?>.png"
+                       class="weather-icon" /> <?php echo $data->main->temp_max; ?>°C<span
+                        class="min-temperature"><?php echo $data->main->temp_min; ?>°C</span>
+                </div>
+                <div class="time">
+                  <div>Humedad: <?php echo $data->main->humidity; ?> %</div>
+                  <div>Viento: <?php echo $data->wind->speed; ?> km/h</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -51,6 +91,24 @@ session_start();
 
   <!-- Include Spanish language -->
   <script src="plugins/AirDatePicker/js/i18n/datepicker.es.js"></script>
+  <script>
+    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+    window.myWidgetParam.push({
+      id: 15,
+      cityid: '3435910',
+      language:'es',
+      appid: '410463b3935acea56c8171825dbb4440',
+      units: 'metric',
+      containerid: 'openweathermap-widget-15',
+    });
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.charset = "utf-8";
+      script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+      var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);
+    })();
+  </script>
 <script src="js/index.js"></script>
 
 </body>
