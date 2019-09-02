@@ -43,20 +43,22 @@ session_start();
 
                       <div class="form-group row">
                         <div class="col-sm-6">
-                          <label class="">Fecha Desde</label>
-                          <input type="date" v-model="fecha_desde" class="form-control">
+                          <label class="form-control-label" style="color:white !important;">Fecha Desde</label>
+                          <input type="date" @change="traer_gastos" v-model="fecha_desde" class="form-control">
                         </div>
                         <div class="col-sm-6">
-                          <label class="">Fecha Hasta</label>
-                          <input type="date" v-model="fecha_hasta" class="form-control">
+                          <label class="form-control-label" style="color:white !important;">Fecha Hasta</label>
+                          <input type="date" @change="traer_gastos" v-model="fecha_hasta" class="form-control">
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="card-body table-responsive">
-
-                  <table class="table table-hover">
+                  <div class="alert alert-danger text-center" v-show="gastos.length == 0">
+                      No hay gastos entre las fechas ingresadas
+                  </div>
+                  <table class="table table-hover" v-show="gastos.length >0">
                     <thead class="text-warning">
                       <th>ID</th>
                       <th>Fecha</th>

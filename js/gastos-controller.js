@@ -165,7 +165,7 @@ var vm=new Vue({
 		},
 		traer_gastos(){
 			this.total=0;
-			MyApiClient.get("/BACKEND/apis/gastos/Traer_gastos.php?categoria="+this.filtro_cat+"&establecimiento="+this.filtro_estab)
+			MyApiClient.get("/BACKEND/apis/gastos/Traer_gastos.php?categoria="+this.filtro_cat+"&establecimiento="+this.filtro_estab+"&fechaDesde="+this.fecha_desde+"&fechaHasta="+this.fecha_hasta)
 				.then((rta) =>{
 						//console.log(rta);
 						if (rta.data.id_respuesta == "1") {
