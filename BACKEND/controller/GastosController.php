@@ -89,22 +89,22 @@
 			}	
 		}
 
-		public function Traer_gastos($categoria=0,$establecimiento=0){
+		public function Traer_gastos($categoria=0,$establecimiento=0,$fechaDesde,$fechaHasta){
 			if (($categoria == 0)&&($establecimiento == 0)) {
-				$query = sprintf("SELECT * FROM gastos_reales");	
+				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.fecha BETWEEN '%s' and '%s'",$fechaDesde,$fechaHasta);	
 			}elseif ($categoria > 0 && $establecimiento == 0) {
-				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_categoria = %d",$categoria);					
+				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_categoria = %d and gastos_reales.fecha BETWEEN '%s' and '%s'",$categoria,$fechaDesde,$fechaHasta);					
 			}elseif ($establecimiento > 0 && $categoria == 0) {
-				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_establecimiento = %d",$establecimiento);	
+				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_establecimiento = %d and gastos_reales.fecha BETWEEN '%s' and '%s'",$establecimiento,$fechaDesde,$fechaHasta);	
 			}elseif (($establecimiento > 0) && ($categoria > 0)){
-				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_categoria = %d AND gastos_reales.id_establecimiento = %d",$categoria,$establecimiento );
+				$query = sprintf("SELECT * FROM gastos_reales WHERE gastos_reales.id_categoria = %d AND gastos_reales.id_establecimiento = %d and gastos_reales.fecha BETWEEN '%s' and '%s'",$categoria,$establecimiento,$fechaDesde,$fechaHasta);
 			}
 			//var_dump($query);
 			$result = $this->db->getData($query);
 
 			if(count($result)>0) {
 				$gastos_reales = [];
-				
+
 				for($i=0; $i< count($result);$i++){		
 					
 					$id_categoria = $result[$i]['id_categoria'];

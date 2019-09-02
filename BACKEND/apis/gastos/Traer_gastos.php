@@ -21,6 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$body=$_GET; 
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
+	$fechaDesde=$body['fechaDesde'];
+	$fechaHasta=$body['fechaHasta'];
+	var_dump($fechaDesde);
+	var_dump($fechaHasta);
     if(isset($body['categoria'])){
         $categoria=$body['categoria'];
     }else{
@@ -32,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }else{
         $establecimiento=0;
     }
-	$rta=$GastosController->Traer_Gastos($categoria,$establecimiento);
+	$rta=$GastosController->Traer_Gastos($categoria,$establecimiento,$fechaDesde,$fechaHasta);
 
 	//IMPRIMO RESPUESTA
 
