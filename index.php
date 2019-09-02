@@ -48,7 +48,7 @@ date_default_timezone_set('UTC');
           <!-- <img src="assets/img/cartel.jpeg"></img> -->
           <div class="row">
             <div class="col-sm-6">
-              <input id="air_datepicker" type="text" value="<?php echo date('d/m/Y');?>"
+              <input id="air_datepicker" style="display: none;" type="text" value="<?php echo date('d/m/Y');?>"
                      class="datepicker-here"
                      data-language="es"
                      data-inline="true"
