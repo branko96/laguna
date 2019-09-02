@@ -23,6 +23,20 @@ session_start();
       <div class="content">
         <div class="container-fluid">
           <!-- <img src="assets/img/cartel.jpeg"></img> -->
+          <div class="row">
+            <div class="col-sm-6">
+              <input id="air_datepicker" type="text" value="<?php echo date('d/m/Y');?>"
+                     class="datepicker-here"
+                     data-language="es"
+                     data-inline="true"
+                     data-position="top left"/>
+              
+            </div>
+            <div class="col-sm-6">
+              <h2>Información del Clima</h2>
+            </div>
+          </div>
+
         </div>
       </div>
       <!-- FOOTER -->
@@ -31,6 +45,12 @@ session_start();
     </div>
   </div>
 
+
+  <link href="plugins/AirDatePicker/css/datepicker.min.css" rel="stylesheet" type="text/css">
+  <script src="plugins/AirDatePicker/js/datepicker.min.js"></script>
+
+  <!-- Include Spanish language -->
+  <script src="plugins/AirDatePicker/js/i18n/datepicker.es.js"></script>
 <script src="js/index.js"></script>
 
 </body>
