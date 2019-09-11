@@ -3,8 +3,8 @@ session_start();
 
 $apiKey = "410463b3935acea56c8171825dbb4440";
 $cityId = "3435910";
-$lat=-38.7167;
-$lng=-62.2833;
+$lat=-40.699819;
+$lng=-64.565306;
 $googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=".$lat."&lon=".$lng."&lang=es&units=metric&APPID=" . $apiKey;
 
 $ch = curl_init();
@@ -46,11 +46,14 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
     <!-- MENU -->
     <?php include('menu.php');?>
       <!-- End Navbar -->
-      <div class="content">
+      <div class="content" id="app">
         <div class="container-fluid">
           <!-- <img src="assets/img/cartel.jpeg"></img> -->
           <div class="row">
             <div class="col-sm-6">
+              <select name="estab" id="select_estab" data-live-search="true" class="selectpicker" ref="sel1" v-model="filtro_establecimiento" @change="change_establecimiento">
+                <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
+              </select>
               <input id="air_datepicker" style="display: none;" type="text" value="<?php echo date('d/m/Y');?>"
                      class="datepicker-here"
                      data-language="es"
@@ -61,7 +64,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
             <div class="col-sm-6">
               <!--<div id="openweathermap-widget-15"></div>-->
               <div class="report-container" style="background: white; padding: 20px; border-radius: 10px;">
-                <h2><?php echo $data->name; ?> Clima</h2>
+                <h2><?php //echo $data->name; ?>{{nombre_estab_elegido}} Clima</h2>
                 <div class="time">
                   <div><?php echo date("l g:i a", $currentTime); ?></div>
                   <div><?php echo date("jS F, Y",$currentTime); ?></div>
@@ -91,7 +94,8 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
 
   <link href="plugins/AirDatePicker/css/datepicker.min.css" rel="stylesheet" type="text/css">
   <script src="plugins/AirDatePicker/js/datepicker.min.js"></script>
-
+  <link rel="stylesheet" href="plugins/bootstrap-select/css/bootstrap-select.css">
+  <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
   <!-- Include Spanish language -->
   <script src="plugins/AirDatePicker/js/i18n/datepicker.es.js"></script>
   <script>
@@ -112,7 +116,11 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
       var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);
     })();
   </script>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-axios.min.js"></script>
 <script src="js/index.js"></script>
+  <script src="js/rutas.js"></script>
+  <script src="js/inicio.js"></script>
 
 </body>
 
