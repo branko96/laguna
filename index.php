@@ -47,9 +47,11 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
     <?php include('menu.php');?>
       <!-- End Navbar -->
       <div class="content" id="app">
+        <a class="weatherwidget-io" href="https://forecast7.com/es/n40d73n64d95/san-antonio-oeste/" data-label_1="SAN ANTONIO OESTE" data-label_2="CLIMA" data-theme="original" >SAN ANTONIO OESTE CLIMA</a>
         <div class="container-fluid">
           <!-- <img src="assets/img/cartel.jpeg"></img> -->
           <div class="row">
+
             <div class="col-sm-6">
               <select name="estab" id="select_estab" data-live-search="true" class="selectpicker" ref="sel1" v-model="filtro_establecimiento" @change="change_establecimiento">
                 <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
@@ -96,26 +98,29 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
   <script src="plugins/AirDatePicker/js/datepicker.min.js"></script>
   <link rel="stylesheet" href="plugins/bootstrap-select/css/bootstrap-select.css">
   <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+<!--  <script>
+    !function(d,s,id){
+      var js,fjs=d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){
+        js=d.createElement(s);js.id=id;
+        js.src='https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js,fjs);
+      }
+    }(document,'script','weatherwidget-io-js');
+  </script>-->
+  <script>
+    !function(d,s,id){
+      var js,fjs=d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){
+        js=d.createElement(s);
+        js.id=id;
+        js.src='https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js,fjs);
+      }
+    }(document,'script','weatherwidget-io-js');
+  </script>
   <!-- Include Spanish language -->
   <script src="plugins/AirDatePicker/js/i18n/datepicker.es.js"></script>
-  <script>
-    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-    window.myWidgetParam.push({
-      id: 15,
-      cityid: '3435910',
-      language:'es',
-      appid: '410463b3935acea56c8171825dbb4440',
-      units: 'metric',
-      containerid: 'openweathermap-widget-15',
-    });
-    (function() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.charset = "utf-8";
-      script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-      var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);
-    })();
-  </script>
   <script src="js/vue.js"></script>
   <script src="js/vue-axios.min.js"></script>
 <script src="js/index.js"></script>
