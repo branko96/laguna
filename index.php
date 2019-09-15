@@ -65,7 +65,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
             </div>
             <div class="col-sm-6">
               <!--<div id="openweathermap-widget-15"></div>-->
-              <div class="report-container" style="background: white; padding: 20px; border-radius: 10px;">
+         <!--    <div class="report-container" style="background: white; padding: 20px; border-radius: 10px;">
                 <h2><?php //echo $data->name; ?>{{nombre_estab_elegido}} Clima</h2>
                 <div class="time">
                   <div><?php echo date("l g:i a", $currentTime); ?></div>
@@ -82,7 +82,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                   <div>Viento: <?php echo $data->wind->speed; ?> km/h</div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
         </div>
