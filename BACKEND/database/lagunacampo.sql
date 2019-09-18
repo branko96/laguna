@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2019 a las 22:34:34
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Tiempo de generación: 18-09-2019 a las 22:48:13
+-- Versión del servidor: 10.3.16-MariaDB
+-- Versión de PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -87,17 +87,20 @@ CREATE TABLE `empleados` (
 
 CREATE TABLE `establecimientos` (
   `id_establecimiento` int(11) NOT NULL,
-  `nombre` varchar(25) NOT NULL
+  `nombre` varchar(25) NOT NULL,
+  `latitud` double NOT NULL,
+  `longitud` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `establecimientos`
 --
 
-INSERT INTO `establecimientos` (`id_establecimiento`, `nombre`) VALUES
-(1, 'Laguna del Monte'),
-(2, 'Ceferino'),
-(3, 'Chara');
+INSERT INTO `establecimientos` (`id_establecimiento`, `nombre`, `latitud`, `longitud`) VALUES
+(1, 'Laguna del Monte', 0, 0),
+(2, 'Ceferino', 0, 0),
+(3, 'Chacra', 0, 0),
+(4, 'San Antonio', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -149,6 +152,15 @@ CREATE TABLE `gastos_reales` (
   `total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `gastos_reales`
+--
+
+INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `valor`, `cantidad`, `id_establecimiento`, `tipo_recibo`, `total`) VALUES
+(15, '2019-07-10', 2, 'asd', 234, 2, 1, 'd', 468),
+(16, '2019-07-17', 8, 'dd', 234, 1, 2, 'dd', 234),
+(17, '2019-09-03', 4, 'asd', 3, 4, 2, 'B', 12);
+
 -- --------------------------------------------------------
 
 --
@@ -192,6 +204,20 @@ CREATE TABLE `stock` (
   `id_caravana` int(11) NOT NULL,
   `total` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tareas`
+--
+
+CREATE TABLE `tareas` (
+  `id_tareas` int(11) NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `descrip` varchar(35) NOT NULL,
+  `fecha` date NOT NULL,
+  `id_establecimiento` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -295,6 +321,12 @@ ALTER TABLE `stock`
   ADD PRIMARY KEY (`id_stock`);
 
 --
+-- Indices de la tabla `tareas`
+--
+ALTER TABLE `tareas`
+  ADD PRIMARY KEY (`id_tareas`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -332,7 +364,7 @@ ALTER TABLE `empleados`
 -- AUTO_INCREMENT de la tabla `establecimientos`
 --
 ALTER TABLE `establecimientos`
-  MODIFY `id_establecimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_establecimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `gastos_categorias`
@@ -344,7 +376,7 @@ ALTER TABLE `gastos_categorias`
 -- AUTO_INCREMENT de la tabla `gastos_reales`
 --
 ALTER TABLE `gastos_reales`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
@@ -357,6 +389,12 @@ ALTER TABLE `movimientos`
 --
 ALTER TABLE `stock`
   MODIFY `id_stock` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tareas`
+--
+ALTER TABLE `tareas`
+  MODIFY `id_tareas` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
