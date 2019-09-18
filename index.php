@@ -46,7 +46,17 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
     <!-- MENU -->
     <?php include('menu.php');?>
       <!-- End Navbar -->
+                                                  
       <div class="content" id="app">
+   <!--                                              Campo Chara                                                   -->
+      <a class="weatherwidget-io" href="https://forecast7.com/es/n40d81n63d00/viedma/" data-label_1="VIEDMA" data-label_2="Rio Negro" data-theme="desert" >VIEDMA Rio Negro</a>
+
+      <!--                                              Campo el Ceferino                                                   -->
+      <a class="weatherwidget-io" href="https://forecast7.com/es/n40d05n63d01/patagones-partido/" data-label_1="PATAGONES" data-label_2="Buenos Aires" data-theme="dark" >PATAGONES Buenos Aires</a>
+      <!--                                              Campo San Antonio               -->
+      	<a class="weatherwidget-io" href="https://forecast7.com/es/n38d99n64d09/la-adela/" data-label_1="LA ADELA" data-label_2="La pampa" data-theme="orange" >LA ADELA La pampa</a>
+
+      	<!--                                              Campo laguna del monte                                                   -->
         <a class="weatherwidget-io" href="https://forecast7.com/es/n40d73n64d95/san-antonio-oeste/" data-label_1="SAN ANTONIO OESTE" data-label_2="CLIMA" data-theme="original" >SAN ANTONIO OESTE CLIMA</a>
         <div class="container-fluid">
           <!-- <img src="assets/img/cartel.jpeg"></img> -->
