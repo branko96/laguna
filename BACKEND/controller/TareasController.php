@@ -43,7 +43,7 @@
 
 		public function AltaTarea($nombre,$descrip,$fecha,$id_establecimiento){			
 
-			$query = sprintf("INSERT INTO tareas (nombre,descrip,fecha,id_establecimiento) VALUES ('%s','%s',%f,%d)", $nombre,$descrip,$fecha,$id_establecimiento);
+			$query = sprintf("INSERT INTO tareas (nombre,descrip,fecha,id_establecimiento) VALUES ('%s','%s','%s',%d)", $nombre,$descrip,$fecha,$id_establecimiento);
 
 			$result = $this->db->execute($query);
 			//var_dump($result);
@@ -74,7 +74,7 @@
 		}
 
 		function EditarTarea($id_tareas,$nombre,$descrip,$fecha,$id_establecimiento){
-				$query = sprintf("UPDATE tareas SET nombre = '%s',descrip = '%s',fecha = %f,id_establecimiento = '%f' WHERE id_tareas = %d ;",$nombre,$descrip,$fecha,$id_establecimiento);
+				$query = sprintf("UPDATE tareas SET nombre = '%s',descrip = '%s',fecha = '%s',id_establecimiento = %d WHERE id_tareas = %d ;",$nombre,$descrip,$fecha,$id_establecimiento);
 
 			$result = $this->db->execute($query);
 			
