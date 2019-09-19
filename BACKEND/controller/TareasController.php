@@ -73,8 +73,8 @@
 			}	
 		}
 
-		function EditarTarea($id_tareas,$nombre,$descrip,$fecha,$id_establecimiento){
-				$query = sprintf("UPDATE tareas SET nombre = '%s',descrip = '%s',fecha = '%s',id_establecimiento = %d WHERE id_tareas = %d ;",$nombre,$descrip,$fecha,$id_establecimiento);
+		function EditarTarea($id_tareas,$nombre,$descrip,$id_establecimiento){
+				$query = sprintf("UPDATE tareas SET nombre = '%s',descrip = '%s',id_establecimiento = %d WHERE id_tareas = %d ;",$nombre,$descrip,$id_establecimiento,$id_tareas);
 
 			$result = $this->db->execute($query);
 			
