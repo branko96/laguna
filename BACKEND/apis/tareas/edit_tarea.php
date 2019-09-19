@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$TareasController->EditarTarea($body['id'],$body['nombre'],$body['descrip'],$body['fecha'],$body['id_establecimiento']);
+	$rta=$TareasController->EditarTarea($body['id'],$body['nombre'],$body['descrip'],$body['id_establecimiento']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));
