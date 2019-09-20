@@ -4,16 +4,37 @@ var ruta = 'https://'+window.location.host;
 
 var vm=new Vue({
     el: '#app',
+    components: { vuejsDatepicker },
     data: {
         filtro_establecimiento:1,
+        fecha:start.toISOString().split('T')[0],
         establecimientos:[],
         tareas:[],
-        alta_tarea:false,
+        vista_alta_tarea:false,
+        autoshow_calendario:true,
         nueva_tarea_nombre:'',
         nueva_tarea_desc:'',
-        nombre_estab_elegido:'Laguna del Monte'
+        nombre_estab_elegido:'Laguna del Monte',
+        DatePickerFormat: 'yyyy-MM-dd',
+        language:{
+            language: 'Japanese',
+            months: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+            monthsAbbr: ['En', 'Febr', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            days: ['Lun', 'Mar', 'Miérc', 'Jue', 'Viernes', 'Sáb', 'Dom'],
+            rtl: false,
+            ymd: 'yyyy-MM-dd',
+            yearSuffix: ''
+        }
     },
     methods:{
+        fixDate(date) {
+            /*var fech=new Date(date);
+            console.log(fech);
+            console.log(date.toISOString().split('T')[0]);
+            return fech.toISOString().split('T')[0];*/
+            console.log(moment(date).format('YYYY-MM-DD'));
+            return moment(date).format('YYYY-MM-DD');
+        },
         change_establecimiento(){
             let estab=parseInt(this.filtro_establecimiento);
             var establecimiento_eleg=this.establecimientos.filter(function (el) {
@@ -42,6 +63,42 @@ var vm=new Vue({
                         break;
                 }
             }
+        },
+        alta_tarea(){
+            let alta_tarea_obj={id_establecimiento:this.filtro_establecimiento,fecha:this.fecha,nombre:this.nueva_tarea_nombre,descrip:this.nueva_tarea_desc};
+            var form_data = new FormData();
+            for ( var key in alta_tarea_obj) {
+                form_data.append(key, alta_tarea_obj[key]);
+            }
+            MyApiClient.post("/BACKEND/apis/tareas/alta_tarea.php",form_data)
+                .then((rta) =>{
+                    //console.log(rta);
+                    if (rta.data.id_respuesta == "1") {
+                        this.traer_tareas();
+                        $.notify({
+                            message: rta.data.mensaje
+                        },{
+                            type: 'success',
+                            z_index: 2000,
+                            placement: {
+                                from: "top",
+                                align: "center"
+                            }
+                        });
+                    }else{
+                        $.notify({
+                            message: respuesta.data.mensaje
+                        },{
+                            type: 'danger',
+                            z_index: 2000,
+                            placement: {
+                                from: "top",
+                                align: "center"
+                            }
+                        });
+                    }
+
+                });
         },
         eliminar_tarea(id_tarea){
             MyApiClient.get("/BACKEND/apis/tareas/baja_tarea.php?id_tareas="+id_tarea)

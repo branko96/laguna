@@ -80,20 +80,22 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
               <select name="estab" id="select_estab" data-live-search="true" class="selectpicker" ref="sel1" v-model="filtro_establecimiento" @change="change_establecimiento">
                 <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
               </select>
-              <input id="air_datepicker" style="display: none;" type="text" value="<?php echo date('d/m/Y');?>"
+              <!--<input id="air_datepicker" v-model="fecha" style="display: none;" type="text" value="<?php echo date('d/m/Y');?>"
                      class="datepicker-here"
                      data-language="es"
                      data-inline="true"
-                     data-position="top left"/>
+                     data-position="top left"/>-->
+             <!--<datepicker v-model="fecha" name="uniquename"></datepicker>-->
+              <vuejs-datepicker v-model="fecha" @input="fecha = fixDate($event)" :inline="autoshow_calendario" :format="DatePickerFormat" :language="language"></vuejs-datepicker>
 
             </div>
             <div class="col-sm-6">
               <div class="card card-primary">
                 <div class="card-header-info">Tareas
-                  <button type="button" @click="alta_tarea=!alta_tarea" class="btn btn-primary pull-right">Nueva</button>
+                  <button type="button" @click="vista_alta_tarea=!vista_alta_tarea" class="btn btn-primary pull-right">Nueva</button>
                 </div>
                 <div class="card-body">
-                  <div v-show="alta_tarea">
+                  <div v-show="vista_alta_tarea">
                     <div class="row">
                       <div class="form-group col-sm-6">
                         <input type="text" v-model="nueva_tarea_nombre" class="form-control" placeholder="Nombre">
@@ -103,7 +105,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                       </div>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-success">Crear</button>
+                        <button type="button" class="btn btn-success" @click="alta_tarea">Crear</button>
                     </div>
                   </div>
                   <ul class="list-group list-group-flush ">
@@ -179,9 +181,11 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
   <script src="plugins/AirDatePicker/js/i18n/datepicker.es.js"></script>
   <script src="js/vue.js"></script>
   <script src="js/vue-axios.min.js"></script>
+  <script src="https://unpkg.com/vuejs-datepicker"></script>
 <script src="js/index.js"></script>
   <script src="js/rutas.js"></script>
   <script src="assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="assets/js/plugins/moment.min.js"></script>
   <script src="js/inicio.js"></script>
 
 </body>
