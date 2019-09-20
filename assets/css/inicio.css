@@ -1,0 +1,29 @@
+.list-group
+{
+    margin-bottom: 0;
+}
+.list-group .list-group-item
+{
+    border-width: 1px 0;
+}
+.list-group .list-group-item:first-child
+{
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.list-group .list-group-item:last-child
+{
+    border-bottom: 0;
+}
+.list-group-item.active
+{
+    color: #A94442;
+    background-color: #F2DEDE;
+    border-color: #EBCCD1;
+}
+.list-group-item.active:hover, a.list-group-item.active:focus
+{
+    color: #000;
+    background-color: #DDD;
+    border-color: #DDD;
+}

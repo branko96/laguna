@@ -38,6 +38,8 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
     //var_dump($_SESSION);
   ?>
   <?php include('header.php');?>
+  <link rel="stylesheet" href="assets/css/inicio.css">
+  <link rel="stylesheet" href="assets_login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -48,16 +50,28 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
       <!-- End Navbar -->
                                                   
       <div class="content" id="app">
-   <!--                                              Campo Chara                                                   -->
-      <a class="weatherwidget-io" href="https://forecast7.com/es/n40d81n63d00/viedma/" data-label_1="VIEDMA" data-label_2="Rio Negro" data-theme="desert" >VIEDMA Rio Negro</a>
 
-      <!--                                              Campo el Ceferino                                                   -->
-      <a class="weatherwidget-io" href="https://forecast7.com/es/n40d05n63d01/patagones-partido/" data-label_1="PATAGONES" data-label_2="Buenos Aires" data-theme="dark" >PATAGONES Buenos Aires</a>
-      <!--                                              Campo San Antonio               -->
-      	<a class="weatherwidget-io" href="https://forecast7.com/es/n38d99n64d09/la-adela/" data-label_1="LA ADELA" data-label_2="La pampa" data-theme="orange" >LA ADELA La pampa</a>
+        <!--         Campo laguna del monte    -->
+        <div v-show="filtro_establecimiento == 1">
+          <h1>Campo Laguna del Monte</h1>
+          <a class="weatherwidget-io" id="estab1" href="https://forecast7.com/es/n40d73n64d95/san-antonio-oeste/" data-label_1="SAN ANTONIO OESTE" data-label_2="CLIMA" data-theme="original" >SAN ANTONIO OESTE CLIMA</a>
+        </div>
+        <!--         Campo Ceferino         -->
+        <div v-show="filtro_establecimiento == 2">
+          <h1>Campo Ceferino</h1>
+          <a class="weatherwidget-io" id="estab2" href="https://forecast7.com/es/n40d05n63d01/patagones-partido/" data-label_1="PATAGONES" data-label_2="Buenos Aires" data-theme="dark" >PATAGONES Buenos Aires</a>
+        </div>
+        <!--         Campo Chacra              -->
+        <div v-show="filtro_establecimiento == 3">
+          <h1>Campo Chacra</h1>
+          <a class="weatherwidget-io" id="estab3" href="https://forecast7.com/es/n40d81n63d00/viedma/" data-label_1="VIEDMA" data-label_2="Rio Negro" data-theme="desert" >VIEDMA Rio Negro</a>
+        </div>
+        <!--         Campo San Antonio         -->
+        <div v-show="filtro_establecimiento == 4">
+          <h1>Campo San Antonio</h1>
+          <a class="weatherwidget-io" id="estab4" href="https://forecast7.com/es/n38d99n64d09/la-adela/" data-label_1="LA ADELA" data-label_2="La pampa" data-theme="orange" >LA ADELA La pampa</a>
+        </div>
 
-      	<!--                                              Campo laguna del monte                                                   -->
-        <a class="weatherwidget-io" href="https://forecast7.com/es/n40d73n64d95/san-antonio-oeste/" data-label_1="SAN ANTONIO OESTE" data-label_2="CLIMA" data-theme="original" >SAN ANTONIO OESTE CLIMA</a>
         <div class="container-fluid">
           <!-- <img src="assets/img/cartel.jpeg"></img> -->
           <div class="row">
@@ -74,6 +88,37 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
 
             </div>
             <div class="col-sm-6">
+              <div class="card card-primary">
+                <div class="card-header-info">Tareas
+                  <button type="button" @click="alta_tarea=!alta_tarea" class="btn btn-primary pull-right">Nueva</button>
+                </div>
+                <div class="card-body">
+                  <div v-show="alta_tarea">
+                    <div class="row">
+                      <div class="form-group col-sm-6">
+                        <input type="text" v-model="nueva_tarea_nombre" class="form-control" placeholder="Nombre">
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <input type="text" v-model="nueva_tarea_desc" class="form-control" placeholder="Descripcion">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success">Crear</button>
+                    </div>
+                  </div>
+                  <ul class="list-group list-group-flush ">
+                    <li class="list-group-item list-group-item-info text-center" v-for="tarea in tareas">
+                      <a href="#" class="pull-left">
+                        <span class="fa fa-pencil"></span>
+                      </a>
+                      {{tarea.nombre}} - {{tarea.descrip}}
+                      <a href="#" class="pull-right" @click="eliminar_tarea(tarea.id)">
+                        <span class="fa fa-trash"></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
               <!--<div id="openweathermap-widget-15"></div>-->
          <!--    <div class="report-container" style="background: white; padding: 20px; border-radius: 10px;">
                 <h2><?php //echo $data->name; ?>{{nombre_estab_elegido}} Clima</h2>
@@ -97,10 +142,11 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
 
         </div>
       </div>
-      <!-- FOOTER -->
-      <?php include('footer.php');?>
-      <!-- END FOOTER -->
+
     </div>
+    <!-- FOOTER -->
+    <?php include('footer.php');?>
+    <!-- END FOOTER -->
   </div>
 
 
@@ -135,6 +181,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
   <script src="js/vue-axios.min.js"></script>
 <script src="js/index.js"></script>
   <script src="js/rutas.js"></script>
+  <script src="assets/js/plugins/bootstrap-notify.js"></script>
   <script src="js/inicio.js"></script>
 
 </body>

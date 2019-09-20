@@ -1,0 +1,1527 @@
+{
+	"info": {
+		"_postman_id": "5d742845-0c1a-47a7-a569-31f29d287cb7",
+		"name": "Laguna Campo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Empleados",
+			"item": [
+				{
+					"name": "Ver Empleado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/empleados/VerEmpleado.php?id_empleado=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"empleados",
+								"VerEmpleado.php"
+							],
+							"query": [
+								{
+									"key": "id_empleado",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baja Empleado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/empleados/baja_empleado.php?id_empleado=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"empleados",
+								"baja_empleado.php"
+							],
+							"query": [
+								{
+									"key": "id_empleado",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alta Empleado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombre",
+									"value": "asd",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "fwfw",
+									"type": "text"
+								},
+								{
+									"key": "puesto",
+									"value": "adad",
+									"type": "text"
+								},
+								{
+									"key": "fecha_inicio",
+									"value": "2019-01-02",
+									"type": "text"
+								},
+								{
+									"key": "sueldo",
+									"value": "123.4",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "fede@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "dni",
+									"value": "124",
+									"type": "text"
+								},
+								{
+									"key": "cuil",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "cod_postal",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "fecha_fin",
+									"value": "2019-01-02",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/empleados/alta_empleado.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"empleados",
+								"alta_empleado.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Empleados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/empleados/Traer_empleados.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"empleados",
+								"Traer_empleados.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Empleado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "nuevo",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "edicion",
+									"type": "text"
+								},
+								{
+									"key": "puesto",
+									"value": "peonero",
+									"type": "text"
+								},
+								{
+									"key": "sueldo",
+									"value": "350.56",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "fefefe@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "dni",
+									"value": "34534",
+									"type": "text"
+								},
+								{
+									"key": "cuil",
+									"value": "345345",
+									"type": "text"
+								},
+								{
+									"key": "cod_postal",
+									"value": "1212",
+									"type": "text"
+								},
+								{
+									"key": "fecha_fin",
+									"value": "2019-01-03",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/empleados/edit_empleado.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"empleados",
+								"edit_empleado.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Caravanas",
+			"item": [
+				{
+					"name": "Ver Caravana",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/caravanas/VerCaravana.php?id_caravana=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"caravanas",
+								"VerCaravana.php"
+							],
+							"query": [
+								{
+									"key": "id_caravana",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baja Caravana",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/caravanas/baja_caravana.php?id_caravana=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"caravanas",
+								"baja_caravana.php"
+							],
+							"query": [
+								{
+									"key": "id_caravana",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alta Caravana",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "codigo",
+									"value": "12ddasdas",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "vaca grande",
+									"type": "text"
+								},
+								{
+									"key": "peso",
+									"value": "2345",
+									"type": "text"
+								},
+								{
+									"key": "sexo",
+									"value": "femenino",
+									"type": "text"
+								},
+								{
+									"key": "categoria",
+									"value": "adulta",
+									"type": "text"
+								},
+								{
+									"key": "procedencia",
+									"value": "neuquen",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/caravanas/alta_caravana.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"caravanas",
+								"alta_caravana.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Caravanas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/caravanas/Traer_caravanas.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"caravanas",
+								"Traer_caravanas.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Caravana",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "codigo",
+									"value": "55",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "caballo",
+									"type": "text"
+								},
+								{
+									"key": "peso",
+									"value": "124",
+									"type": "text"
+								},
+								{
+									"key": "sexo",
+									"value": "femenino",
+									"type": "text"
+								},
+								{
+									"key": "categoria",
+									"value": "potrillo",
+									"type": "text"
+								},
+								{
+									"key": "procedencia",
+									"value": "chubut",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/caravanas/edit_caravana.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"caravanas",
+								"edit_caravana.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3b10e0e8-c631-4c61-b54d-07031a49f792",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40207921-dd91-45f9-ab3e-8df7ea544fbb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Movimientos",
+			"item": [
+				{
+					"name": "Ver Movimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/movimientos/VerMovimiento.php?id_mov=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"movimientos",
+								"VerMovimiento.php"
+							],
+							"query": [
+								{
+									"key": "id_mov",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baja Movimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/movimientos/baja_movimiento.php?id_mov=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"movimientos",
+								"baja_movimiento.php"
+							],
+							"query": [
+								{
+									"key": "id_mov",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alta Movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_caravana",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "fecha_mov",
+									"value": "15-03-2006",
+									"type": "text"
+								},
+								{
+									"key": "cantidad",
+									"value": "2345",
+									"type": "text"
+								},
+								{
+									"key": "tipo_mov",
+									"value": "entrada",
+									"type": "text"
+								},
+								{
+									"key": "categoria",
+									"value": "adulta",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "procedencia",
+									"value": "neuquen",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/movimientos/alta_movimiento.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"movimientos",
+								"alta_movimiento.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Movimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/movimientos/Traer_movimientos.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"movimientos",
+								"Traer_movimientos.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_mov",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_caravana",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "fecha_mov",
+									"value": "2018-11-12",
+									"type": "text"
+								},
+								{
+									"key": "cantidad",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tipo_mov",
+									"value": "salida",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/movimientos/edit_movimiento.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"movimientos",
+								"edit_movimiento.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3b10e0e8-c631-4c61-b54d-07031a49f792",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40207921-dd91-45f9-ab3e-8df7ea544fbb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Ventas",
+			"item": [
+				{
+					"name": "Ver Venta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/ventas/VerVenta.php?id_ventas=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"ventas",
+								"VerVenta.php"
+							],
+							"query": [
+								{
+									"key": "id_ventas",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baja Venta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/ventas/baja_venta.php?id_ventas=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"ventas",
+								"baja_venta.php"
+							],
+							"query": [
+								{
+									"key": "id_ventas",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alta Venta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fecha",
+									"value": "2010-11-11",
+									"type": "text"
+								},
+								{
+									"key": "num_fact",
+									"value": "fc 2-4563",
+									"type": "text"
+								},
+								{
+									"key": "cabezas",
+									"value": "38",
+									"type": "text"
+								},
+								{
+									"key": "kg",
+									"value": "15354.56",
+									"type": "text"
+								},
+								{
+									"key": "peso_x_kg",
+									"value": "1557.78",
+									"type": "text"
+								},
+								{
+									"key": "bruto",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "iva",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "neto",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "retencion",
+									"value": "234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/ventas/alta_venta.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"ventas",
+								"alta_venta.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Ventas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/ventas/Traer_ventas.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"ventas",
+								"Traer_ventas.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Venta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "fecha",
+									"value": "2001-11-11",
+									"type": "text"
+								},
+								{
+									"key": "num_fact",
+									"value": "fc 1243",
+									"type": "text"
+								},
+								{
+									"key": "cabezas",
+									"value": "1244",
+									"type": "text"
+								},
+								{
+									"key": "kg",
+									"value": "12412.56",
+									"type": "text"
+								},
+								{
+									"key": "peso_x_kg",
+									"value": "32555555.8",
+									"type": "text"
+								},
+								{
+									"key": "bruto",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "iva",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "neto",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "retencion",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/ventas/edit_venta.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"ventas",
+								"edit_venta.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3b10e0e8-c631-4c61-b54d-07031a49f792",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40207921-dd91-45f9-ab3e-8df7ea544fbb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Tareas",
+			"item": [
+				{
+					"name": "Ver Tarea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/tareas/Vertarea.php?id_tareas=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"tareas",
+								"Vertarea.php"
+							],
+							"query": [
+								{
+									"key": "id_tareas",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baja Tarea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/tareas/baja_tarea.php?id_tareas=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"tareas",
+								"baja_tarea.php"
+							],
+							"query": [
+								{
+									"key": "id_tareas",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alta Tarea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombre",
+									"value": "capacitacion",
+									"type": "text"
+								},
+								{
+									"key": "descrip",
+									"value": "capacitaciones en laravel",
+									"type": "text"
+								},
+								{
+									"key": "fecha",
+									"value": "2019-09-18",
+									"type": "text"
+								},
+								{
+									"key": "id_establecimiento",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/tareas/alta_tarea.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"tareas",
+								"alta_tarea.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Tareas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/tareas/Traer_tarea.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"tareas",
+								"Traer_tarea.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Tarea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "nueva capac",
+									"type": "text"
+								},
+								{
+									"key": "descrip",
+									"value": "nuevo curso de ruby",
+									"type": "text"
+								},
+								{
+									"key": "fecha",
+									"value": "2019-09-19",
+									"type": "text"
+								},
+								{
+									"key": "id_establecimiento",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/tareas/edit_tarea.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"tareas",
+								"edit_tarea.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3b10e0e8-c631-4c61-b54d-07031a49f792",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40207921-dd91-45f9-ab3e-8df7ea544fbb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Gastos",
+			"item": [
+				{
+					"name": "Ver Gasto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/gastos/VerGasto.php?id_gasto=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"gastos",
+								"VerGasto.php"
+							],
+							"query": [
+								{
+									"key": "id_gasto",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baja Gasto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/gastos/baja_gasto.php?id_gasto=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"gastos",
+								"baja_gasto.php"
+							],
+							"query": [
+								{
+									"key": "id_gasto",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alta Gasto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fecha",
+									"value": "2010-11-11",
+									"type": "text"
+								},
+								{
+									"key": "id_categoria",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "detalle",
+									"value": "aguinaldos empleados",
+									"type": "text"
+								},
+								{
+									"key": "valor",
+									"value": "3412",
+									"type": "text"
+								},
+								{
+									"key": "cantidad",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "id_establecimiento",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "tipo_recibo",
+									"value": "fact b",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/gastos/alta_gasto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"gastos",
+								"alta_gasto.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Gastos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://c1520705.ferozo.com/laguna/BACKEND/apis/gastos/Traer_gastos.php?categoria=3&establecimiento=2",
+							"protocol": "http",
+							"host": [
+								"c1520705",
+								"ferozo",
+								"com"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"gastos",
+								"Traer_gastos.php"
+							],
+							"query": [
+								{
+									"key": "categoria",
+									"value": "3"
+								},
+								{
+									"key": "establecimiento",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Establecimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/gastos/Traer_establecimientos.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"gastos",
+								"Traer_establecimientos.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/gastos/Traer_categorias.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"gastos",
+								"Traer_categorias.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Gasto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "fecha",
+									"value": "2001-11-11",
+									"type": "text"
+								},
+								{
+									"key": "id_categoria",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "detalle",
+									"value": "semillas",
+									"type": "text"
+								},
+								{
+									"key": "valor",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "cantidad",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "id_establecimiento",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tipo_recibo",
+									"value": "A",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/laguna/BACKEND/apis/gastos/edit_gasto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laguna",
+								"BACKEND",
+								"apis",
+								"gastos",
+								"edit_gasto.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3b10e0e8-c631-4c61-b54d-07031a49f792",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40207921-dd91-45f9-ab3e-8df7ea544fbb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Login Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "us",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "pass",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/usuarios/LoginUsuario.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"usuarios",
+								"LoginUsuario.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setear Sesion",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codigo\": 1,\n    \"mensaje\": {\n        \"id\": \"1\",\n        \"nombre\": \"administrador\",\n        \"apellido\": \"admin\",\n        \"usuario\": \"admin\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/usuarios/SetearSesion.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"PerroSoft",
+								"lagunacampo",
+								"BACKEND",
+								"apis",
+								"usuarios",
+								"SetearSesion.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
