@@ -12,6 +12,7 @@ var vm=new Vue({
     el: '#app',
     components: { vuejsDatepicker },
     data: {
+        use_utc:true,
         filtro_establecimiento:1,
         edit_tarea_establecimiento:1,
         fecha:start.toISOString().split('T')[0],

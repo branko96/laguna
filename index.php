@@ -87,7 +87,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                      data-inline="true"
                      data-position="top left"/>-->
              <!--<datepicker v-model="fecha" name="uniquename"></datepicker>-->
-              <vuejs-datepicker v-model="fecha" @input="fecha = fixDate($event)" :inline="autoshow_calendario" :format="DatePickerFormat" :language="language"></vuejs-datepicker>
+              <vuejs-datepicker :use-utc="use_utc" v-model="fecha" @input="fecha = fixDate($event)" :inline="autoshow_calendario" :format="DatePickerFormat" :language="language"></vuejs-datepicker>
 
             </div>
             	<!-- Precipitaciones Campo Laguna del monte -->
