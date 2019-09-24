@@ -218,6 +218,7 @@ var vm=new Vue({
     },
     updated () {
         $(this.$refs.sel1).selectpicker('refresh');
+        $(this.$refs.sel2).selectpicker('refresh');
     },
     mounted(){
         this.traer_establecimientos();
@@ -230,13 +231,14 @@ var vm=new Vue({
 
 $(function(){
     $("#select_estab").selectpicker();
+    $("#edit_estab").selectpicker();
     $('.dropdown').on('hide.bs.dropdown', function() {
         //console.log("activado");
         $('.bootstrap-select.open').removeClass('open');
     });
-    $('#air_datepicker').datepicker({
+    /*$('#air_datepicker').datepicker({
         timepicker: false,
         language: 'es',
         startDate: start
-    });
+    });*/
 });
