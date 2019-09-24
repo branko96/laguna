@@ -113,7 +113,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
 
               <div class="card card-primary">
                 <div class="card-header-info">Tareas
-                  <button type="button" @click="abrir_edicion_tareas" class="btn btn-primary pull-right">Nueva</button>
+                  <button type="button" @click="abrir_alta_tareas" class="btn btn-primary pull-right">Nueva</button>
                 </div>
                 <div class="card-body">
                   <div v-show="vista_alta_tarea">
@@ -139,7 +139,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                       </div>
                     </div>
                     <div class="form-group">
-                      <select name="edit_estab" id="edit_estab" data-live-search="true" class="selectpicker" ref="sel2" v-model="edit_tarea_establecimiento" @change="change_establecimiento_edit">
+                      <select name="edit_estab" id="edit_estab" data-live-search="true" class="selectpicker" ref="sel2" v-model="edit_tarea_establecimiento">
                         <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
                       </select>
                     </div>
