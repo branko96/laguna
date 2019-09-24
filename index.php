@@ -91,29 +91,29 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
 
             </div>
             	<!-- Precipitaciones Campo Laguna del monte -->
-            	<div class="col-sm-3" v-show="filtro_establecimiento == 1">
+            	<div class="col-sm-3 precipitaciones_div" v-show="filtro_establecimiento == 1">
         		<iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/san-antonio-oeste_argentina_3837980?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&mintemperature=0&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&humidity=1&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light&location_url=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fwidget%2Fdaily%2Fsan-antonio-oeste_argentina_3837980&location_mainUrl=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fsemana%2Fsan-antonio-oeste_argentina_3837980&nolocation_url=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fwidget%2Fdaily&nolocation_mainUrl=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fsemana%2Findex&dailywidth=54&tracking=%3Futm_source%3Dweather_widget%26utm_medium%3Dlinkus%26utm_content%3Ddaily%26utm_campaign%3DWeather%252BWidget"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 250px;height: 310px;background: #1F577C;margin-left: auto;margin: auto;color: white"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/semana/san-antonio-oeste_argentina_3837980?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
         		</div>
 
         			<!-- Precipitaciones Campo Ceferino -->
-        		<div class="col-sm-3" v-show="filtro_establecimiento == 2">
+        		<div class="col-sm-3 precipitaciones_div" v-show="filtro_establecimiento == 2">
      			<iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/carmen-de-patagones_argentina_3862583?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&mintemperature=0&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light&location_url=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fwidget%2Fdaily%2Fcarmen-de-patagones_argentina_3862583&location_mainUrl=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fsemana%2Fcarmen-de-patagones_argentina_3862583&nolocation_url=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fwidget%2Fdaily&nolocation_mainUrl=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fsemana%2Findex&dailywidth=54&tracking=%3Futm_source%3Dweather_widget%26utm_medium%3Dlinkus%26utm_content%3Ddaily%26utm_campaign%3DWeather%252BWidget"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 250px;height: 310px;background: #000000;margin-left: auto;margin: auto;"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/semana/carmen-de-patagones_argentina_3862583?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
      			</div>
 
         		<!-- Precipitaciones Campo Chacra -->
-        		<div class="col-sm-3" v-show="filtro_establecimiento == 3">
+        		<div class="col-sm-3 precipitaciones_div" v-show="filtro_establecimiento == 3">
         			<iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/viedma_argentina_3832899?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&mintemperature=0&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light&location_url=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fwidget%2Fdaily%2Fviedma_argentina_3832899&location_mainUrl=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fsemana%2Fviedma_argentina_3832899&nolocation_url=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fwidget%2Fdaily&nolocation_mainUrl=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fsemana%2Findex&dailywidth=54&tracking=%3Futm_source%3Dweather_widget%26utm_medium%3Dlinkus%26utm_content%3Ddaily%26utm_campaign%3DWeather%252BWidget"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 250px;height: 310px;background: #B3A797;margin-left: auto;margin: auto;"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/semana/viedma_argentina_3832899?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
         		</div>	
         	
      			<!-- Precipitaciones Campo San Antonio -->
-        		<div class="col-sm-3" v-show="filtro_establecimiento == 4">
+        		<div class="col-sm-3 precipitaciones_div" v-show="filtro_establecimiento == 4">
         		<iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/la-adela_argentina_11748567?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&mintemperature=0&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light&location_url=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fwidget%2Fdaily%2Fla-adela_argentina_11748567&location_mainUrl=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fsemana%2Fla-adela_argentina_11748567&nolocation_url=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fwidget%2Fdaily&nolocation_mainUrl=https%3A%2F%2Fwww.meteoblue.com%2Fes%2Ftiempo%2Fsemana%2Findex&dailywidth=54&tracking=%3Futm_source%3Dweather_widget%26utm_medium%3Dlinkus%26utm_content%3Ddaily%26utm_campaign%3DWeather%252BWidget"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 250px;height: 310px;background: #FEC93B;margin-left: auto;margin: auto;"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/semana/la-adela_argentina_11748567?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
         		</div>
             <div class="col-sm-5">
 
               <div class="card card-primary">
                 <div class="card-header-info">Tareas
-                  <button type="button" @click="vista_alta_tarea=!vista_alta_tarea" class="btn btn-primary pull-right">Nueva</button>
+                  <button type="button" @click="abrir_edicion_tareas" class="btn btn-primary pull-right">Nueva</button>
                 </div>
                 <div class="card-body">
                   <div v-show="vista_alta_tarea">
@@ -129,9 +129,27 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                         <button type="button" class="btn btn-success" @click="alta_tarea">Crear</button>
                     </div>
                   </div>
+                  <div v-show="vista_edicion_tarea">
+                    <div class="row">
+                      <div class="form-group col-sm-6">
+                        <input type="text" v-model="edit_tarea_nombre" class="form-control" placeholder="Nombre">
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <input type="text" v-model="edit_tarea_desc" class="form-control" placeholder="Descripcion">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <select name="edit_estab" id="edit_estab" data-live-search="true" class="selectpicker" ref="sel2" v-model="edit_tarea_establecimiento" @change="change_establecimiento_edit">
+                        <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <button type="button" class="btn btn-success" @click="editar_tarea">Actualizar</button>
+                    </div>
+                  </div>
                   <ul class="list-group list-group-flush ">
                     <li class="list-group-item list-group-item-info text-center" v-for="tarea in tareas">
-                      <a href="#" class="pull-left">
+                      <a href="#" @click="abrir_edicion_tareas(tarea.id,tarea.descrip,tarea.nombre,tarea.id_establecimiento)" class="pull-left">
                         <span class="fa fa-pencil"></span>
                       </a>
                       {{tarea.nombre}} - {{tarea.descrip}}
