@@ -2,6 +2,12 @@ var start = new Date();
 
 var ruta = 'https://'+window.location.host;
 
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).format('DD/MM/YYYY');
+    }
+});
+
 var vm=new Vue({
     el: '#app',
     components: { vuejsDatepicker },
@@ -51,6 +57,18 @@ var vm=new Vue({
             this.edit_tarea_establecimiento=estab;
             this.vista_edicion_tarea=true;
             this.vista_alta_tarea=false;
+        },
+        cerrar_alta(){
+            this.vista_alta_tarea=false;
+            this.nueva_tarea_nombre="";
+            this.nueva_tarea_desc="";
+        },
+        cerrar_edicion(){
+            this.vista_edicion_tarea=false;
+            this.edit_tarea_id=0;
+            this.edit_tarea_desc="";
+            this.edit_tarea_nombre="";
+            this.edit_tarea_establecimiento=1;
         },
         change_establecimiento(){
             let estab=parseInt(this.filtro_establecimiento);

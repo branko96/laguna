@@ -51,7 +51,9 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                                                   
       <div class="content" id="app">
 
-
+        <select name="estab" id="select_estab" data-live-search="true" class="selectpicker" ref="sel1" v-model="filtro_establecimiento" @change="change_establecimiento">
+          <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
+        </select>
         <!--         Campo laguna del monte    -->
         <div v-show="filtro_establecimiento == 1">
           <h1>Campo Laguna del Monte</h1>
@@ -78,9 +80,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
           <div class="row">
 
             <div class="col-sm-4">
-              <select name="estab" id="select_estab" data-live-search="true" class="selectpicker" ref="sel1" v-model="filtro_establecimiento" @change="change_establecimiento">
-                <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
-              </select>
+
               <!--<input id="air_datepicker" v-model="fecha" style="display: none;" type="text" value="<?php //echo date('d/m/Y');?>"
                      class="datepicker-here"
                      data-language="es"
@@ -112,11 +112,20 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
             <div class="col-sm-5">
 
               <div class="card card-primary">
-                <div class="card-header-info">Tareas
-                  <button type="button" @click="abrir_alta_tareas" class="btn btn-primary pull-right">Nueva</button>
+                <div class="card-header-info">
+                  <div>Tareas
+                    <button type="button" @click="abrir_alta_tareas" class="btn btn-primary pull-right"><span class="fa fa-plus"></span></button>
+                  </div>
+                  <div>{{fecha | formatDate}} - {{nombre_estab_elegido}}</div>
+
                 </div>
                 <div class="card-body">
                   <div v-show="vista_alta_tarea">
+                    <div class="col-sm-12 pull-right">
+                      <button type="button" @click="cerrar_alta" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
                     <div class="row">
                       <div class="form-group col-sm-6">
                         <input type="text" v-model="nueva_tarea_nombre" class="form-control" placeholder="Nombre">
@@ -130,6 +139,11 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                     </div>
                   </div>
                   <div v-show="vista_edicion_tarea">
+                    <div class="col-sm-12 pull-right">
+                      <button type="button" @click="cerrar_edicion" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
                     <div class="row">
                       <div class="form-group col-sm-6">
                         <input type="text" v-model="edit_tarea_nombre" class="form-control" placeholder="Nombre">
