@@ -30,3 +30,6 @@
 .precipitaciones_div{
     margin-top: 1rem;
 }
+.widget_ceferino iframe body {
+    color: white !important;
+}
