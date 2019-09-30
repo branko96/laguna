@@ -18,11 +18,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 		//Cuando son uno o varios parametros
 
-		//$body=$_GET; 
+		$body=$_GET;
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
+	if(isset($body['fecha'])){
+        $fecha=$body['fecha'];
+    }else{
+        $fecha="";
+    }
 
-	$rta=$TareasController->Traer_Tareas();
+    if(isset($body['id_establecimiento'])){
+        $id_establecimiento=$body['id_establecimiento'];
+    }else{
+        $id_establecimiento=0;
+    }
+
+	$rta=$TareasController->Traer_Tareas($id_establecimiento,$fecha);
 
 	//IMPRIMO RESPUESTA
 

@@ -39,6 +39,10 @@ var vm=new Vue({
         }
     },
     methods:{
+        change_fecha(event){
+            this.fecha = this.fixDate(event);
+            this.traer_tareas();
+        },
         fixDate(date) {
             /*var fech=new Date(date);
             console.log(fech);
@@ -99,6 +103,7 @@ var vm=new Vue({
                         break;
                 }
             }
+            this.traer_tareas();
         },
         alta_tarea(){
             let alta_tarea_obj={id_establecimiento:this.filtro_establecimiento,fecha:this.fecha,nombre:this.nueva_tarea_nombre,descrip:this.nueva_tarea_desc};
@@ -223,7 +228,7 @@ var vm=new Vue({
                 });
         },
         traer_tareas(){
-            MyApiClient.get("/BACKEND/apis/tareas/Traer_tarea.php")
+            MyApiClient.get("/BACKEND/apis/tareas/Traer_tarea.php?fecha="+this.fecha+"&id_establecimiento="+this.filtro_establecimiento)
                 .then((rta) =>{
                     //console.log(rta);
                     if (rta.data.id_respuesta == "1") {

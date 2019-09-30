@@ -88,8 +88,17 @@
 			}	
 		}
 
-		public function Traer_Tareas(){
-			$query = sprintf("SELECT * FROM tareas");
+		public function Traer_Tareas($id_establecimiento,$fecha){
+			if (($fecha == "")&&($id_establecimiento == 0)) {  // no esta la fecha ni el establecimiento
+				$query = sprintf("SELECT * FROM tareas");
+			}elseif ($fecha != "" && $id_establecimiento == 0) { // esta solo la fecha
+				$query = sprintf("SELECT * FROM tareas WHERE and tareas.fecha = '%s'",$fecha);
+			}elseif ($id_establecimiento > 0 && $fecha == "") { //esta solo el establecimiento
+				$query = sprintf("SELECT * FROM tareas WHERE tareas.id_establecimiento = %d",$id_establecimiento);
+			}elseif (($id_establecimiento > 0) && ($fecha != "")){ // esta la fecha y el establecimiento
+				$query = sprintf("SELECT * FROM tareas WHERE tareas.id_establecimiento = %d and tareas.fecha = '%s'",$id_establecimiento,$fecha);
+			}
+
 
 			$result = $this->db->getData($query);
 
