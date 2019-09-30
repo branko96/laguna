@@ -25,8 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		//var_dump($_FILES);
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
-		$fecha= date('Y-m-d');
-		$rta=$tareasController->AltaTarea($body['nombre'], $body['descrip'], $fecha, $body['id_establecimiento']);
+		$fecha= $body['fecha'];
+		$nombre=$body['nombre'];
+		$desc=$body['descrip'];
+		$id_establecimiento=$body['id_establecimiento'];
+		$rta=$tareasController->AltaTarea($nombre, $desc, $fecha, $id_establecimiento);
 
 	//IMPRIMO RESPUESTA
 

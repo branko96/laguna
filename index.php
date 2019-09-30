@@ -233,11 +233,12 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
       }
     }(document,'script','weatherwidget-io-js');
   </script>
-  <!-- Include Spanish language -->
-  <script src="plugins/AirDatePicker/js/i18n/datepicker.es.js"></script>
+  <!-- Include Spanish language
+  <script src="plugins/AirDatePicker/js/i18n/datepicker.es.js"></script>-->
   <script src="js/vue.js"></script>
   <script src="js/vue-axios.min.js"></script>
   <script src="https://unpkg.com/vuejs-datepicker"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vuejs-datepicker/1.6.2/locale/index.js"></script>-->
 <script src="js/index.js"></script>
   <script src="js/rutas.js"></script>
   <script src="assets/js/plugins/bootstrap-notify.js"></script>

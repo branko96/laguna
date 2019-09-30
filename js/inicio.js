@@ -48,8 +48,8 @@ var vm=new Vue({
             console.log(fech);
             console.log(date.toISOString().split('T')[0]);
             return fech.toISOString().split('T')[0];*/
-            console.log(moment(date).format('YYYY-MM-DD'));
-            return moment(date).format('YYYY-MM-DD');
+            console.log(moment(date).add(1, 'days').format('YYYY-MM-DD'));
+            return moment(date).add(1, 'days').format('YYYY-MM-DD');
         },
         abrir_alta_tareas(){
             this.vista_alta_tarea=!this.vista_alta_tarea;
