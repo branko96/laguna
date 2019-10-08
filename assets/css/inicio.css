@@ -33,3 +33,10 @@
 .widget_ceferino iframe body {
     color: white !important;
 }
+
+svg.hectarea{
+    transition: transform .2s;
+}
+svg.hectarea:hover{
+    transform: scale(1.1);
+}

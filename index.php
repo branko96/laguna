@@ -197,7 +197,23 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
               </div>
             </div> -->
           </div>
-
+          <div class="col-sm-12">
+            <svg version="1.1" class="hectarea" xmlns="http://www.w3.org/2000/svg"
+                 width="100" height="100" viewBox="0 0 100 100">
+              <rect x="0" y="0" stroke-width="1" stroke="black" width="100" height="80"
+                    fill="RoyalBlue" />
+            </svg>
+            <svg version="1.1" class="hectarea" xmlns="http://www.w3.org/2000/svg"
+                 width="100" height="100" viewBox="0 0 100 100">
+              <rect x="0" y="0" stroke-width="1" stroke="black" width="100" height="80"
+                    fill="RoyalBlue" />
+            </svg>
+            <svg version="1.1" class="hectarea" xmlns="http://www.w3.org/2000/svg"
+                 width="100" height="100" viewBox="0 0 100 100">
+              <rect x="0" y="0" stroke-width="1" stroke="black" width="100" height="80"
+                    fill="RoyalBlue" />
+            </svg>
+          </div>
         </div>
       </div>
 
