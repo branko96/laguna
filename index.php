@@ -40,6 +40,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
   <?php include('header.php');?>
   <link rel="stylesheet" href="assets/css/inicio.css">
   <link rel="stylesheet" href="assets_login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/fonts/flaticon.css">
 
 </head>
 
@@ -197,23 +198,23 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
               </div>
             </div> -->
           </div>
-          <div class="col-sm-12">
+          <div class="col-sm-12 card">
+            <div class="card-heading">
+             <h3>Caravanas Campo {{nombre_estab_elegido}}</h3>
+              <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">50</span> Vacas </div>
+              <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">20</span> Toros </div>
+            </div>
+            <div class="card-body">
             <svg version="1.1" class="hectarea" xmlns="http://www.w3.org/2000/svg"
                  width="100" height="100" viewBox="0 0 100 100">
               <rect x="0" y="0" stroke-width="1" stroke="black" width="100" height="80"
                     fill="RoyalBlue" />
             </svg>
-            <svg version="1.1" class="hectarea" xmlns="http://www.w3.org/2000/svg"
-                 width="100" height="100" viewBox="0 0 100 100">
-              <rect x="0" y="0" stroke-width="1" stroke="black" width="100" height="80"
-                    fill="RoyalBlue" />
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="hectarea" xmlns:se="http://svg-edit.googlecode.com" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="150" height="48.34710749012629" style="">
+                <path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_11" d="M48.87768752286273,267.67766884524855 " style="color: rgb(0, 0, 0);" class=""/><path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_1" d="M150.53057539704957,47.016513260769784 L148.93388433742132,1.0000000201966373 L1.000000039900641,2.6528925821800735 C1.7702495084182601,3.214861749117233 81.10908998235487,38.75205071140141 89.37355253172333,24.70246437747511 C97.6380150810918,10.65287804354881 121.60495647426018,10.65287804354881 120.83471078370229,10.090909111105702 C121.60495647426018,10.65287804354881 147.2247903773022,40.40494322127506 147.2247903773022,40.40494322127506 " style="color: rgb(0, 0, 0);" class="" transform="rotate(0.22406457364559174 75.7652969360362,24.008258819579087) "/>
             </svg>
-            <svg version="1.1" class="hectarea" xmlns="http://www.w3.org/2000/svg"
-                 width="100" height="100" viewBox="0 0 100 100">
-              <rect x="0" y="0" stroke-width="1" stroke="black" width="100" height="80"
-                    fill="RoyalBlue" />
-            </svg>
-            
+            </div>
           </div>
         </div>
       </div>
