@@ -34,9 +34,9 @@
     color: white !important;
 }
 
-svg.hectarea{
+svg.hectarea,object.hectarea{
     transition: transform .2s;
 }
-svg.hectarea:hover{
+object.hectarea:hover,svg.hectarea:hover{
     transform: scale(1.1);
 }
