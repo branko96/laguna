@@ -12,6 +12,8 @@ var vm=new Vue({
     el: '#app',
     components: { vuejsDatepicker },
     data: {
+        toros:0,
+        vacas:0,
         use_utc:true,
         filtro_establecimiento:1,
         edit_tarea_establecimiento:1,
@@ -42,6 +44,14 @@ var vm=new Vue({
         change_fecha(event){
             this.fecha = this.fixDate(event);
             this.traer_tareas();
+        },
+        mouseout_hectarea($event){
+            $($event.target).attr("fill","#4a90d6");
+        },
+        ver_hectarea($event){
+            $($event.target).attr("fill","#101055");
+            this.toros=this.toros+1000;
+            this.vacas=this.vacas+500;
         },
         fixDate(date) {
             /*var fech=new Date(date);

@@ -201,8 +201,8 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
           <div class="col-sm-12 card">
             <div class="card-heading">
              <h3>Caravanas Campo {{nombre_estab_elegido}}</h3>
-              <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">50</span> Vacas </div>
-              <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">20</span> Toros </div>
+              <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{vacas}}</span> Vacas </div>
+              <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{toros}}</span> Toros </div>
             </div>
             <div class="card-body">
             <!--<svg version="1.1" class="hectarea" xmlns="http://www.w3.org/2000/svg"
