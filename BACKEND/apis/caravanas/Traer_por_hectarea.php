@@ -18,11 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 		//Cuando son uno o varios parametros
 
-		//$body=$_GET; 
+		$body=$_GET; 
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 
-	$rta=$CaravanasController->Traer_Caravanas();
+	$rta=$CaravanasController->Traer_por_hectarea($body['procedencia'],$body['hectarea']);
 
 	//IMPRIMO RESPUESTA
 
