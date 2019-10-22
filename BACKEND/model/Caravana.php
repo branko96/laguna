@@ -9,8 +9,9 @@
 		protected $categoria;  
 		protected $procedencia;   
 		protected $hectarea; 
+		protected $cantidad; 
 		
-		public function __construct($id,$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea)
+		public function __construct($id,$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea,$cantidad)
 		{
 			$this->id = sprintf($id);
 			$this->codigo = sprintf($codigo);
@@ -20,6 +21,7 @@
 		    $this->categoria = sprintf($categoria);
 	    	$this->procedencia = sprintf($procedencia);
 	    	$this->hectarea = sprintf($hectarea);
+	    	$this->hectarea = sprintf($cantidad);
 
 		}
 
@@ -85,6 +87,14 @@
 
 		public function setHectarea($hectarea){
 			$this->hectarea = $hectarea;
+		}
+
+		public function getCantidad(){
+			return $this->cantidad;
+		}
+
+		public function setCantidad($cantidad){
+			$this->cantidad = $cantidad;
 		}
 
 		public function getJson(){
