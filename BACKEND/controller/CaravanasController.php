@@ -32,7 +32,7 @@
 				$respuesta =  new Respuesta(-1,'No se ha encontrado la caravana'); 
 				return $respuesta;
 			}else{
-					$caravana =  new Caravana($result[0]['id_caravana'],$result[0]['codigo'],$result[0]['descripcion'],$result[0]['peso'],$result[0]['sexo'],$result[0]['categoria'],$result[0]['procedencia']);
+					$caravana =  new Caravana($result[0]['id_caravana'],$result[0]['codigo'],$result[0]['descripcion'],$result[0]['peso'],$result[0]['sexo'],$result[0]['categoria'],$result[0]['procedencia'],$result[0]['hectarea']);
 
 					$respuesta =  new Respuesta(1,$caravana);
 
@@ -41,9 +41,9 @@
 			
 		}
 
-		public function AltaCaravana($codigo,$descripcion,$peso,$sexo,$categoria,$procedencia){			
+		public function AltaCaravana($codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea){			
 
-			$query = sprintf("INSERT INTO caravanas (codigo,descripcion,peso,sexo,categoria,procedencia) VALUES ('%s','%s','%s','%s','%s','%s')", $codigo,$descripcion,$peso,$sexo,$categoria,$procedencia);
+			$query = sprintf("INSERT INTO caravanas (codigo,descripcion,peso,sexo,categoria,procedencia) VALUES ('%s','%s','%s','%s','%s','%s','%s')", $codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea);
 
 			$result = $this->db->execute($query);
 			
@@ -73,8 +73,8 @@
 			}	
 		}
 
-		function EditarCaravana($id_caravana,$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia){
-				$query = sprintf("UPDATE caravanas SET codigo = %d,descripcion = '%s',peso = '%s',sexo = '%s',categoria = '%s',procedencia = '%s' WHERE id_caravana = %d ;",$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$id_caravana);
+		function EditarCaravana($id_caravana,$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea){
+				$query = sprintf("UPDATE caravanas SET codigo = %d,descripcion = '%s',peso = '%s',sexo = '%s',categoria = '%s',procedencia = '%s',hectarea = '%s' WHERE id_caravana = %d ;",$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea,$id_caravana);
 
 			$result = $this->db->execute($query);
 			
@@ -97,7 +97,7 @@
 				$caravanas = [];
 				//var_dump($result);
 				for($i=0; $i< count($result);$i++){		
-					$caravana= new Caravana($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia']);
+					$caravana= new Caravana($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia'],$result[$i]['hectarea']);
 					array_push($caravanas,$caravana->getJson());
 				}
 					//$respuesta =  new Respuesta(1,$caravanas);

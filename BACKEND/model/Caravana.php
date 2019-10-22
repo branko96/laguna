@@ -8,8 +8,9 @@
 		protected $sexo;
 		protected $categoria;  
 		protected $procedencia;   
+		protected $hectarea; 
 		
-		public function __construct($id,$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia)
+		public function __construct($id,$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea)
 		{
 			$this->id = sprintf($id);
 			$this->codigo = sprintf($codigo);
@@ -18,6 +19,7 @@
 		    $this->sexo = sprintf($sexo);
 		    $this->categoria = sprintf($categoria);
 	    	$this->procedencia = sprintf($procedencia);
+	    	$this->hectarea = sprintf($hectarea);
 
 		}
 
@@ -75,6 +77,14 @@
 
 		public function setProcedencia($procedencia){
 			$this->procedencia = $procedencia;
+		}
+
+		public function getHectarea(){
+			return $this->hectarea;
+		}
+
+		public function setHectarea($hectarea){
+			$this->hectarea = $hectarea;
 		}
 
 		public function getJson(){

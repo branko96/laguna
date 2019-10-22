@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2019 a las 22:48:13
+-- Tiempo de generación: 22-10-2019 a las 02:38:27
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -35,18 +35,19 @@ CREATE TABLE `caravanas` (
   `peso` varchar(25) NOT NULL,
   `sexo` varchar(20) NOT NULL,
   `categoria` varchar(25) NOT NULL,
-  `procedencia` varchar(20) NOT NULL
+  `procedencia` varchar(20) NOT NULL,
+  `hectarea` varchar(25) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `caravanas`
 --
 
-INSERT INTO `caravanas` (`id_caravana`, `codigo`, `descripcion`, `peso`, `sexo`, `categoria`, `procedencia`) VALUES
-(2, '55', 'caballo', '124', 'femenino', 'potrilloddsa', 'chubut'),
-(4, '12', 'vaca grande', '2345', 'femenino', 'adulta', 'neuquen'),
-(10, 'fsfs', 'asdasf', '2342', 'asf', 'asf', 'asf'),
-(8, 'affffe', 'asdfas', '324', 'asdadsdq', 'fefe', 'fasdas');
+INSERT INTO `caravanas` (`id_caravana`, `codigo`, `descripcion`, `peso`, `sexo`, `categoria`, `procedencia`, `hectarea`) VALUES
+(2, '55', 'caballo', '124', 'femenino', 'potrilloddsa', 'chubut', '02'),
+(4, '12', 'vaca grande', '2345', 'femenino', 'adulta', 'neuquen', ''),
+(10, 'fsfs', 'asdasf', '2342', 'asf', 'asf', 'asf', ''),
+(8, 'affffe', 'asdfas', '324', 'asdadsdq', 'fefe', 'fasdas', '');
 
 -- --------------------------------------------------------
 
@@ -218,6 +219,16 @@ CREATE TABLE `tareas` (
   `fecha` date NOT NULL,
   `id_establecimiento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tareas`
+--
+
+INSERT INTO `tareas` (`id_tareas`, `nombre`, `descrip`, `fecha`, `id_establecimiento`) VALUES
+(2, 'nueva capac', 'nuevo curso de ruby', '2019-09-18', 2019),
+(3, 'prueba', 'probando', '2019-10-01', 4),
+(4, 'Carnear vacas', '100 cacas', '2019-10-04', 4),
+(5, 'Sembrar', '100 metros', '2019-10-09', 1);
 
 -- --------------------------------------------------------
 
@@ -394,7 +405,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `id_tareas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tareas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

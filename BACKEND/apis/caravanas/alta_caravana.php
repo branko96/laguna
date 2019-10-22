@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 		//$fecha_inicio= date('Y-m-d H:i:s');
-		$rta=$caravanasController->AltaCaravana($body['codigo'], $body['descripcion'], $body['peso'], $body['sexo'], $body['categoria'], $body['procedencia']);
+		$rta=$caravanasController->AltaCaravana($body['codigo'], $body['descripcion'], $body['peso'], $body['sexo'], $body['categoria'], $body['procedencia'], $body['hectarea']);
 
 	//IMPRIMO RESPUESTA
 
