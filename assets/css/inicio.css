@@ -33,7 +33,10 @@
 .widget_ceferino iframe body {
     color: white !important;
 }
-
+svg.hectarea{
+    margin-left: auto;
+    margin-right: auto;
+}
 /*
 svg.hectarea rect,svg.hectarea path{
     transition: transform .2s;

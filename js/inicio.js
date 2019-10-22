@@ -48,10 +48,11 @@ var vm=new Vue({
         mouseout_hectarea($event){
             $($event.target).attr("fill","#4a90d6");
         },
-        ver_hectarea($event){
+        ver_hectarea($event,nombre){
+            console.log(nombre);
             $($event.target).attr("fill","#101055");
-            this.toros=this.toros+1000;
-            this.vacas=this.vacas+500;
+            this.toros=this.toros+10;
+            this.vacas=this.vacas+10;
         },
         fixDate(date) {
             /*var fech=new Date(date);

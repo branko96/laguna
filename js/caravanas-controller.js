@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
+var obj_caravana_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:''};
 
 // const MyApiClient = axios.create({
 //   baseURL: 'http://localhost:80/laguna/',
@@ -12,7 +12,8 @@ var vm=new Vue({
 		caravana_editar:obj_caravana_base,
 		caravanas: [],
 		nuev_caravana:obj_caravana_base,
-		showModal:false
+		showModal:false,
+		establecimientos:[]
 	},
 	methods:{
 		nueva_caravana(){
@@ -36,7 +37,7 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.nuev_caravana={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
+						vm.nuev_caravana={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:''};
 						setTimeout(function(){$("#modal_nueva_caravana").modal("hide");},500);
 						
 					}else{
@@ -162,10 +163,23 @@ var vm=new Vue({
 						}
 
 				});
-		}
+		},
+		traer_establecimientos(){
+			MyApiClient.get("/BACKEND/apis/gastos/Traer_establecimientos.php")
+				.then((rta) =>{
+					//console.log(rta);
+					if (rta.data.id_respuesta == "1") {
+						this.establecimientos=rta.data.mensaje;
+					}else{
+						this.establecimientos=[];
+					}
+
+				});
+		},
 	},
 	mounted(){
 		this.traer_caravanas();
+		this.traer_establecimientos();
 	}
 });
 
