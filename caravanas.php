@@ -38,6 +38,7 @@ session_start();
                       <th>ID</th>
                       <th>Codigo</th>
                       <th>Descripcion</th>
+                      <th>Cantidad</th>
                       <th>Peso</th>
                       <th>Sexo</th>
                       <th>Categoria</th>
@@ -50,6 +51,7 @@ session_start();
                         <td>{{caravana.id}}</td>
                         <td>{{caravana.codigo}}</td>
                         <td>{{caravana.descripcion}}</td>
+                        <td>{{caravana.cantidad}}</td>
                         <td>{{caravana.peso}}</td>
                         <td>{{caravana.sexo}}</td>
                         <td>{{caravana.categoria}}</td>
@@ -120,7 +122,7 @@ session_start();
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label class="">Sexo</label>
                           <select name="sexo" id="" v-model="caravana_editar.sexo" class="form-control">
@@ -129,10 +131,16 @@ session_start();
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label class="">Categoría</label>
                           <input type="text" v-model="caravana_editar.categoria" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="">Cantidad</label>
+                          <input type="number" v-model="caravana_editar.cantidad" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -235,6 +243,12 @@ session_start();
                         <div class="form-group">
                           <label class="bmd-label-floating">Categoría</label>
                           <input type="text" v-model="nuev_caravana.categoria" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="">Cantidad</label>
+                          <input type="number" v-model="nuev_caravana.cantidad" class="form-control">
                         </div>
                       </div>
                     </div>

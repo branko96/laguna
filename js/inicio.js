@@ -49,10 +49,22 @@ var vm=new Vue({
             $($event.target).attr("fill","#4a90d6");
         },
         ver_hectarea($event,nombre){
-            console.log(nombre);
+            //console.log(nombre);
             $($event.target).attr("fill","#101055");
-            this.toros=this.toros+10;
-            this.vacas=this.vacas+10;
+            MyApiClient.get("/BACKEND/apis/caravanas/Traer_por_hectarea.php?procedencia="+this.filtro_establecimiento+"&hectarea="+nombre)
+                .then((rta) =>{
+                    //console.log(rta);
+                    if (rta.data.id_respuesta == "1") {
+                        this.toros=rta.data.mensaje.toros;
+                        this.vacas=rta.data.mensaje.vacas;
+                    }else{
+                        this.toros=0;
+                        this.vacas=0;
+                    }
+
+                });
+
+
         },
         fixDate(date) {
             /*var fech=new Date(date);

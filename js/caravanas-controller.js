@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:''};
+var obj_caravana_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
 
 // const MyApiClient = axios.create({
 //   baseURL: 'http://localhost:80/laguna/',
@@ -37,7 +37,7 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.nuev_caravana={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:''};
+						vm.nuev_caravana={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
 						setTimeout(function(){$("#modal_nueva_caravana").modal("hide");},500);
 						
 					}else{
@@ -74,7 +74,7 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.caravana_editar={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:''};
+						vm.caravana_editar={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
 						vm.traer_caravanas();
 						setTimeout(function(){$("#modal_editar_caravana").modal("hide");},500);
 
