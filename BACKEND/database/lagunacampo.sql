@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2019 a las 02:38:27
+-- Tiempo de generación: 22-10-2019 a las 05:28:26
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -36,18 +36,20 @@ CREATE TABLE `caravanas` (
   `sexo` varchar(20) NOT NULL,
   `categoria` varchar(25) NOT NULL,
   `procedencia` varchar(20) NOT NULL,
-  `hectarea` varchar(25) DEFAULT NULL
+  `hectarea` varchar(25) NOT NULL,
+  `cantidad` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `caravanas`
 --
 
-INSERT INTO `caravanas` (`id_caravana`, `codigo`, `descripcion`, `peso`, `sexo`, `categoria`, `procedencia`, `hectarea`) VALUES
-(2, '55', 'caballo', '124', 'femenino', 'potrilloddsa', 'chubut', '02'),
-(4, '12', 'vaca grande', '2345', 'femenino', 'adulta', 'neuquen', ''),
-(10, 'fsfs', 'asdasf', '2342', 'asf', 'asf', 'asf', ''),
-(8, 'affffe', 'asdfas', '324', 'asdadsdq', 'fefe', 'fasdas', '');
+INSERT INTO `caravanas` (`id_caravana`, `codigo`, `descripcion`, `peso`, `sexo`, `categoria`, `procedencia`, `hectarea`, `cantidad`) VALUES
+(2, '55', 'caballo', '124', 'F', 'vaca', '2', '02', 10),
+(4, '12', 'vaca grande', '2345', 'femenino', 'adulta', 'neuquen', '', 0),
+(10, 'fsfs', 'asdasf', '2342', 'asf', 'asf', 'asf', '', 0),
+(8, 'affffe', 'asdfas', '324', 'asdadsdq', 'fefe', 'fasdas', '', 0),
+(11, '12ddasdas', 'vaca grande', '2345', 'femenino', 'adulta', 'ceferino', '04', 0);
 
 -- --------------------------------------------------------
 
@@ -357,7 +359,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `caravanas`
 --
 ALTER TABLE `caravanas`
-  MODIFY `id_caravana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_caravana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
