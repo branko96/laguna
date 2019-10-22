@@ -43,7 +43,7 @@
 
 		public function AltaCaravana($codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea){			
 
-			$query = sprintf("INSERT INTO caravanas (codigo,descripcion,peso,sexo,categoria,procedencia) VALUES ('%s','%s','%s','%s','%s','%s','%s')", $codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea);
+			$query = sprintf("INSERT INTO caravanas (codigo,descripcion,peso,sexo,categoria,procedencia,hectarea) VALUES ('%s','%s','%s','%s','%s','%s','%s')", $codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea);
 
 			$result = $this->db->execute($query);
 			
