@@ -42,6 +42,7 @@ session_start();
                       <th>Sexo</th>
                       <th>Categoria</th>
                       <th>Procedencia</th>
+                      <th>Hectarea</th>
                       <th>Accion</th>
                     </thead>
                     <tbody>
@@ -53,6 +54,7 @@ session_start();
                         <td>{{caravana.sexo}}</td>
                         <td>{{caravana.categoria}}</td>
                         <td>{{caravana.procedencia}}</td>
+                        <td>{{caravana.hectarea}}</td>
                         <td class="td-actions text-center">
                           <button type="button" title="Editar" @click="modal_editar(caravana);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
@@ -121,7 +123,10 @@ session_start();
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="">Sexo</label>
-                          <input type="text" v-model="caravana_editar.sexo" class="form-control">
+                          <select name="sexo" id="" v-model="caravana_editar.sexo" class="form-control">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -135,7 +140,15 @@ session_start();
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="">Procedencia</label>
-                          <input type="text" v-model="caravana_editar.procedencia" class="form-control">
+                          <select name="procedencia" v-model="caravana_editar.procedencia" class="form-control">
+                            <option v-for="est in establecimientos" :value="est.id">{{est.nombre}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="">Hectarea</label>
+                          <input type="text" name="hectarea" v-model="caravana_editar.hectarea" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -212,7 +225,10 @@ session_start();
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Sexo</label>
-                          <input type="text" v-model="nuev_caravana.sexo" class="form-control">
+                          <select name="sexo" v-model="nuev_caravana.sexo" class="form-control">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -226,7 +242,15 @@ session_start();
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Procedencia</label>
-                          <input type="text" v-model="nuev_caravana.procedencia" class="form-control">
+                          <select name="procedencia" v-model="nuev_caravana.procedencia" class="form-control">
+                            <option v-for="est in establecimientos" :value="est.id">{{est.nombre}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="">Hectarea</label>
+                          <input type="text" name="hectarea" v-model="nuev_caravana.hectarea" class="form-control">
                         </div>
                       </div>
                     </div>
