@@ -112,6 +112,28 @@
 			return $respuesta;					
 
 		}
+
+		public function Traer_por_hectarea($procedencia,$hectarea){
+		$query = sprintf("SELECT COUNT(*) FROM caravanas WHERE procedencia='%s' and hectarea='%s' and sexo='M'",$procedencia,$hectarea);
+		$result = $this->db->getData($query);
+		$query2 = sprintf("SELECT COUNT(*) FROM caravanas WHERE procedencia='%s' and hectarea='%s' and sexo='F'",$procedencia,$hectarea);
+		$result2 = $this->db->getData($query2);
+
+			if(count($result)>0) {
+				$caravanas = [];
+					//$respuesta =  new Respuesta(1,$caravanas);
+					$respuesta["id_respuesta"]=1;
+					$respuesta["mensaje"]["toros"]=$result;	
+					$respuesta["mensaje"]["vacas"]=$result2;	
+			}else{
+				//$respuesta =  new Respuesta(0,'No se ha encontrado ninguna caravana asociada.'); 
+				  $respuesta["id_respuesta"]=-1;
+				  $respuesta["mensaje"]='No se ha encontrado ninguna caravana asociada.';	
+			}	
+			//var_dump($respuesta);
+			return $respuesta;					
+
+		}
 		
 	}
 
