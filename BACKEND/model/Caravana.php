@@ -21,7 +21,7 @@
 		    $this->categoria = sprintf($categoria);
 	    	$this->procedencia = sprintf($procedencia);
 	    	$this->hectarea = sprintf($hectarea);
-	    	$this->hectarea = sprintf($cantidad);
+	    	$this->cantidad = sprintf($cantidad);
 
 		}
 
