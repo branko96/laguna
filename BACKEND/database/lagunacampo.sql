@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2019 a las 22:58:49
+-- Tiempo de generación: 24-10-2019 a las 23:09:48
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -201,7 +201,10 @@ INSERT INTO `hectareas` (`id`, `id_establecimiento`, `numero`) VALUES
 (19, 1, '10'),
 (20, 1, '11'),
 (21, 1, '12'),
-(22, 1, '00');
+(22, 1, '00'),
+(42, 2, '15'),
+(43, 3, '44'),
+(44, 4, '05');
 
 -- --------------------------------------------------------
 
@@ -443,7 +446,7 @@ ALTER TABLE `gastos_reales`
 -- AUTO_INCREMENT de la tabla `hectareas`
 --
 ALTER TABLE `hectareas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
