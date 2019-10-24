@@ -222,7 +222,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                     </div>
                     <div class="col-sm-6">
                       <label for="destino">Campo Destino</label>
-                      <select name="destino" id="destino" v-model="id_establ_destino" class="form-control">
+                      <select name="destino" id="destino" @change="traer_hectareas_destino" v-model="id_establ_destino" class="form-control" required>
                         <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
                       </select>
                     </div>
@@ -230,13 +230,13 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                   <div class="form-group row">
                     <div class="col-sm-6">
                       <label for="h_origen">Hectarea Origen</label>
-                      <select name="h_destino" v-model="hectarea_origen" id="h_origen" class="form-control">
-                        <option v-for="hect in hectareas_destino" :value="hect.id">{{hect.numero}}</option>
+                      <select name="h_destino" v-model="hectarea_origen" id="h_origen" class="form-control" required>
+                        <option v-for="hect in hectareas_origen" :value="hect.id">{{hect.numero}}</option>
                       </select>
                     </div>
                     <div class="col-sm-6">
                       <label for="h_destino">Hectarea Destino</label>
-                      <select name="h_destino" v-model="hectarea_destino" id="h_destino" class="form-control">
+                      <select name="h_destino" v-model="hectarea_destino" id="h_destino" class="form-control" required>
                         <option v-for="hect in hectareas_destino" :value="hect.id">{{hect.numero}}</option>
                       </select>
                     </div>

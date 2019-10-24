@@ -108,9 +108,6 @@ var vm=new Vue({
             this.edit_tarea_nombre="";
             this.edit_tarea_establecimiento=1;
         },
-        change_destino(){
-            this.traer_hectareas_destino();
-        },
         change_establecimiento(){
             let estab=parseInt(this.filtro_establecimiento);
             var establecimiento_eleg=this.establecimientos.filter(function (el) {
@@ -277,7 +274,7 @@ var vm=new Vue({
                 });
         },
         traer_hectareas_origen(){
-            MyApiClient.get("/BACKEND/apis/tareas/Traer_por_hectarea_id.php?id_establecimiento="+this.filtro_establecimiento)
+            MyApiClient.get("/BACKEND/apis/caravanas/Traer_por_hectarea_id.php?id_establecimiento="+this.filtro_establecimiento)
                 .then((rta) =>{
                     //console.log(rta);
                     if (rta.data.id_respuesta == "1") {
@@ -289,7 +286,7 @@ var vm=new Vue({
                 });
         },
         traer_hectareas_destino(){
-            MyApiClient.get("/BACKEND/apis/tareas/Traer_por_hectarea_id.php?id_establecimiento="+this.id_establ_destino)
+            MyApiClient.get("/BACKEND/apis/caravanas/Traer_por_hectarea_id.php?id_establecimiento="+this.id_establ_destino)
                 .then((rta) =>{
                     //console.log(rta);
                     if (rta.data.id_respuesta == "1") {
