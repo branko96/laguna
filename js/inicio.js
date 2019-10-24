@@ -17,6 +17,13 @@ var vm=new Vue({
         use_utc:true,
         filtro_establecimiento:1,
         edit_tarea_establecimiento:1,
+        id_establ_destino:1,
+        cant_toros:0,
+        cant_vacas:0,
+        hectarea_origen:'',
+        hectarea_destino:'',
+        hectareas_origen:[],
+        hectareas_destino:[],
         fecha:start.toISOString().split('T')[0],
         establecimientos:[],
         tareas:[],
@@ -66,6 +73,9 @@ var vm=new Vue({
 
 
         },
+        abrir_modal_pasajes(){
+          $("#modal_movimientos").modal("show");
+        },
         fixDate(date) {
             /*var fech=new Date(date);
             console.log(fech);
@@ -98,6 +108,9 @@ var vm=new Vue({
             this.edit_tarea_nombre="";
             this.edit_tarea_establecimiento=1;
         },
+        change_destino(){
+            this.traer_hectareas_destino();
+        },
         change_establecimiento(){
             let estab=parseInt(this.filtro_establecimiento);
             var establecimiento_eleg=this.establecimientos.filter(function (el) {
@@ -126,6 +139,7 @@ var vm=new Vue({
                         break;
                 }
             }
+            this.traer_hectareas_origen();
             this.traer_tareas();
         },
         alta_tarea(){
@@ -261,6 +275,30 @@ var vm=new Vue({
                     }
 
                 });
+        },
+        traer_hectareas_origen(){
+            MyApiClient.get("/BACKEND/apis/tareas/Traer_por_hectarea_id.php?id_establecimiento="+this.filtro_establecimiento)
+                .then((rta) =>{
+                    //console.log(rta);
+                    if (rta.data.id_respuesta == "1") {
+                        this.hectareas_origen=rta.data.mensaje.hectareas;
+                    }else{
+                        this.hectareas_origen=[];
+                    }
+
+                });
+        },
+        traer_hectareas_destino(){
+            MyApiClient.get("/BACKEND/apis/tareas/Traer_por_hectarea_id.php?id_establecimiento="+this.id_establ_destino)
+                .then((rta) =>{
+                    //console.log(rta);
+                    if (rta.data.id_respuesta == "1") {
+                        this.hectareas_destino=rta.data.mensaje.hectareas;
+                    }else{
+                        this.hectareas_destino=[];
+                    }
+
+                });
         }
     },
     updated () {
@@ -270,6 +308,8 @@ var vm=new Vue({
     mounted(){
         this.traer_establecimientos();
         this.traer_tareas();
+        this.traer_hectareas_origen();
+        this.traer_hectareas_destino();
         $("#estab2").hide();
         $("#estab3").hide();
         $("#estab4").hide();
