@@ -114,35 +114,67 @@
 		}
 
 		public function Traer_por_hectarea($procedencia,$hectarea){
-		$query = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s' and hectarea='%s' and sexo='M'",$procedencia,$hectarea);
-		$result = $this->db->getData($query);
-		$query2 = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s' and hectarea='%s' and sexo='F'",$procedencia,$hectarea);
-		$result2 = $this->db->getData($query2);
-		//var_dump($result2);
+			$total_toros=0;
+			$total_vacas=0;
+			//var_dump($hectarea);
+		if (isset($hectarea) && $hectarea!="") {
+			$query = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s' and hectarea=%d and sexo='M'",$procedencia,$hectarea);
+			$result = $this->db->getData($query);
+			$query2 = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s'  and hectarea=%d and sexo='F'",$procedencia,$hectarea);
+			$result2 = $this->db->getData($query2);
 
-			if($result!="") {
-				$total_toros = 0;
-				$total_vacas = 0;
-				if ($result[0]['cantidad']!=NULL) {
+			if ($result[0]['cantidad']!=NULL) {
 					$total_toros = $result[0]['cantidad'];
 				}
-					if ($result2[0]['cantidad']!=NULL) {
-						$total_vacas = $result2[0]['cantidad'];
-					}
-				
-					//$respuesta =  new Respuesta(1,$caravanas);
-					
+			if ($result2[0]['cantidad']!=NULL) {
+					$total_vacas= $result2[0]['cantidad'];
+				}
+		}else{
+			$query3 = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s' and sexo ='M'",$procedencia);
+			$result3 = $this->db->getData($query3);
+			$query4 = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s' and sexo ='F'",$procedencia);
+			$result4 = $this->db->getData($query4);
+
+			if ($result3[0]['cantidad']!=NULL) {
+					$total_toros = $result3[0]['cantidad'];
+				}
+			if ($result4[0]['cantidad']!=NULL) {
+					$total_vacas= $result4[0]['cantidad'];
+				}
+		}
 					$respuesta["id_respuesta"]=1;
 					$respuesta["mensaje"]["toros"]=$total_toros;	
 					$respuesta["mensaje"]["vacas"]=$total_vacas;	
-			}else{
-				//$respuesta =  new Respuesta(0,'No se ha encontrado ninguna caravana asociada.'); 
-				  $respuesta["id_respuesta"]=-1;
-				  $respuesta["mensaje"]='No se ha encontrado ninguna caravana asociada.';	
-			}	
-			//var_dump($respuesta);
+	
 			return $respuesta;					
+			
+		}
 
+		public function Traer_hectarea_id($id_establecimiento){
+			$query = sprintf("SELECT * FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);
+			$result = $this->db->getData($query);
+
+			//var_dump($result);
+			if(!$result) {
+				$respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea'); 
+				return $respuesta;
+			}else{
+				$hectareas = [];
+             for($i=0; $i< count($result);$i++){
+                 $hectarea = new stdClass();
+                 $hectarea->id = $result[$i]['id'];
+                 $hectarea->id_establecimiento= $result[$i]['id_establecimiento'];
+                 $hectarea->numero= $result[$i]['numero'];
+
+                 array_push($hectareas, $hectarea);
+                 $respuesta["id_respuesta"] = 1;
+				 $respuesta["mensaje"]["hectareas"] = $hectareas;
+             	}
+                 
+				 return $respuesta;
+
+			}
+		
 		}
 		
 	}
