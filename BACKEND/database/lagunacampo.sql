@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2019 a las 05:28:26
+-- Tiempo de generación: 24-10-2019 a las 22:58:49
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -36,7 +36,7 @@ CREATE TABLE `caravanas` (
   `sexo` varchar(20) NOT NULL,
   `categoria` varchar(25) NOT NULL,
   `procedencia` varchar(20) NOT NULL,
-  `hectarea` varchar(25) NOT NULL,
+  `hectarea` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -45,11 +45,10 @@ CREATE TABLE `caravanas` (
 --
 
 INSERT INTO `caravanas` (`id_caravana`, `codigo`, `descripcion`, `peso`, `sexo`, `categoria`, `procedencia`, `hectarea`, `cantidad`) VALUES
-(2, '55', 'caballo', '124', 'F', 'vaca', '2', '02', 10),
-(4, '12', 'vaca grande', '2345', 'femenino', 'adulta', 'neuquen', '', 0),
-(10, 'fsfs', 'asdasf', '2342', 'asf', 'asf', 'asf', '', 0),
-(8, 'affffe', 'asdfas', '324', 'asdadsdq', 'fefe', 'fasdas', '', 0),
-(11, '12ddasdas', 'vaca grande', '2345', 'femenino', 'adulta', 'ceferino', '04', 0);
+(2, '55', 'caballo', '124', 'F', 'vaca', '2', 2, 10),
+(10, 'fsfs', 'asdasf', '2342', 'M', 'asf', '2', 2, 10),
+(12, '12ddasdas', 'vaca grande', '2345', 'M', 'adulta', '2', 4, 75),
+(11, '12ddasdas', 'vaca grande', '2345', 'F', 'adulta', '2', 4, 89);
 
 -- --------------------------------------------------------
 
@@ -167,6 +166,46 @@ INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `va
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `hectareas`
+--
+
+CREATE TABLE `hectareas` (
+  `id` int(11) NOT NULL,
+  `id_establecimiento` int(11) NOT NULL,
+  `numero` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `hectareas`
+--
+
+INSERT INTO `hectareas` (`id`, `id_establecimiento`, `numero`) VALUES
+(1, 1, '01'),
+(2, 1, '02'),
+(3, 1, '03'),
+(4, 1, '04'),
+(5, 1, '05'),
+(6, 1, '06'),
+(7, 1, '07'),
+(8, 1, '08'),
+(9, 1, '09'),
+(10, 1, '1'),
+(11, 1, '2'),
+(12, 1, '3'),
+(13, 1, '4'),
+(14, 1, '5'),
+(15, 1, '6'),
+(16, 1, '7'),
+(17, 1, '8'),
+(18, 1, '9'),
+(19, 1, '10'),
+(20, 1, '11'),
+(21, 1, '12'),
+(22, 1, '00');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `movimientos`
 --
 
@@ -230,7 +269,10 @@ INSERT INTO `tareas` (`id_tareas`, `nombre`, `descrip`, `fecha`, `id_establecimi
 (2, 'nueva capac', 'nuevo curso de ruby', '2019-09-18', 2019),
 (3, 'prueba', 'probando', '2019-10-01', 4),
 (4, 'Carnear vacas', '100 cacas', '2019-10-04', 4),
-(5, 'Sembrar', '100 metros', '2019-10-09', 1);
+(5, 'Sembrar', '100 metros', '2019-10-09', 1),
+(6, 'sembrado', 'comprar 500.000 semillas', '2019-10-23', 1),
+(7, 'cumpleaÃ±os', 'asdasd', '2019-11-21', 1),
+(8, 'comprar', 'alfalfa', '2019-11-21', 1);
 
 -- --------------------------------------------------------
 
@@ -322,6 +364,12 @@ ALTER TABLE `gastos_reales`
   ADD PRIMARY KEY (`id_gasto`);
 
 --
+-- Indices de la tabla `hectareas`
+--
+ALTER TABLE `hectareas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
@@ -359,7 +407,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `caravanas`
 --
 ALTER TABLE `caravanas`
-  MODIFY `id_caravana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_caravana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -392,6 +440,12 @@ ALTER TABLE `gastos_reales`
   MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT de la tabla `hectareas`
+--
+ALTER TABLE `hectareas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
@@ -407,7 +461,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `id_tareas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tareas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
