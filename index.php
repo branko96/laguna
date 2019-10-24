@@ -41,6 +41,12 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
   <link rel="stylesheet" href="assets/css/inicio.css">
   <link rel="stylesheet" href="assets_login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/fonts/flaticon.css">
+  <style>
+    .modal-header .close {
+       padding: 0 !important;
+       margin: 0 !important;
+    }
+  </style>
 
 </head>
 
@@ -178,25 +184,6 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                   </ul>
                 </div>
               </div>
-              <!--<div id="openweathermap-widget-15"></div>-->
-         <!--    <div class="report-container" style="background: white; padding: 20px; border-radius: 10px;">
-                <h2><?php //echo $data->name; ?>{{nombre_estab_elegido}} Clima</h2>
-                <div class="time">
-                  <div><?php // echo date("l g:i a", $currentTime); ?></div>
-                  <div><?php // echo date("jS F, Y",$currentTime); ?></div>
-                  <div><?php // echo ucwords($data->weather[0]->description); ?></div>
-                </div>
-                <div class="weather-forecast">
-                  <img src="http://openweathermap.org/img/w/<?php // echo $data->weather[0]->icon; ?>.png"
-                       class="weather-icon" /> <?php //echo $data->main->temp_max; ?>°C<span
-                        class="min-temperature"><?php //echo $data->main->temp_min; ?>°C</span>
-                </div>
-                <div class="time">
-                  <div>Humedad: <?php //echo $data->main->humidity; ?> %</div>
-                  <div>Viento: <?php //echo $data->wind->speed; ?> km/h</div>
-                </div>
-              </div>
-            </div> -->
           </div>
           <div class="col-sm-12 card">
             <div class="card-heading">
@@ -205,39 +192,82 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
               <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{toros}}</span> Toros </div>
             </div>
             <div class="card-body">
-            <!--<svg version="1.1" class="hectarea" xmlns="http://www.w3.org/2000/svg"
-                 width="100" height="100" viewBox="0 0 100 100">
-              <rect x="0" y="0" stroke-width="1" stroke="black" width="100" height="80"
-                    fill="RoyalBlue" />
-            </svg>-->
               <div class="row" v-show="filtro_establecimiento == 1">
                 <?php require('grafico_laguna_monte.html');?>
               </div>
               <div class="row" v-show="filtro_establecimiento == 2">
                 <?php require('grafico_laguna_monte2.html');?>
               </div>
-            <!--<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100" class="hectarea">
-              <path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_1" d="M3.0211530674960727,63.284551143803924 L16.260179907325835,128.455288801736 L106.50408234635023,128.455288801736 L104.87806608618763,4.065044899296964 L3.0211530674960727,63.284551143803924 z" style="color: rgb(0, 0, 0);" class=""/>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100" class="hectarea">
-              <path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_5" d="M295.7040632340336,129.95121451973 " style="color: rgb(0, 0, 0);"/>
-              <path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_7" d="M337.167477225211,195.80487203512934 " style="color: rgb(0, 0, 0);"/>
-              <path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_4" d="M390.8260129784993,125.88617393235968 " style="color: rgb(0, 0, 0);"/>
-              <path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_2" d="M452.6146299065283,124.26015769741153 " style="color: rgb(0, 0, 0);"/><path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_6" d="M-2.6699037598652353,75.47966755767354 C170.50082526211077,77.10568379262165 170.50082526211077,77.10568379262165 169.91871680282964,76.4227636073663 C170.50082526211077,77.10568379262165 170.50082526211077,42.14633474123684 169.91871680282964,41.46341401387036 C170.50082526211077,42.14633474123684 3.021153062453209,3.121945102481675 2.4390420060817064,2.4390237699679176 C3.021153062453209,3.121945102481675 3.021153062453209,72.22763508777729 2.4390420060817064,71.5447148268785 " style="color: rgb(0, 0, 0);" class=""/>
-             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 150 100" class="hectarea">
-                <path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_11" d="M48.87768752286273,267.67766884524855 " style="color: rgb(0, 0, 0);" class=""/><path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_1" d="M150.53057539704957,47.016513260769784 L148.93388433742132,1.0000000201966373 L1.000000039900641,2.6528925821800735 C1.7702495084182601,3.214861749117233 81.10908998235487,38.75205071140141 89.37355253172333,24.70246437747511 C97.6380150810918,10.65287804354881 121.60495647426018,10.65287804354881 120.83471078370229,10.090909111105702 C121.60495647426018,10.65287804354881 147.2247903773022,40.40494322127506 147.2247903773022,40.40494322127506 " style="color: rgb(0, 0, 0);" class="" transform="rotate(0.22406457364559174 75.7652969360362,24.008258819579087) "/>
-            </svg>-->
             </div>
           </div>
         </div>
       </div>
+
+        <!-- Modal -->
+        <div id="modal_movimientos" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pasajes de animales</h4>
+              </div>
+              <div class="modal-body">
+                <form action="">
+                  <div class="form-group row">
+                    <div class="col-sm-6">
+                      <label for="origen">Campo Origen</label>
+                      <input type="text" id="origen" class="form-control" :value="nombre_estab_elegido" readonly>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="destino">Campo Destino</label>
+                      <select name="destino" id="destino" v-model="id_establ_destino" class="form-control">
+                        <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6">
+                      <label for="h_origen">Hectarea Origen</label>
+                      <select name="h_destino" v-model="hectarea_origen" id="h_origen" class="form-control">
+                        <option v-for="hect in hectareas_destino" :value="hect.id">{{hect.numero}}</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="h_destino">Hectarea Destino</label>
+                      <select name="h_destino" v-model="hectarea_destino" id="h_destino" class="form-control">
+                        <option v-for="hect in hectareas_destino" :value="hect.id">{{hect.numero}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6">
+                      <label for="cant_toros">Cantidad Toros</label>
+                      <input type="number" id="cant_toros" v-model="cant_toros" class="form-control" required>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="cant_vacas">Cantidad Vacas</label>
+                      <input type="number" id="cant_vacas" v-model="cant_vacas" class="form-control" required>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
 
     </div>
     <!-- FOOTER -->
     <?php include('footer.php');?>
     <!-- END FOOTER -->
   </div>
+
 
 
   <link href="plugins/AirDatePicker/css/datepicker.min.css" rel="stylesheet" type="text/css">
