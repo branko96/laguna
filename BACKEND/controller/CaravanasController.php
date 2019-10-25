@@ -113,14 +113,14 @@
 
 		}
 
-		public function Traer_por_hectarea($procedencia,$hectarea){
+		public function Traer_por_hectarea($id_establecimiento,$hectarea){
 			$total_toros=0;
 			$total_vacas=0;
 			//var_dump($hectarea);
 		if (isset($hectarea) && $hectarea!="") {
-			$query = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s' and hectarea=%d and sexo='M'",$procedencia,$hectarea);
+			$query = sprintf("SELECT SUM(total_toros) AS cantidad FROM hectareas WHERE id_establecimiento=%d and numero='%s'",$id_establecimiento,$hectarea);
 			$result = $this->db->getData($query);
-			$query2 = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s'  and hectarea=%d and sexo='F'",$procedencia,$hectarea);
+			$query2 = sprintf("SELECT SUM(total_vacas) AS cantidad FROM hectareas WHERE id_establecimiento=%d   and numero='%s'",$id_establecimiento,$hectarea);
 			$result2 = $this->db->getData($query2);
 
 			if ($result[0]['cantidad']!=NULL) {
@@ -130,9 +130,9 @@
 					$total_vacas= $result2[0]['cantidad'];
 				}
 		}else{
-			$query3 = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s' and sexo ='M'",$procedencia);
+			$query3 = sprintf("SELECT SUM(total_toros) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
 			$result3 = $this->db->getData($query3);
-			$query4 = sprintf("SELECT SUM(cantidad) AS cantidad FROM caravanas WHERE procedencia='%s' and sexo ='F'",$procedencia);
+			$query4 = sprintf("SELECT SUM(total_vacas) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
 			$result4 = $this->db->getData($query4);
 
 			if ($result3[0]['cantidad']!=NULL) {
