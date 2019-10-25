@@ -214,6 +214,8 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                 <h4 class="modal-title">Pasajes de animales</h4>
               </div>
               <div class="modal-body">
+                  <h5 class="text-center">Hectarea: {{hectarea_origen}} </h5>
+                  <h6 class="text-center">Toros: {{toros}} - Vacas: {{vacas}}</h6>
                 <form action="" @submit.prevent="movimiento">
                   <div class="form-group row">
                     <div class="col-sm-6">
@@ -255,22 +257,19 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                     <div class="form-group row">
                         <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 1">
                             <label for="cant_vacas">Cantidad Vacas</label>
-                            <input type="number" id="cant_vacas" v-model="cant_vacas" class="form-control" required>
+                            <input type="number" :disabled="vacas == 0" :max="vacas" min="1" id="cant_vacas" v-model="cant_vacas" class="form-control" required>
                         </div>
                         <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 2">
                             <label for="cant_toros">Cantidad Toros</label>
-                            <input type="number" id="cant_toros" v-model="cant_toros" class="form-control" required>
+                            <input type="number" :disabled="toros == 0" :max="toros" min="1" id="cant_toros" v-model="cant_toros" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group text-center">
                         <button type="submit" class="btn btn-success">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
 
-              </div>
-              <div class="modal-footer">
-
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
               </div>
             </div>
 
