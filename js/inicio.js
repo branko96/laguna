@@ -77,6 +77,8 @@ var vm=new Vue({
         abrir_modal_pasajes(hectarea_elegida){
           $("#modal_movimientos").modal("show");
           this.hectarea_origen=hectarea_elegida;
+          this.cant_toros=this.toros;
+          this.cant_vacas=this.vacas;
         },
         fixDate(date) {
             /*var fech=new Date(date);
