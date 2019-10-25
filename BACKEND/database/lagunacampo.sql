@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2019 a las 23:09:48
+-- Tiempo de generación: 26-10-2019 a las 00:18:19
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -60,6 +60,14 @@ CREATE TABLE `categorias` (
   `id_categoria` int(11) NOT NULL,
   `descripcion` varchar(25) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id_categoria`, `descripcion`) VALUES
+(1, 'Vacas'),
+(2, 'Toros');
 
 -- --------------------------------------------------------
 
@@ -172,39 +180,41 @@ INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `va
 CREATE TABLE `hectareas` (
   `id` int(11) NOT NULL,
   `id_establecimiento` int(11) NOT NULL,
-  `numero` varchar(25) NOT NULL
+  `numero` varchar(25) NOT NULL,
+  `total_toros` int(11) NOT NULL,
+  `total_vacas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `hectareas`
 --
 
-INSERT INTO `hectareas` (`id`, `id_establecimiento`, `numero`) VALUES
-(1, 1, '01'),
-(2, 1, '02'),
-(3, 1, '03'),
-(4, 1, '04'),
-(5, 1, '05'),
-(6, 1, '06'),
-(7, 1, '07'),
-(8, 1, '08'),
-(9, 1, '09'),
-(10, 1, '1'),
-(11, 1, '2'),
-(12, 1, '3'),
-(13, 1, '4'),
-(14, 1, '5'),
-(15, 1, '6'),
-(16, 1, '7'),
-(17, 1, '8'),
-(18, 1, '9'),
-(19, 1, '10'),
-(20, 1, '11'),
-(21, 1, '12'),
-(22, 1, '00'),
-(42, 2, '15'),
-(43, 3, '44'),
-(44, 4, '05');
+INSERT INTO `hectareas` (`id`, `id_establecimiento`, `numero`, `total_toros`, `total_vacas`) VALUES
+(1, 1, '01', 8, 7),
+(2, 1, '02', 0, 0),
+(3, 1, '03', 0, 0),
+(4, 1, '04', 0, 0),
+(5, 1, '05', 4, 6),
+(6, 1, '06', 0, 0),
+(7, 1, '07', 0, 0),
+(8, 1, '08', 0, 0),
+(9, 1, '09', 0, 0),
+(10, 1, '1', 2, 3),
+(11, 1, '2', 0, 0),
+(12, 1, '3', 0, 0),
+(13, 1, '4', 0, 0),
+(14, 1, '5', 4, 3),
+(15, 1, '6', 0, 0),
+(16, 1, '7', 0, 0),
+(17, 1, '8', 0, 0),
+(18, 1, '9', 0, 0),
+(19, 1, '10', 0, 0),
+(20, 1, '11', 0, 0),
+(21, 1, '12', 0, 0),
+(22, 1, '00', 0, 0),
+(42, 2, '15', 0, 0),
+(43, 3, '44', 0, 0),
+(44, 4, '05', 4, 6);
 
 -- --------------------------------------------------------
 
@@ -214,18 +224,26 @@ INSERT INTO `hectareas` (`id`, `id_establecimiento`, `numero`) VALUES
 
 CREATE TABLE `movimientos` (
   `id_mov` int(11) NOT NULL,
-  `id_caravana` int(11) NOT NULL,
   `fecha_mov` date NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `tipo_mov` varchar(15) NOT NULL
+  `categoria` int(11) NOT NULL,
+  `origen` varchar(11) NOT NULL,
+  `destino` varchar(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `movimientos`
 --
 
-INSERT INTO `movimientos` (`id_mov`, `id_caravana`, `fecha_mov`, `cantidad`, `tipo_mov`) VALUES
-(2, 125, '2019-02-21', 344, 'entrada');
+INSERT INTO `movimientos` (`id_mov`, `fecha_mov`, `cantidad`, `categoria`, `origen`, `destino`) VALUES
+(2, '2019-02-21', 2, 1, '01', '05'),
+(3, '2019-10-25', 2, 2, '01', '05'),
+(4, '2019-10-26', 2, 2, '01', '05'),
+(5, '2019-10-26', 2, 2, '01', '05'),
+(6, '2019-10-26', 2, 2, '01', '05'),
+(7, '2019-10-26', 2, 2, '01', '05'),
+(8, '2019-10-26', 3, 1, '01', '05'),
+(9, '2019-10-26', 3, 1, '01', '05');
 
 -- --------------------------------------------------------
 
@@ -273,7 +291,7 @@ INSERT INTO `tareas` (`id_tareas`, `nombre`, `descrip`, `fecha`, `id_establecimi
 (3, 'prueba', 'probando', '2019-10-01', 4),
 (4, 'Carnear vacas', '100 cacas', '2019-10-04', 4),
 (5, 'Sembrar', '100 metros', '2019-10-09', 1),
-(6, 'sembrado', 'comprar 500.000 semillas', '2019-10-23', 1),
+(6, 'sembrado', 'comprar 500.000 semillas', '2019-10-23', 2),
 (7, 'cumpleaÃ±os', 'asdasd', '2019-11-21', 1),
 (8, 'comprar', 'alfalfa', '2019-11-21', 1);
 
@@ -416,7 +434,7 @@ ALTER TABLE `caravanas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`
@@ -452,7 +470,7 @@ ALTER TABLE `hectareas`
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `id_mov` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mov` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `stock`
