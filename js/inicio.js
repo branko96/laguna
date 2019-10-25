@@ -24,6 +24,7 @@ var vm=new Vue({
         hectarea_destino:'',
         hectareas_origen:[],
         hectareas_destino:[],
+        categoria:1,
         fecha:start.toISOString().split('T')[0],
         establecimientos:[],
         tareas:[],
@@ -73,8 +74,9 @@ var vm=new Vue({
 
 
         },
-        abrir_modal_pasajes(){
+        abrir_modal_pasajes(hectarea_elegida){
           $("#modal_movimientos").modal("show");
+          this.hectarea_origen=hectarea_elegida;
         },
         fixDate(date) {
             /*var fech=new Date(date);
@@ -138,6 +140,52 @@ var vm=new Vue({
             }
             this.traer_hectareas_origen();
             this.traer_tareas();
+        },
+        movimiento(){
+            let cant= this.categoria == 1 ? this.cant_vacas : this.cant_toros;
+            let movimiento_obj={
+                cantidad:cant,
+                origen:this.hectarea_origen,
+                destino:this.hectarea_destino,
+                categoria:this.categoria};
+            var form_data = new FormData();
+            for ( var key in movimiento_obj) {
+                form_data.append(key, movimiento_obj[key]);
+            }
+            MyApiClient.post("/BACKEND/apis/movimientos/alta_movimiento.php",form_data)
+                .then((rta) =>{
+                    //console.log(rta);
+                    if (rta.data.id_respuesta == "1") {
+                        $("#modal_movimientos").modal("hide");
+                        this.cant_vacas=0;
+                        this.cant_toros=0;
+                        this.hectarea_destino='';
+                        this.hectarea_origen='';
+                        this.categoria=1;
+                        $.notify({
+                            message: rta.data.mensaje
+                        },{
+                            type: 'success',
+                            z_index: 2000,
+                            placement: {
+                                from: "top",
+                                align: "center"
+                            }
+                        });
+                    }else{
+                        $.notify({
+                            message: respuesta.data.mensaje
+                        },{
+                            type: 'danger',
+                            z_index: 2000,
+                            placement: {
+                                from: "top",
+                                align: "center"
+                            }
+                        });
+                    }
+
+                });
         },
         alta_tarea(){
             let alta_tarea_obj={id_establecimiento:this.filtro_establecimiento,fecha:this.fecha,nombre:this.nueva_tarea_nombre,descrip:this.nueva_tarea_desc};

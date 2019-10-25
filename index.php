@@ -214,7 +214,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                 <h4 class="modal-title">Pasajes de animales</h4>
               </div>
               <div class="modal-body">
-                <form action="">
+                <form action="" @submit.prevent="movimiento">
                   <div class="form-group row">
                     <div class="col-sm-6">
                       <label for="origen">Campo Origen</label>
@@ -231,30 +231,45 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                     <div class="col-sm-6">
                       <label for="h_origen">Hectarea Origen</label>
                       <select name="h_destino" v-model="hectarea_origen" id="h_origen" class="form-control" required>
-                        <option v-for="hect in hectareas_origen" :value="hect.id">{{hect.numero}}</option>
+                        <option v-for="hect in hectareas_origen" :value="hect.numero">{{hect.numero}}</option>
                       </select>
                     </div>
                     <div class="col-sm-6">
                       <label for="h_destino">Hectarea Destino</label>
                       <select name="h_destino" v-model="hectarea_destino" id="h_destino" class="form-control" required>
-                        <option v-for="hect in hectareas_destino" :value="hect.id">{{hect.numero}}</option>
+                        <option v-for="hect in hectareas_destino" :value="hect.numero">{{hect.numero}}</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-sm-6">
-                      <label for="cant_toros">Cantidad Toros</label>
-                      <input type="number" id="cant_toros" v-model="cant_toros" class="form-control" required>
+                        <label for="">Vacas</label>
+                        <input type="radio" v-model="categoria" class="form-control" value="1" required>
+
                     </div>
                     <div class="col-sm-6">
-                      <label for="cant_vacas">Cantidad Vacas</label>
-                      <input type="number" id="cant_vacas" v-model="cant_vacas" class="form-control" required>
+                        <label for="">Toros</label>
+                        <input type="radio" v-model="categoria" class="form-control" value="2" required>
                     </div>
                   </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 1">
+                            <label for="cant_vacas">Cantidad Vacas</label>
+                            <input type="number" id="cant_vacas" v-model="cant_vacas" class="form-control" required>
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 2">
+                            <label for="cant_toros">Cantidad Toros</label>
+                            <input type="number" id="cant_toros" v-model="cant_toros" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
                 </form>
 
               </div>
               <div class="modal-footer">
+
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
               </div>
             </div>
