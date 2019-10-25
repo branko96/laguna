@@ -41,23 +41,35 @@
 			
 		}
 
-		public function AltaMovimiento($id_caravana,$fecha_mov,$cantidad,$tipo_mov){			
-
-			$query = sprintf("INSERT INTO movimientos (id_caravana,fecha_mov,cantidad,tipo_mov) VALUES (%d,'%s',%d,'%s')", $id_caravana,$fecha_mov,$cantidad,$tipo_mov);
+		public function AltaMovimiento($fecha_mov,$cantidad,$categoria,$origen,$destino){			
+			$query = sprintf("INSERT INTO movimientos (fecha_mov,cantidad,categoria,origen,destino) VALUES ('%s',%d,'%s','%s','%s')", $fecha_mov,$cantidad,$categoria,$origen,$destino);
 
 			$result = $this->db->execute($query);
 			//var_dump($result);
 			$id_mov = $this->db->lastid();
+			if ($categoria==1) { //son vacas 
+				$queryVacas = sprintf("UPDATE hectareas set total_vacas = (total_vacas + %d) WHERE numero='%s'",$cantidad,$destino);
+				$resultVacas = $this->db->execute($queryVacas);
+
+				$queryVacas2 = sprintf("UPDATE hectareas set total_vacas = (total_vacas - %d) WHERE numero='%s'",$cantidad,$origen);
+				$resultVacas2 = $this->db->execute($queryVacas2);
+
+			}
+			if ($categoria==2) {//son toros {
+				$queryToros = sprintf("UPDATE hectareas set total_toros = (total_toros + %d) WHERE numero='%s'",$cantidad,$destino);
+				$resultToros = $this->db->execute($queryToros);
+
+				$queryToros2 = sprintf("UPDATE hectareas set total_toros = (total_toros - %d) WHERE numero='%s'",$cantidad,$origen);
+				$resultToros2 = $this->db->execute($queryToros2);
+			}
 			
 			if(!$result){ 
 				$respuesta =  new Respuesta(-1,'Error, el movimiento no se ha podido grabar');
 				return $respuesta;
 				
-				
 			}else{
 					$respuesta =  new Respuesta(1,'movimiento creado correctamente');
 					return $respuesta;
-					
 			}
 		}
 

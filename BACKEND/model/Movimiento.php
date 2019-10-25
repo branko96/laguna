@@ -2,19 +2,20 @@
 
 	Class Movimiento{
 		protected $id;
-		protected $id_caravana;
 		protected $fecha_mov;
 		protected $cantidad;
-		protected $tipo_mov;
- 
-		
-		public function __construct($id,$id_caravana,$fecha_mov,$cantidad,$tipo_mov)
+		protected $categoria;
+		protected $origen;
+		protected $destino;
+
+		public function __construct($id,$fecha_mov,$cantidad,$categoria,$origen,$destino)
 		{
 			$this->id = sprintf($id);
-			$this->id_caravana = sprintf($id_caravana);
 		    $this->fecha_mov = sprintf($fecha_mov);
 		    $this->cantidad = sprintf($cantidad);		    
-		    $this->tipo_mov = sprintf($tipo_mov);
+		    $this->categoria = sprintf($categoria);
+		    $this->origen = sprintf($origen);		    
+		    $this->destino = sprintf($destino);
 		}
 
 		public function getId(){
@@ -50,11 +51,27 @@
 		}	
 
 		public function getTipo_mov(){
-			return $this->tipo_mov;
+			return $this->categoria;
 		}
 
-		public function setTipo_mov($tipo_mov){
-			$this->tipo_mov = $tipo_mov;
+		public function setTipo_mov($categoria){
+			$this->categoria = $categoria;
+		}
+
+		public function getOrigen(){
+			return $this->origen;
+		}
+
+		public function setOrigen($origen){
+			$this->origen = $origen;
+		}
+
+		public function getDestino(){
+			return $this->destino;
+		}
+
+		public function setDestino($destino){
+			$this->destino = $destino;
 		}
 
 		public function getJson(){

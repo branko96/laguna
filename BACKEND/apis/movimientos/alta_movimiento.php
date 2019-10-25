@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 		$fecha_mov= date('Y-m-d H:i:s');
-		$rta=$movimientosController->AltaMovimiento($body['id_caravana'], $fecha_mov, $body['cantidad'], $body['tipo_mov']);
+		$rta=$movimientosController->AltaMovimiento($fecha_mov, $body['cantidad'], $body['categoria'], $body['origen'], $body['destino']);
 
 	//IMPRIMO RESPUESTA
 
