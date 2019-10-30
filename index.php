@@ -193,7 +193,7 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                     <?php require('grafico_laguna_monte.html');?>
                   </div>
                   <div class="row" v-show="filtro_establecimiento == 2">
-                    <?php require('grafico_laguna_monte2.html');?>
+                    <?php require('grafico_ceferino.html');?>
                   </div>
                 </div>
               </div>
