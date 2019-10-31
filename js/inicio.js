@@ -14,12 +14,24 @@ var vm=new Vue({
     data: {
         toros:0,
         vacas:0,
+        terneros:0,
+        terneras:0,
+        novillos:0,
+        vaquillona:0,
+        vaca_vieja:0,
+        caballos:0,
         use_utc:true,
         filtro_establecimiento:1,
         edit_tarea_establecimiento:1,
         id_establ_destino:1,
         cant_toros:0,
         cant_vacas:0,
+        cant_terneros:0,
+        cant_terneras:0,
+        cant_novillos:0,
+        cant_vaquillonas:0,
+        cant_vacas_viejas:0,
+        cant_caballos:0,
         hectarea_origen:'',
         hectarea_destino:'',
         hectareas_origen:[],
@@ -65,9 +77,21 @@ var vm=new Vue({
                     if (rta.data.id_respuesta == "1") {
                         this.toros=rta.data.mensaje.toros;
                         this.vacas=rta.data.mensaje.vacas;
+                        this.terneros=rta.data.mensaje.terneros;
+                        this.terneras=rta.data.mensaje.terneras;
+                        this.novillos=rta.data.mensaje.novillos;
+                        this.vaquillona=rta.data.mensaje.vaquillona;
+                        this.vaca_vieja=rta.data.mensaje.vaca_vieja;
+                        this.caballos=rta.data.mensaje.caballos;
                     }else{
                         this.toros=0;
                         this.vacas=0;
+                        this.terneros=0;
+                        this.terneras=0;
+                        this.novillos=0;
+                        this.vaquillona=0;
+                        this.vaca_vieja=0;
+                        this.caballos=0;
                     }
 
                 });
@@ -79,6 +103,12 @@ var vm=new Vue({
           this.hectarea_origen=hectarea_elegida;
           this.cant_toros=this.toros;
           this.cant_vacas=this.vacas;
+            this.cant_terneras=this.terneras;
+            this.cant_terneros=this.terneros;
+            this.cant_novillos=this.novillos;
+            this.cant_vaquillonas=this.vaquillona;
+            this.cant_vacas_viejas=this.vaca_vieja;
+            this.cant_caballos=this.caballos;
         },
         fixDate(date) {
             /*var fech=new Date(date);

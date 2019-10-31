@@ -187,6 +187,12 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                  <h3>Caravanas Campo {{nombre_estab_elegido}}</h3>
                   <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{vacas}}</span> Vacas </div>
                   <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{toros}}</span> Toros </div>
+                    <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{terneras}}</span> Terneras </div>
+                    <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{terneros}}</span> Terneros </div>
+                    <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{novillos}}</span> Novillos </div>
+                    <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{vaquillona}}</span> Vaquillonas </div>
+                    <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{vaca_vieja}}</span> Vacas Viejas </div>
+                    <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{caballos}}</span> Caballos </div>
                 </div>
                 <div class="card-body">
                   <div class="row" v-show="filtro_establecimiento == 1">
@@ -213,6 +219,9 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
               <div class="modal-body">
                   <h5 class="text-center">Hectarea: {{hectarea_origen}} </h5>
                   <h6 class="text-center">Toros: {{toros}} - Vacas: {{vacas}}</h6>
+                  <h6 class="text-center">Terneros: {{terneros}} - Terneras: {{terneras}}</h6>
+                  <h6 class="text-center">Novillos: {{novillos}} - Vaquillonas: {{vaquillona}}</h6>
+                  <h6 class="text-center">Vacas Viejas: {{vaca_vieja}} - Caballos: {{caballos}}</h6>
                 <form action="" @submit.prevent="movimiento">
                   <div class="form-group row">
                     <div class="col-sm-6">
@@ -244,12 +253,37 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                     <div class="col-sm-6">
                         <label for="">Vacas</label>
                         <input type="radio" v-model="categoria" class="form-control" value="1" required>
+                    </div>
+                      <div class="col-sm-6">
+                          <label for="">Toros</label>
+                          <input type="radio" v-model="categoria" class="form-control" value="2" required>
+                      </div>
+                      <div class="col-sm-6">
+                          <label for="">Terneras</label>
+                          <input type="radio" v-model="categoria" class="form-control" value="3" required>
+                      </div>
+                      <div class="col-sm-6">
+                          <label for="">Terneros</label>
+                          <input type="radio" v-model="categoria" class="form-control" value="4" required>
+                      </div>
+                      <div class="col-sm-6">
+                          <label for="">Novillos</label>
+                          <input type="radio" v-model="categoria" class="form-control" value="5" required>
+                      </div>
+                      <div class="col-sm-6">
+                          <label for="">Vaquillonas</label>
+                          <input type="radio" v-model="categoria" class="form-control" value="6" required>
 
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="">Toros</label>
-                        <input type="radio" v-model="categoria" class="form-control" value="2" required>
-                    </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <label for="">Vacas Viejas</label>
+                          <input type="radio" v-model="categoria" class="form-control" value="7" required>
+                      </div>
+                      <div class="col-sm-6">
+                          <label for="">Caballos</label>
+                          <input type="radio" v-model="categoria" class="form-control" value="8" required>
+                      </div>
+
                   </div>
                     <div class="form-group row">
                         <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 1">
@@ -259,6 +293,30 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
                         <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 2">
                             <label for="cant_toros">Cantidad Toros</label>
                             <input type="number" :disabled="toros == 0" :max="toros" min="1" id="cant_toros" v-model="cant_toros" class="form-control" required>
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 3">
+                            <label for="cant_terneras">Cantidad Terneras</label>
+                            <input type="number" :disabled="terneras == 0" :max="terneras" min="1" id="cant_terneras" v-model="cant_terneras" class="form-control" required>
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 4">
+                            <label for="cant_terneros">Cantidad Terneros</label>
+                            <input type="number" :disabled="terneros == 0" :max="terneros" min="1" id="cant_terneros" v-model="cant_terneros" class="form-control" required>
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 5">
+                            <label for="cant_novillos">Cantidad Novillos</label>
+                            <input type="number" :disabled="novillos == 0" :max="novillos" min="1" id="cant_novillos" v-model="cant_novillos" class="form-control" required>
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 6">
+                            <label for="cant_vaquillonas">Cantidad Vaquillonas</label>
+                            <input type="number" :disabled="vaquillona == 0" :max="vaquillona" min="1" id="cant_vaquillonas" v-model="cant_vaquillonas" class="form-control" required>
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 7">
+                            <label for="cant_vacas">Cantidad Vacas Viejas</label>
+                            <input type="number" :disabled="vaca_vieja == 0" :max="vaca_vieja" min="1" id="cant_vacas_viejas" v-model="cant_vacas_viejas" class="form-control" required>
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-3" v-show="categoria == 8">
+                            <label for="cant_caballos">Cantidad Caballos</label>
+                            <input type="number" :disabled="caballos == 0" :max="caballos" min="1" id="cant_caballos" v-model="cant_caballos" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group text-center">
