@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2019 a las 00:18:19
+-- Tiempo de generación: 31-10-2019 a las 01:06:07
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -169,7 +169,10 @@ CREATE TABLE `gastos_reales` (
 INSERT INTO `gastos_reales` (`id_gasto`, `fecha`, `id_categoria`, `detalle`, `valor`, `cantidad`, `id_establecimiento`, `tipo_recibo`, `total`) VALUES
 (15, '2019-07-10', 2, 'asd', 234, 2, 1, 'd', 468),
 (16, '2019-07-17', 8, 'dd', 234, 1, 2, 'dd', 234),
-(17, '2019-09-03', 4, 'asd', 3, 4, 2, 'B', 12);
+(17, '2019-09-03', 4, 'asd', 3, 4, 2, 'B', 12),
+(18, '2019-10-25', 2, 'qeqe', 3, 3, 1, 'A', 9),
+(19, '2019-10-24', 1, 'asd', 14, 2, 1, 'B', 28),
+(20, '2019-10-24', 6, 'ASD', 3, 3, 2, 'a', 9);
 
 -- --------------------------------------------------------
 
@@ -182,39 +185,57 @@ CREATE TABLE `hectareas` (
   `id_establecimiento` int(11) NOT NULL,
   `numero` varchar(25) NOT NULL,
   `total_toros` int(11) NOT NULL,
-  `total_vacas` int(11) NOT NULL
+  `total_vacas` int(11) NOT NULL,
+  `total_terneros` int(11) NOT NULL,
+  `total_terneras` int(11) NOT NULL,
+  `total_novillos` int(11) NOT NULL,
+  `total_vaca_vieja` int(11) NOT NULL,
+  `total_vaquillona` int(11) NOT NULL,
+  `total_caballos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `hectareas`
 --
 
-INSERT INTO `hectareas` (`id`, `id_establecimiento`, `numero`, `total_toros`, `total_vacas`) VALUES
-(1, 1, '01', 8, 7),
-(2, 1, '02', 0, 0),
-(3, 1, '03', 0, 0),
-(4, 1, '04', 0, 0),
-(5, 1, '05', 4, 6),
-(6, 1, '06', 0, 0),
-(7, 1, '07', 0, 0),
-(8, 1, '08', 0, 0),
-(9, 1, '09', 0, 0),
-(10, 1, '1', 2, 3),
-(11, 1, '2', 0, 0),
-(12, 1, '3', 0, 0),
-(13, 1, '4', 0, 0),
-(14, 1, '5', 4, 3),
-(15, 1, '6', 0, 0),
-(16, 1, '7', 0, 0),
-(17, 1, '8', 0, 0),
-(18, 1, '9', 0, 0),
-(19, 1, '10', 0, 0),
-(20, 1, '11', 0, 0),
-(21, 1, '12', 0, 0),
-(22, 1, '00', 0, 0),
-(42, 2, '15', 0, 0),
-(43, 3, '44', 0, 0),
-(44, 4, '05', 4, 6);
+INSERT INTO `hectareas` (`id`, `id_establecimiento`, `numero`, `total_toros`, `total_vacas`, `total_terneros`, `total_terneras`, `total_novillos`, `total_vaca_vieja`, `total_vaquillona`, `total_caballos`) VALUES
+(1, 1, '01', 5, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, '02', 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 1, '03', 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 1, '04', 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 1, '05', 4, 4, 0, 0, 0, 0, 0, 0),
+(6, 1, '06', 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 1, '07', 0, 0, 0, 0, 0, 0, 0, 0),
+(8, 1, '08', 0, 4, 0, 0, 0, 0, 0, 0),
+(9, 1, '09', 0, 0, 0, 0, 0, 0, 0, 0),
+(10, 1, '1', 2, 3, 0, 0, 0, 0, 0, 0),
+(11, 1, '2', 0, 0, 0, 0, 0, 0, 0, 0),
+(12, 1, '3', 0, 0, 0, 0, 0, 0, 0, 0),
+(13, 1, '4', 0, 0, 0, 0, 0, 0, 0, 0),
+(14, 1, '5', 4, 3, 0, 0, 0, 0, 0, 0),
+(15, 1, '6', 0, 2, 0, 0, 0, 0, 0, 0),
+(16, 1, '7', 0, 0, 0, 0, 0, 0, 0, 0),
+(17, 1, '8', 0, 0, 0, 0, 0, 0, 0, 0),
+(18, 1, '9', 3, 0, 0, 0, 0, 0, 0, 0),
+(19, 1, '10', 0, 0, 0, 0, 0, 0, 0, 0),
+(20, 1, '11', 0, 4, 0, 0, 0, 0, 0, 0),
+(21, 1, '12', 0, 0, 0, 0, 0, 0, 0, 0),
+(22, 1, '00', 0, 0, 0, 0, 0, 0, 0, 0),
+(43, 3, '44', 0, 0, 0, 0, 0, 0, 0, 0),
+(44, 4, '05', 4, 4, 0, 0, 0, 0, 0, 0),
+(45, 2, '01', 5, 0, 0, 0, 0, 0, 0, 0),
+(46, 2, '02', 0, 0, 0, 0, 0, 0, 0, 0),
+(47, 2, '03', 0, 0, 0, 0, 0, 0, 0, 0),
+(48, 2, '04', 0, 0, 0, 0, 0, 0, 0, 0),
+(49, 2, '05', 4, 4, 0, 0, 0, 0, 0, 0),
+(50, 2, '06', 0, 0, 0, 0, 0, 0, 0, 0),
+(51, 2, '07', 0, 0, 0, 0, 0, 0, 0, 0),
+(52, 2, '08', 0, 4, 0, 0, 0, 0, 0, 0),
+(53, 2, '09', 0, 0, 0, 0, 0, 0, 0, 0),
+(54, 2, '1', 2, 3, 0, 0, 0, 0, 0, 0),
+(55, 2, '2', 0, 0, 0, 0, 0, 0, 0, 0),
+(56, 2, '3', 0, 0, 0, 0, 0, 0, 0, 0),
+(57, 2, '4', 14, 0, 1, 2, 4, 4, 4, 15);
 
 -- --------------------------------------------------------
 
@@ -243,7 +264,14 @@ INSERT INTO `movimientos` (`id_mov`, `fecha_mov`, `cantidad`, `categoria`, `orig
 (6, '2019-10-26', 2, 2, '01', '05'),
 (7, '2019-10-26', 2, 2, '01', '05'),
 (8, '2019-10-26', 3, 1, '01', '05'),
-(9, '2019-10-26', 3, 1, '01', '05');
+(9, '2019-10-26', 3, 1, '01', '05'),
+(10, '2019-10-26', 0, 1, '11', '5'),
+(11, '2019-10-26', 2, 1, '2', '6'),
+(12, '2019-10-26', 3, 2, '01', '9'),
+(13, '2019-10-26', 4, 1, '01', '11'),
+(14, '2019-10-26', 1, 1, '01', '2'),
+(15, '2019-10-26', 2, 1, '05', '08'),
+(16, '2019-10-26', 2, 1, '01', '08');
 
 -- --------------------------------------------------------
 
@@ -293,7 +321,9 @@ INSERT INTO `tareas` (`id_tareas`, `nombre`, `descrip`, `fecha`, `id_establecimi
 (5, 'Sembrar', '100 metros', '2019-10-09', 1),
 (6, 'sembrado', 'comprar 500.000 semillas', '2019-10-23', 2),
 (7, 'cumpleaÃ±os', 'asdasd', '2019-11-21', 1),
-(8, 'comprar', 'alfalfa', '2019-11-21', 1);
+(8, 'comprar', 'alfalfa', '2019-11-21', 1),
+(9, 'Sembrado', 'avena', '2019-10-26', 1),
+(10, 'sembrado', 'maiz', '2019-11-06', 1);
 
 -- --------------------------------------------------------
 
@@ -458,19 +488,19 @@ ALTER TABLE `gastos_categorias`
 -- AUTO_INCREMENT de la tabla `gastos_reales`
 --
 ALTER TABLE `gastos_reales`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `hectareas`
 --
 ALTER TABLE `hectareas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `id_mov` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_mov` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `stock`
@@ -482,7 +512,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `id_tareas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_tareas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
