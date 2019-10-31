@@ -116,12 +116,31 @@
 		public function Traer_por_hectarea($id_establecimiento,$hectarea){
 			$total_toros=0;
 			$total_vacas=0;
+			$total_terneros=0;
+			$total_terneras=0;
+			$total_novillos=0;
+			$total_vaquillona=0;
+			$total_vaca_vieja=0;
+			$total_caballos=0;
+			
 			//var_dump($hectarea);
 		if (isset($hectarea) && $hectarea!="") {
 			$query = sprintf("SELECT SUM(total_toros) AS cantidad FROM hectareas WHERE id_establecimiento=%d and numero='%s'",$id_establecimiento,$hectarea);
 			$result = $this->db->getData($query);
 			$query2 = sprintf("SELECT SUM(total_vacas) AS cantidad FROM hectareas WHERE id_establecimiento=%d   and numero='%s'",$id_establecimiento,$hectarea);
 			$result2 = $this->db->getData($query2);
+			$queryTerneros = sprintf("SELECT SUM(total_terneros) AS cantidad FROM hectareas WHERE id_establecimiento=%d and numero='%s'",$id_establecimiento,$hectarea);
+			$resultTerneros = $this->db->getData($queryTerneros);
+			$queryTerneras = sprintf("SELECT SUM(total_terneras) AS cantidad FROM hectareas WHERE id_establecimiento=%d   and numero='%s'",$id_establecimiento,$hectarea);
+			$resultTerneras = $this->db->getData($queryTerneras);
+			$queryNovillos = sprintf("SELECT SUM(total_novillos) AS cantidad FROM hectareas WHERE id_establecimiento=%d and numero='%s'",$id_establecimiento,$hectarea);
+			$resultNovillos = $this->db->getData($queryNovillos);
+			$queryVaquillona = sprintf("SELECT SUM(total_vaquillona) AS cantidad FROM hectareas WHERE id_establecimiento=%d   and numero='%s'",$id_establecimiento,$hectarea);
+			$resultVaquillona = $this->db->getData($queryVaquillona);
+			$queryVacaVieja = sprintf("SELECT SUM(total_vaca_vieja) AS cantidad FROM hectareas WHERE id_establecimiento=%d and numero='%s'",$id_establecimiento,$hectarea);
+			$resultVacaVieja = $this->db->getData($queryVacaVieja);
+			$queryCaballos = sprintf("SELECT SUM(total_caballos) AS cantidad FROM hectareas WHERE id_establecimiento=%d   and numero='%s'",$id_establecimiento,$hectarea);
+			$resultCaballos = $this->db->getData($queryCaballos);
 
 			if ($result[0]['cantidad']!=NULL) {
 					$total_toros = $result[0]['cantidad'];
@@ -129,11 +148,44 @@
 			if ($result2[0]['cantidad']!=NULL) {
 					$total_vacas= $result2[0]['cantidad'];
 				}
+			if ($resultTerneros[0]['cantidad']!=NULL) {
+					$total_terneros = $resultTerneros[0]['cantidad'];
+				}
+			if ($resultTerneras[0]['cantidad']!=NULL) {
+					$total_terneras= $resultTerneras[0]['cantidad'];
+				}
+			if ($resultNovillos[0]['cantidad']!=NULL) {
+					$total_novillos = $resultNovillos[0]['cantidad'];
+				}
+			if ($resultVaquillona[0]['cantidad']!=NULL) {
+					$total_vaquillona= $resultVaquillona[0]['cantidad'];
+				}
+			if ($resultVacaVieja[0]['cantidad']!=NULL) {
+					$total_vaca_vieja = $resultVacaVieja[0]['cantidad'];
+				}
+			if ($resultCaballos[0]['cantidad']!=NULL) {
+					$total_caballos= $resultCaballos[0]['cantidad'];
+				}
 		}else{
 			$query3 = sprintf("SELECT SUM(total_toros) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
 			$result3 = $this->db->getData($query3);
 			$query4 = sprintf("SELECT SUM(total_vacas) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
 			$result4 = $this->db->getData($query4);
+
+			$query5 = sprintf("SELECT SUM(total_terneros) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
+			$result5 = $this->db->getData($query5);
+			$query6 = sprintf("SELECT SUM(total_terneras) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
+			$result6 = $this->db->getData($query6);
+
+			$query7 = sprintf("SELECT SUM(total_novillos) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
+			$result7 = $this->db->getData($query7);
+			$query8 = sprintf("SELECT SUM(total_vaquillona) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
+			$result8 = $this->db->getData($query8);
+
+			$query9 = sprintf("SELECT SUM(total_vaca_vieja) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
+			$result9 = $this->db->getData($query9);
+			$query0 = sprintf("SELECT SUM(total_caballos) AS cantidad FROM hectareas WHERE id_establecimiento=%d ",$id_establecimiento);
+			$result0 = $this->db->getData($query0);
 
 			if ($result3[0]['cantidad']!=NULL) {
 					$total_toros = $result3[0]['cantidad'];
@@ -141,10 +193,34 @@
 			if ($result4[0]['cantidad']!=NULL) {
 					$total_vacas= $result4[0]['cantidad'];
 				}
+			if ($result5[0]['cantidad']!=NULL) {
+					$total_terneros = $result5[0]['cantidad'];
+				}
+			if ($result6[0]['cantidad']!=NULL) {
+					$total_terneras= $result6[0]['cantidad'];
+				}
+			if ($result7[0]['cantidad']!=NULL) {
+					$total_novillos = $result7[0]['cantidad'];
+				}
+			if ($result8[0]['cantidad']!=NULL) {
+					$total_vaquillona= $result8[0]['cantidad'];
+				}
+			if ($result9[0]['cantidad']!=NULL) {
+					$total_vaca_vieja = $result9[0]['cantidad'];
+				}
+			if ($result0[0]['cantidad']!=NULL) {
+					$total_caballos= $result0[0]['cantidad'];
+				}
 		}
 					$respuesta["id_respuesta"]=1;
 					$respuesta["mensaje"]["toros"]=$total_toros;	
-					$respuesta["mensaje"]["vacas"]=$total_vacas;	
+					$respuesta["mensaje"]["vacas"]=$total_vacas;
+					$respuesta["mensaje"]["terneros"]=$total_terneros;	
+					$respuesta["mensaje"]["terneras"]=$total_terneras;
+					$respuesta["mensaje"]["novillos"]=$total_novillos;	
+					$respuesta["mensaje"]["vaca_vieja"]=$total_vaca_vieja;
+					$respuesta["mensaje"]["vaquillona"]=$total_vaquillona;	
+					$respuesta["mensaje"]["caballos"]=$total_caballos;	
 	
 			return $respuesta;					
 			
