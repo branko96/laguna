@@ -1,18 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={
-	id:0,
-	numero:'12',
-	id_establecimiento:0,
-	total_toros:0,
-	total_vacas:0,
-	total_terneras:0,
-	total_terneros:0,
-	total_novillos:0,
-	total_vaca_vieja:0,
-	total_vaquillona:0,
-	total_caballos:0
-};
+var obj_caravana_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
 
 // const MyApiClient = axios.create({
 //   baseURL: 'http://localhost:80/laguna/',
@@ -21,17 +9,13 @@ var obj_caravana_base={
 var vm=new Vue({
 	el: '#app',
 	data: {
-		filtro_establecimiento:1,
 		caravana_editar:obj_caravana_base,
-		caravanas: [obj_caravana_base],
+		caravanas: [],
 		nuev_caravana:obj_caravana_base,
 		showModal:false,
 		establecimientos:[]
 	},
 	methods:{
-		change_establecimiento(){
-
-		},
 		nueva_caravana(){
 			var form_data = new FormData();
 			for ( var key in this.nuev_caravana ) {
@@ -193,11 +177,8 @@ var vm=new Vue({
 				});
 		},
 	},
-	updated () {
-		$(this.$refs.sel1).selectpicker('refresh');
-	},
 	mounted(){
-		//this.traer_caravanas();
+		this.traer_caravanas();
 		this.traer_establecimientos();
 	}
 });
