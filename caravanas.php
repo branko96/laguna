@@ -24,7 +24,7 @@ session_start();
                 <div class="card-header card-header-warning">
                   <div class="row">
                     <div class="col-md-6">
-                      <h4 class="card-title">Caravanas</h4>
+                      <h4 class="card-title">Hectarias</h4>
                     </div>
                     <!--<div class="col-md-6 text-right">
                       <a href="#" data-target="#modal_nueva_caravana" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
@@ -36,7 +36,7 @@ session_start();
                   <select name="estab" id="select_estab" data-live-search="true" class="selectpicker" ref="sel1" v-model="filtro_establecimiento" @change="change_establecimiento">
                     <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
                   </select>
-                  <table class="table table-hover">
+                  <table  id="tablahect" class="table table-hover">
                     <thead class="text-warning">
                       <th>Numero</th>
                       <th>Total Vacas</th>
@@ -50,6 +50,7 @@ session_start();
                     </thead>
                     <tbody>
                       <tr v-for="caravana in caravanas">
+                          <td>{{caravana.id_establecimiento}}</td>
                         <td>{{caravana.numero}}</td>
                         <td>{{caravana.total_vacas}}</td>
                         <td>{{caravana.total_toros}}</td>

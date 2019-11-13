@@ -1,11 +1,11 @@
 <?php 
 header('Access-Control-Allow-Origin: *');
 require_once '../../datos/conexion.php';
-require_once '../../controller/CaravanasController.php';
+require_once '../../controller/HectareaController.php';
 
 //defino controladora
 
-$CaravanasController= new CaravanasController($basedatos,$servidor,$usuario,$paswd);
+$CaravanasController= new HectareaController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 

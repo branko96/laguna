@@ -18,8 +18,10 @@ var obj_caravana_base={
 //   baseURL: 'http://localhost:80/laguna/',
 //   headers: {'X-Custom-Header': 'foobar'}
 // });
+
 var vm=new Vue({
 	el: '#app',
+
 	data: {
 		filtro_establecimiento:1,
 		caravana_editar:obj_caravana_base,
@@ -30,8 +32,25 @@ var vm=new Vue({
 	},
 	methods:{
 		change_establecimiento(){
+        this.traer_hectareas_xidestab();
+
 
 		},
+		traer_hectareas_xidestab(){
+			var estab = document.getElementById("select_estab").value;
+			MyApiClient.get("/BACKEND/apis/caravanas/Traer_por_hectarea_id.php?id_establecimiento="+estab)
+				.then((rta) => {
+					//console.log(rta);
+					if (rta.data.id_respuesta == "1") {
+						this.caravanas = rta.data.mensaje;
+					} else {
+
+						this.caravanas = [];
+					}
+
+				});
+		},
+
 		nueva_caravana(){
 			var form_data = new FormData();
 			for ( var key in this.nuev_caravana ) {
@@ -180,6 +199,10 @@ var vm=new Vue({
 
 				});
 		},
+
+
+
+
 		traer_establecimientos(){
 			MyApiClient.get("/BACKEND/apis/gastos/Traer_establecimientos.php")
 				.then((rta) =>{
@@ -192,13 +215,29 @@ var vm=new Vue({
 
 				});
 		},
+		traer_hectareas_xidestab2(){
+			var estab = document.getElementById("select_estab").value;
+			MyApiClient.get("/BACKEND/apis/caravanas/Traer_por_hectarea_id.php?id_establecimiento=1")
+				.then((rta) => {
+					//console.log(rta);
+					if (rta.data.id_respuesta == "1") {
+						this.caravanas = rta.data.mensaje;
+					} else {
+
+						this.caravanas = [];
+					}
+
+				});
+		},
 	},
 	updated () {
 		$(this.$refs.sel1).selectpicker('refresh');
 	},
 	mounted(){
 		//this.traer_caravanas();
+        this.traer_hectareas_xidestab2();
 		this.traer_establecimientos();
+
 	}
 });
 

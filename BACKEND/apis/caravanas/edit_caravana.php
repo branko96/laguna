@@ -1,13 +1,13 @@
 <?php 
 //FIJAS
 require_once '../../datos/conexion.php';
-require_once '../../controller/CaravanasController.php';
+require_once '../../controller/HectareaController.php';
 
 header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$caravanasController= new CaravanasController($basedatos,$servidor,$usuario,$paswd);
+$caravanasController= new HectareaController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 

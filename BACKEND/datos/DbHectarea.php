@@ -1,7 +1,7 @@
 <?php
 include_once 'DbConfig.php';
 
-class DbCaravanas extends DbConfig
+class DbHectaria extends DbConfig
 {
 	public function __construct($basedatos,$servidor,$usuario,$paswd)
 	{

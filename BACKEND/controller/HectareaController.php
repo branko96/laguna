@@ -1,16 +1,16 @@
 <?php
 	include_once dirname(__FILE__). '/../model/Respuesta.php';
-	include_once dirname(__FILE__). '/../datos/DbCaravanas.php';
-	include_once dirname(__FILE__). '/../model/Caravana.php';
+	include_once dirname(__FILE__) . '/../datos/DbHectarea.php';
+	include_once dirname(__FILE__) . '/../model/Hectarea.php';
 	//include_once dirname(__FILE__). '/../datos/conexion.php';
 
-	class CaravanasController
+	class HectareaController
 	{
 		private $db;	
 		//Constructor//
 		public function __construct($basedatos,$servidor,$usuario,$paswd)
 		{
-			$this->db = new DbCaravanas($basedatos,$servidor,$usuario,$paswd);	
+			$this->db = new DbHectaria($basedatos,$servidor,$usuario,$paswd);
 		}
 	
 		//Metodos//
@@ -23,16 +23,19 @@
 			return $result;
 		}*/
 		
-		public function VerCaravana($caravanapk){
-			$query = sprintf("SELECT * FROM caravanas WHERE id_caravana = %d",$caravanapk);
+		public function VerHectarea($id_establecimiento){
+			$query = sprintf("SELECT * FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);
 			$result = $this->db->getData($query);
 			//var_dump($result);
 			if(!$result) {
 
-				$respuesta =  new Respuesta(-1,'No se ha encontrado la caravana'); 
+				$respuesta =  new Respuesta(-1,'No se ha encontrado la Hectarea');
 				return $respuesta;
 			}else{
-					$caravana =  new Caravana($result[0]['id_caravana'],$result[0]['codigo'],$result[0]['descripcion'],$result[0]['peso'],$result[0]['sexo'],$result[0]['categoria'],$result[0]['procedencia'],$result[0]['hectarea'],$result[0]['cantidad']);
+					$caravana =  new Hectarea($result[0]['id'],$result[0]['id_establecimiento'],$result[0]['numero'],
+                                              $result[0]['total_toros'],$result[0]['total_vacas'],$result[0]['total_terneros'],
+                                              $result[0]['total_terneras'],$result[0]['total_novillos'],$result[0]['total_vaca_vieja'],
+                                              $result[0]['total_vaquillona'],$result[0]['total_toros']);
 
 					$respuesta =  new Respuesta(1,$caravana);
 
@@ -41,49 +44,59 @@
 			
 		}
 
-		public function AltaCaravana($codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea,$cantidad){			
+		public function AltaHectarea($numero,$total_toros,$total_vacas,$total_terneros,$total_terneras,
+                                     $total_novillos,$total_vaca_vieja,$total_vaquillona,$total_caballos){
 
-			$query = sprintf("INSERT INTO caravanas (codigo,descripcion,peso,sexo,categoria,procedencia,hectarea,cantidad) VALUES ('%s','%s','%s','%s','%s','%s','%s',%d)", $codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea,$cantidad);
+			$query = sprintf("INSERT INTO hectareas (numero,total_toros,total_vacas,total_terneros,total_terneras,
+                                                           total_novillos,total_vaca_vieja,total_vaquillona,total_caballos)
+                                          VALUES ('%s','%s','%s','%s','%s','%s','%s',%d)",
+                                                           $numero,$total_toros,$total_vacas,$total_terneros,$total_terneras,
+                                                           $total_novillos,$total_vaca_vieja,$total_vaquillona,$total_caballos);
 
 			$result = $this->db->execute($query);
 			
-			$id_caravana = $this->db->lastid();
+			$id = $this->db->lastid();
 			
 			if(!$result){ 
-				$respuesta =  new Respuesta(-1,'Error, la caravana no se ha podido grabar');
+				$respuesta =  new Respuesta(-1,'Error, la Hectarea no se ha podido grabar');
 				return $respuesta;
 				
 				
 			}else{
-					$respuesta =  new Respuesta(1,'caravana creado correctamente');
+					$respuesta =  new Respuesta(1,'Hectarea creado correctamente');
 					return $respuesta;
 					
 			}
 		}
 
-		public function EliminarCaravana($id_caravana){
-			$query = sprintf("DELETE from caravanas WHERE id_caravana = %d", $id_caravana);
+		public function EliminarHectarea($id){
+			$query = sprintf("DELETE from hectareas WHERE id = %d", $id);
 			$result = $this->db->execute($query);	
 			if(!$result) {
-				$respuesta =  new Respuesta(1,'Caravana eliminada correctamente'); 
+				$respuesta =  new Respuesta(1,'Hectarea eliminada correctamente');
 				return $respuesta;
 			}else{
-					$respuesta =  new Respuesta(-1,'No se ha podido eliminar la caravana');
+					$respuesta =  new Respuesta(-1,'No se ha podido eliminar la hectarea');
 					return $respuesta;
 			}	
 		}
 
-		function EditarCaravana($id_caravana,$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea,$cantidad){
-				$query = sprintf("UPDATE caravanas SET codigo = %d,descripcion = '%s',peso = '%s',sexo = '%s',categoria = '%s',procedencia = '%s',hectarea = '%s' WHERE id_caravana = %d ;",$codigo,$descripcion,$peso,$sexo,$categoria,$procedencia,$hectarea,$cantidad,$id_caravana);
+		function EditarHectarea($id_establecimiento,$numero,$total_toros,$total_vacas,$total_terneros,$total_terneras,
+                                $total_novillos,$total_vaca_vieja,$total_vaquillona,$total_caballos){
+				$query = sprintf("UPDATE hectareas SET id_establecimiento = %d,numero = '%s',total_toros = '%s',total_vacas = '%s',
+                                                             total_terneros = '%s',total_terneras = '%s',total_novillos = '%s',total_vaca_vieja = '%s',
+                                                             total_vaquillona = '%s',total_caballos = '%s'
+                                                       WHERE id = %d ;",$id_establecimiento,$numero,$total_toros,$total_vacas,$total_terneros,
+                                                                        $total_terneras,$total_novillos,$total_vaca_vieja,$total_vaquillona,$total_caballos);
 
 			$result = $this->db->execute($query);
 			
 			
 			if(!$result){
-				$respuesta =  new Respuesta(1,'Caravana actualizada correctamente'); 
+				$respuesta =  new Respuesta(1,'Hectarea actualizada correctamente');
 				return $respuesta;
 			}else{
-					$respuesta =  new Respuesta(-1,'No se ha podido modificar la caravana');
+					$respuesta =  new Respuesta(-1,'No se ha podido modificar la hectarea');
 					return $respuesta;
 			}	
 		}
@@ -97,7 +110,7 @@
 				$caravanas = [];
 				//var_dump($result);
 				for($i=0; $i< count($result);$i++){		
-					$caravana= new Caravana($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia'],$result[$i]['hectarea'],$result[$i]['cantidad']);
+					$caravana= new Hectarea($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia'],$result[$i]['hectarea'],$result[$i]['cantidad']);
 					array_push($caravanas,$caravana->getJson());
 				}
 					//$respuesta =  new Respuesta(1,$caravanas);
@@ -241,6 +254,17 @@
                  $hectarea->id = $result[$i]['id'];
                  $hectarea->id_establecimiento= $result[$i]['id_establecimiento'];
                  $hectarea->numero= $result[$i]['numero'];
+                 $hectarea->total_toros =$result[$i]['total_toros'];
+                 $hectarea->total_vacas= $result[$i]['total_vacas'];
+                 $hectarea->total_terneros= $result[$i]['total_terneros'];
+                 $hectarea->total_terneras= $result[$i]['total_terneras'];
+                 $hectarea->total_novillos= $result[$i]['total_novillos'];
+                 $hectarea->total_vaca_vieja= $result[$i]['total_vaca_vieja'];
+                 $hectarea->total_vaquillona= $result[$i]['total_vaquillona'];
+                 $hectarea->total_caballos= $result[$i]['total_caballos'];
+
+
+
 
                  array_push($hectareas, $hectarea);
                  $respuesta["id_respuesta"] = 1;

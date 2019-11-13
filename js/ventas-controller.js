@@ -1,6 +1,16 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={id:"0",fecha:moment(String(new Date())).format('DD-MM-YYYY'),num_fact:"0",cabezas:"",kg:"",peso_x_kg:"",bruto:"0",iva:"",neto:"0",retencion:"0"};
+var obj_caravana_base={
+	id:"0",
+	fecha:moment(String(new Date())).format('DD-MM-YYYY'),
+	num_fact:"0",
+	cabezas:"",
+	kg:"",
+	peso_x_kg:"",
+	bruto:"0",
+	iva:"",
+	neto:"0",
+	retencion:"0"};
 
 // const MyApiClient = axios.create({
 //   baseURL: 'http://localhost:80/laguna/',

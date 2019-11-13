@@ -1,11 +1,11 @@
 <?php 
 header('Access-Control-Allow-Origin: *');
 require_once '../../datos/conexion.php';
-require_once '../../controller/CaravanasController.php';
+require_once '../../controller/HectareaController.php';
 
 //defino controladora
 
-$CaravanasController= new CaravanasController($basedatos,$servidor,$usuario,$paswd);
+$HectareaController= new HectareaController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 
-	$rta=$CaravanasController->Traer_por_hectarea($body['procedencia'],$body['hectarea']);
+	$rta=$HectareaController->Traer_por_hectarea($body['procedencia'],$body['hectarea']);
 
 	//IMPRIMO RESPUESTA
 
