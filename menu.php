@@ -72,7 +72,7 @@ include('verificar_login.php');
           <li class="nav-item <?php echo $activo;?>">
             <a class="nav-link" href="caravanas.php">
               <i class="material-icons">library_books</i>
-              <p>Caravanas</p>
+              <p>Hectareas</p>
             </a>
           </li>
            <?php $activo='';

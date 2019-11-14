@@ -24,7 +24,7 @@ session_start();
                 <div class="card-header card-header-warning">
                   <div class="row">
                     <div class="col-md-6">
-                      <h4 class="card-title">Hectarias</h4>
+                      <h4 class="card-title">Hectareas</h4>
                     </div>
                     <!--<div class="col-md-6 text-right">
                       <a href="#" data-target="#modal_nueva_caravana" data-toggle="modal" class="btn btn-success btn-round">Nuevo<div class="ripple-container"></div></a>
