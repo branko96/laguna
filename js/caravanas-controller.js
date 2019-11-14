@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={
+var obj_hectarea_base={
 	id:0,
 	numero:'12',
 	id_establecimiento:0,
@@ -24,9 +24,9 @@ var vm=new Vue({
 
 	data: {
 		filtro_establecimiento:1,
-		caravana_editar:obj_caravana_base,
-		caravanas: [obj_caravana_base],
-		nuev_caravana:obj_caravana_base,
+		caravana_editar:obj_hectarea_base,
+		hectareas: [],
+		nuev_caravana:obj_hectarea_base,
 		showModal:false,
 		establecimientos:[]
 	},
@@ -42,10 +42,24 @@ var vm=new Vue({
 				.then((rta) => {
 					//console.log(rta);
 					if (rta.data.id_respuesta == "1") {
-						this.caravanas = rta.data.mensaje;
+						this.hectareas= rta.data.mensaje.hectareas;
 					} else {
 
-						this.caravanas = [];
+						this.hectareas = [];
+					}
+
+				});
+		},
+		traer_hectareas_xidestab2(){
+			var estab = document.getElementById("select_estab").value;
+			MyApiClient.get("/BACKEND/apis/caravanas/Traer_por_hectarea_id.php?id_establecimiento="+1)
+				.then((rta) => {
+					//console.log(rta);
+					if (rta.data.id_respuesta == "1") {
+						this.hectareas = rta.data.mensaje.hectareas;
+					} else {
+
+						this.hectareas = [];
 					}
 
 				});
@@ -192,9 +206,9 @@ var vm=new Vue({
 				.then((rta) =>{
 						//console.log(rta);
 						if (rta.data.id_respuesta == "1") {
-							this.caravanas=rta.data.mensaje;
+							this.hectareas=rta.data.mensaje;
 						}else{
-							this.caravanas=[];
+							this.hectareas=[];
 						}
 
 				});
@@ -215,28 +229,16 @@ var vm=new Vue({
 
 				});
 		},
-		traer_hectareas_xidestab2(){
-			var estab = document.getElementById("select_estab").value;
-			MyApiClient.get("/BACKEND/apis/caravanas/Traer_por_hectarea_id.php?id_establecimiento=1")
-				.then((rta) => {
-					//console.log(rta);
-					if (rta.data.id_respuesta == "1") {
-						this.caravanas = rta.data.mensaje;
-					} else {
 
-						this.caravanas = [];
-					}
-
-				});
-		},
 	},
 	updated () {
 		$(this.$refs.sel1).selectpicker('refresh');
 	},
 	mounted(){
 		//this.traer_caravanas();
-        this.traer_hectareas_xidestab2();
+
 		this.traer_establecimientos();
+		this.traer_hectareas_xidestab2();
 
 	}
 });

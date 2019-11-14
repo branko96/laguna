@@ -268,7 +268,9 @@
 
                  array_push($hectareas, $hectarea);
                  $respuesta["id_respuesta"] = 1;
-				 $respuesta["mensaje"]["hectareas"] = $hectareas;
+                 $respuesta["mensaje"]["hectareas"] = $hectareas;
+
+
              	}
                  
 				 return $respuesta;

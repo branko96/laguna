@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
   <title>Caravanas</title>
@@ -38,6 +38,7 @@ session_start();
                   </select>
                   <table  id="tablahect" class="table table-hover">
                     <thead class="text-warning">
+
                       <th>Numero</th>
                       <th>Total Vacas</th>
                       <th>Total Toros</th>
@@ -49,17 +50,18 @@ session_start();
                       <th>Total Caballos</th>
                     </thead>
                     <tbody>
-                      <tr v-for="caravana in caravanas">
-                          <td>{{caravana.id_establecimiento}}</td>
-                        <td>{{caravana.numero}}</td>
-                        <td>{{caravana.total_vacas}}</td>
-                        <td>{{caravana.total_toros}}</td>
-                        <td>{{caravana.total_terneras}}</td>
-                        <td>{{caravana.total_terneros}}</td>
-                        <td>{{caravana.total_novillos}}</td>
-                        <td>{{caravana.total_vaca_vieja}}</td>
-                        <td>{{caravana.total_vaquillona}}</td>
-                        <td>{{caravana.total_caballos}}</td>
+                      <tr v-for="hect in hectareas">
+
+
+                        <td>{{hect.numero}}</td>
+                        <td>{{hect.total_vacas}}</td>
+                        <td>{{hect.total_toros}}</td>
+                        <td>{{hect.total_terneras}}</td>
+                        <td>{{hect.total_terneros}}</td>
+                        <td>{{hect.total_novillos}}</td>
+                        <td>{{hect.total_vaca_vieja}}</td>
+                        <td>{{hect.total_vaquillona}}</td>
+                        <td>{{hect.total_caballos}}</td>
                         <!--<td class="td-actions text-center">
                           <button type="button" title="Editar" @click="modal_editar(caravana);" class="btn btn-primary btn-link btn-sm">
                             <i class="material-icons">edit</i>
