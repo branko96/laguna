@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
+var obj_hectarea_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
 
 // const MyApiClient = axios.create({
 //   baseURL: 'http://localhost:80/laguna/',
@@ -9,23 +9,23 @@ var obj_caravana_base={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:
 var vm=new Vue({
 	el: '#app',
 	data: {
-		caravana_editar:obj_caravana_base,
-		caravanas: [],
-		nuev_caravana:obj_caravana_base,
+		hectarea_editar:obj_hectarea_base,
+		hectareas: [],
+		nuev_hectarea:obj_hectarea_base,
 		showModal:false,
 		establecimientos:[]
 	},
 	methods:{
-		nueva_caravana(){
+		nueva_hectarea(){
 			var form_data = new FormData();
-			for ( var key in this.nuev_caravana ) {
-			    form_data.append(key, this.nuev_caravana[key]);
+			for ( var key in this.nuev_hectarea ) {
+			    form_data.append(key, this.nuev_hectarea[key]);
 			}
-			MyApiClient.post("/BACKEND/apis/caravanas/alta_caravana.php",form_data)
+			MyApiClient.post("/BACKEND/apis/hectareas/alta_hectarea.php",form_data)
 			.then((respuesta) =>{
 					console.log(respuesta);
 					if (respuesta.data.id_respuesta == "1") {
-						this.traer_caravanas();
+						this.traer_hectareas();
 						//vm.nuev_caravana=obj_caravana_base;
 						$.notify({
 							message: respuesta.data.mensaje
@@ -37,7 +37,7 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.nuev_caravana={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
+						vm.nuev_hectarea={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
 						setTimeout(function(){$("#modal_nueva_caravana").modal("hide");},500);
 						
 					}else{
@@ -55,12 +55,12 @@ var vm=new Vue({
 
 			});
 		},
-		editar_caravana(){
+		editar_hectarea(){
 			var form_data = new FormData();
-			for ( var key in this.caravana_editar ) {
-			    form_data.append(key, this.caravana_editar[key]);
+			for ( var key in this.hectarea_editar ) {
+			    form_data.append(key, this.hectarea_editar[key]);
 			}
-			MyApiClient.post("/BACKEND/apis/caravanas/edit_caravana.php",form_data)
+			MyApiClient.post("/BACKEND/apis/hectareas/edit_hectarea.php",form_data)
 			.then((respuesta) =>{
 					console.log(respuesta);
 					if (respuesta.data.id_respuesta=="1") {
@@ -74,8 +74,8 @@ var vm=new Vue({
 								align: "center"
 							}
 						});
-						vm.caravana_editar={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
-						vm.traer_caravanas();
+						vm.hectarea_editar={id:0,codigo:'',descripcion: '',peso:'',sexo:'',categoria:'',procedencia:'',hectarea:'',cantidad:0};
+						vm.traer_hectareas();
 						setTimeout(function(){$("#modal_editar_caravana").modal("hide");},500);
 
 					}else{
@@ -93,12 +93,12 @@ var vm=new Vue({
 
 			});
 		},
-		eliminar_caravana(id_emp){
-			MyApiClient.get("/BACKEND/apis/caravanas/baja_caravana.php?id_caravana="+id_emp)
+		eliminar_hectarea(id_emp){
+			MyApiClient.get("/BACKEND/apis/hectareas/baja_hectarea.php?id="+id_emp)
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta=="1") {
-							this.traer_caravanas();
+							this.traer_hectareas();
 							$.notify({
 								message: respuesta.data.mensaje 
 							},{
@@ -128,14 +128,14 @@ var vm=new Vue({
 		},
 		modal_editar:function(caravana){
 			$("#modal_editar_caravana").modal("show");
-			this.ver_caravana(caravana);
+			this.ver_hectarea(caravana);
 		},
-		ver_caravana(caravana){
-			MyApiClient.get("/BACKEND/apis/caravanas/VerCaravana.php?id_caravana="+caravana.id)
+		ver_hectarea(caravana){
+			MyApiClient.get("/BACKEND/apis/hectareas/VerHectarea.php?id="+caravana.id)
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta=="1") {
-							this.caravana_editar=respuesta.data.mensaje;
+							this.hectarea_editar=respuesta.data.mensaje;
 						}else{
 							$.notify({
 								message: respuesta.data.mensaje 
@@ -152,14 +152,14 @@ var vm=new Vue({
 
 				});
 		},
-		traer_caravanas(){
-			MyApiClient.get("/BACKEND/apis/caravanas/Traer_caravanas.php")
+		traer_hectareas(){
+			MyApiClient.get("/BACKEND/apis/hectareas/Traer_hectareas.php")
 				.then((rta) =>{
 						//console.log(rta);
 						if (rta.data.id_respuesta == "1") {
-							this.caravanas=rta.data.mensaje;
+							this.hectareas=rta.data.mensaje;
 						}else{
-							this.caravanas=[];
+							this.hectareas=[];
 						}
 
 				});
@@ -178,7 +178,7 @@ var vm=new Vue({
 		},
 	},
 	mounted(){
-		this.traer_caravanas();
+		this.traer_hectareas();
 		this.traer_establecimientos();
 	}
 });

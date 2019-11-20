@@ -256,7 +256,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/caravanas/VerCaravana.php?id_caravana=1",
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/hectareas/VerHectareas.php?id=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -266,8 +266,8 @@
 								"lagunacampo",
 								"BACKEND",
 								"apis",
-								"caravanas",
-								"VerCaravana.php"
+								"hectareas",
+								"VerHectarea.php"
 							],
 							"query": [
 								{
@@ -285,7 +285,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/caravanas/baja_caravana.php?id_caravana=1",
+							"raw": "http://localhost/PerroSoft/lagunacampo/BACKEND/apis/hectareas/baja_hectarea.php?id=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -295,7 +295,7 @@
 								"lagunacampo",
 								"BACKEND",
 								"apis",
-								"caravanas",
+								"hectarea",
 								"baja_caravana.php"
 							],
 							"query": [

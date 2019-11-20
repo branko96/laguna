@@ -1,6 +1,6 @@
 var ruta = 'https://'+window.location.host;
 
-var obj_caravana_base={
+var obj_hectarea_base={
 	id:"0",
 	fecha:moment(String(new Date())).format('DD-MM-YYYY'),
 	num_fact:"0",
@@ -21,7 +21,7 @@ var vm=new Vue({
 	data: {
 		venta_editar:{id:"0",fecha:"",num_fact:"0",cabezas:"",kg:"",peso_x_kg:"",bruto:"0",iva:"",neto:"0",retencion:"0"},
 		ventas: [],
-		nuev_venta:obj_caravana_base,
+		nuev_venta:obj_hectarea_base,
 		showModal:false,
 		nueva_venta_ver:false,
 		ver_edicion:false
@@ -71,7 +71,7 @@ var vm=new Vue({
 					console.log(respuesta);
 					if (respuesta.data.id_respuesta == "1") {
 						this.traer_ventas();
-						vm.nuev_venta=obj_caravana_base;
+						vm.nuev_venta=obj_hectarea_base;
 						$.notify({
 							message: respuesta.data.mensaje
 						},{
@@ -179,7 +179,7 @@ var vm=new Vue({
 				.then((respuesta) =>{
 						console.log(respuesta);
 						if (respuesta.data.id_respuesta=="1") {
-							this.caravana_editar=respuesta.data.mensaje;
+							this.hectarea_editar=respuesta.data.mensaje;
 						}else{
 							$.notify({
 								message: respuesta.data.mensaje 

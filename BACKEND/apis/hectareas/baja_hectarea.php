@@ -8,7 +8,7 @@ header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$caravanasController= new HectareaController($basedatos,$servidor,$usuario,$paswd);
+$hectareasController= new HectareaController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$caravanasController->EliminarCaravana($body['id_caravana']);
+	$rta=$hectareasController->EliminarHectarea($body['id']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));

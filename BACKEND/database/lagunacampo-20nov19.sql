@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `caravanas`
+-- Estructura de tabla para la tabla `hectareas`
 --
 
 CREATE TABLE `caravanas` (
@@ -41,7 +41,7 @@ CREATE TABLE `caravanas` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `caravanas`
+-- Volcado de datos para la tabla `hectareas`
 --
 
 INSERT INTO `caravanas` (`id_caravana`, `codigo`, `descripcion`, `peso`, `sexo`, `categoria`, `procedencia`, `hectarea`, `cantidad`) VALUES
@@ -379,7 +379,7 @@ INSERT INTO `ventas` (`id_ventas`, `fecha`, `num_fact`, `cabezas`, `kg`, `peso_x
 --
 
 --
--- Indices de la tabla `caravanas`
+-- Indices de la tabla `hectareas`
 --
 ALTER TABLE `caravanas`
   ADD PRIMARY KEY (`id_caravana`);
@@ -455,7 +455,7 @@ ALTER TABLE `ventas`
 --
 
 --
--- AUTO_INCREMENT de la tabla `caravanas`
+-- AUTO_INCREMENT de la tabla `hectareas`
 --
 ALTER TABLE `caravanas`
   MODIFY `id_caravana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;

@@ -7,7 +7,7 @@ header('Access-Control-Allow-Origin: *');
 
 //defino controladora
 
-$caravanasController= new HectareaController($basedatos,$servidor,$usuario,$paswd);
+$hectareasController= new HectareaController($basedatos,$servidor,$usuario,$paswd);
 
 //comprobar metodo
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	//var_dump($body);
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$caravanasController->EditarCaravana($body['id'],$body['codigo'],$body['descripcion'],$body['peso'],$body['sexo'],$body['categoria'], $body['procedencia'],$body['hectarea']);
+	$rta=$hectareasController->EditarCaravana($body['id'],$body['codigo'],$body['descripcion'],$body['peso'],$body['sexo'],$body['categoria'], $body['procedencia'],$body['hectarea']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));

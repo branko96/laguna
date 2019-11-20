@@ -17,7 +17,7 @@
 
 		/*public function DevolverCaravanas()
 		{	
-					$query = sprintf("SELECT * FROM caravanas");
+					$query = sprintf("SELECT * FROM hectareas");
 					$result = $this->db->getData($query);
 
 			return $result;
@@ -102,20 +102,20 @@
 		}
 
 		public function Traer_Caravanas(){
-			$query = sprintf("SELECT * FROM caravanas");
+			$query = sprintf("SELECT * FROM hectareas");
 
 			$result = $this->db->getData($query);
 
 			if(count($result)>0) {
-				$caravanas = [];
+				$hectareas = [];
 				//var_dump($result);
 				for($i=0; $i< count($result);$i++){		
 					$caravana= new Hectarea($result[$i]['id_caravana'],$result[$i]['codigo'],$result[$i]['descripcion'],$result[$i]['peso'],$result[$i]['sexo'],$result[$i]['categoria'],$result[$i]['procedencia'],$result[$i]['hectarea'],$result[$i]['cantidad']);
-					array_push($caravanas,$caravana->getJson());
+					array_push($hectareas,$caravana->getJson());
 				}
-					//$respuesta =  new Respuesta(1,$caravanas);
+					//$respuesta =  new Respuesta(1,$hectareas);
 					$respuesta["id_respuesta"]=1;
-					$respuesta["mensaje"]=$caravanas;	
+					$respuesta["mensaje"]=$hectareas;
 			}else{
 				//$respuesta =  new Respuesta(0,'No se ha encontrado ninguna caravana asociada.'); 
 				  $respuesta["id_respuesta"]=-1;

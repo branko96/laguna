@@ -139,9 +139,9 @@ var vm=new Vue({
 		},
 		modal_editar:function(gasto){
 			$("#modal_editar_gasto").modal("show");
-			this.ver_caravana(gasto);
+			this.ver_hectarea(gasto);
 		},
-		ver_caravana(gasto){
+		ver_hectarea(gasto){
 			MyApiClient.get("/BACKEND/apis/gastos/VerGasto.php?id_gasto="+gasto.id)
 				.then((respuesta) =>{
 						console.log(respuesta);

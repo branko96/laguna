@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	//var_dump($body);
 	//LLAMO A LA FUNCION CON LOS PARAMETROS
 	
-	$rta=$movimientosController->EditarMovimiento($body['id'],$body['id_caravana'],$body['fecha_mov'],$body['cantidad'],$body['tipo_mov']);
+	$rta=$movimientosController->EditarMovimiento($body['id'],$body['id'],$body['fecha_mov'],$body['cantidad'],$body['tipo_mov']);
 
 	//IMPRIMO RESPUESTA
 	print(json_encode($rta->getJson()));

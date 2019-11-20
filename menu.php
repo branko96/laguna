@@ -65,12 +65,12 @@ include('verificar_login.php');
             </a>
           </li>-->
         <?php $activo='';
-                if($_SESSION['pagina_actual']== 'caravanas'){ 
+                if($_SESSION['pagina_actual']== 'hectareas'){
                   $activo=' active';
                 }
             ?>
           <li class="nav-item <?php echo $activo;?>">
-            <a class="nav-link" href="caravanas.php">
+            <a class="nav-link" href="hectareas.php">
               <i class="material-icons">library_books</i>
               <p>Hectareas</p>
             </a>

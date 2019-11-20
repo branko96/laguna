@@ -7,7 +7,7 @@ session_start();
 <head>
   <title>Caravanas</title>
   <!-- Required meta tags -->
-  <?php $_SESSION['pagina_actual']='caravanas'; ?>
+  <?php $_SESSION['pagina_actual']='hectareas'; ?>
   <?php include('header.php');?>
 </head>
 
@@ -47,8 +47,8 @@ session_start();
                       <th>Accion</th>
                     </thead>
                     <tbody>
-                      <tr v-for="caravana in caravanas">
-                        <td>{{caravana.id}}</td>
+                      <tr v-for="caravana in hectareas">
+                        <td>{{hectarea.id}}</td>
                         <td>{{caravana.codigo}}</td>
                         <td>{{caravana.descripcion}}</td>
                         <td>{{caravana.cantidad}}</td>
@@ -301,7 +301,7 @@ session_start();
 <script src="js/index.js"></script>
 <script src="assets/js/plugins/bootstrap-notify.js"></script>
   <script src="js/rutas.js"></script>
-<script src="js/caravanas-controller_viejo.js"></script>
+<script src="js/hectareas-controller_viejo.js"></script>
 </body>
 
 </html>

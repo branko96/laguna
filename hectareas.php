@@ -7,7 +7,7 @@ session_start();
 <head>
   <title>Hectareas</title>
   <!-- Required meta tags -->
-  <?php $_SESSION['pagina_actual']='caravanas'; ?>
+  <?php $_SESSION['pagina_actual']='hectareas'; ?>
   <?php include('header.php');?>
 </head>
 
@@ -95,7 +95,7 @@ session_start();
   <script src="js/rutas.js"></script>
   <link rel="stylesheet" href="plugins/bootstrap-select/css/bootstrap-select.css">
   <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
-<script src="js/caravanas-controller.js"></script>
+<script src="js/hectareas-controller.js"></script>
 </body>
 
 </html>
