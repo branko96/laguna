@@ -5,7 +5,7 @@ session_start();
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>Caravanas</title>
+  <title>Hectareas</title>
   <!-- Required meta tags -->
   <?php $_SESSION['pagina_actual']='caravanas'; ?>
   <?php include('header.php');?>
