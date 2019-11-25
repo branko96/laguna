@@ -185,14 +185,16 @@ setlocale(LC_TIME, 'es_CO.UTF-8');
               <div class="col-sm-12 card">
                 <div class="card-heading">
                  <h3>Caravanas Campo {{nombre_estab_elegido}}</h3>
-                  <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{vacas}}</span> Vacas </div>
-                  <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{toros}}</span> Toros </div>
+                 <div class="row justify-content-center mb-5 pb-3">
+                    <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{vacas}}</span> Vacas </div>
+                    <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{toros}}</span> Toros </div>
                     <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{terneras}}</span> Terneras </div>
                     <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{terneros}}</span> Terneros </div>
                     <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{novillos}}</span> Novillos </div>
                     <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{vaquillona}}</span> Vaquillonas </div>
                     <div><span class="flaticon-cow-silhouette"></span> <span class="badge badge-secondary">{{vaca_vieja}}</span> Vacas Viejas </div>
                     <div><span class="flaticon-strong-bull-side-view"></span> <span class="badge badge-secondary">{{caballos}}</span> Caballos </div>
+                 </div>
                 </div>
                 <div class="card-body">
                   <div class="row" v-show="filtro_establecimiento == 1">
