@@ -36,6 +36,10 @@ session_start();
                   <select name="estab" id="select_estab" data-live-search="true" class="selectpicker" ref="sel1" v-model="filtro_establecimiento" @change="change_establecimiento">
                     <option v-for="establecimiento in establecimientos" :value="establecimiento.id">{{establecimiento.nombre}}</option>
                   </select>
+                    <select name="animal" id="select_animal"  class="selectpicker"  v-model="filtro_animal" @change="change_animal">
+
+                        <option v-for="animal in animales" :value="animal.id_animal">{{animal.tipo}}</option>
+                    </select>
                   <table  id="tablahect" class="table table-hover">
                     <thead class="text-warning">
 

@@ -28,7 +28,8 @@ var vm=new Vue({
 		hectareas: [],
 		nuev_hectarea:obj_hectarea_base,
 		showModal:false,
-		establecimientos:[]
+		establecimientos:[],
+		animales:[],
 	},
 	methods:{
 		change_establecimiento(){
@@ -36,6 +37,24 @@ var vm=new Vue({
 
 
 		},
+		change_animal(){
+
+				var estab = document.getElementById("select_estab").value;
+			var animal = document.getElementById("select_animal").value;
+				MyApiClient.get("/BACKEND/apis/hectareas/FiltrarHectXAnimal.php?animal="+animal+"&id_establecimiento="+estab)
+					.then((rta) => {
+						//console.log(rta);
+						if (rta.data.id_respuesta == "1") {
+							this.hectareas= rta.data.mensaje.hectareas;
+						} else {
+
+							this.hectareas = [];
+						}
+
+					});
+
+		},
+		// http://localhost/laguna/BACKEND/apis/hectareas/FiltrarHectXAnimal.php?animal=2&id_establecimiento=1
 		traer_hectareas_xidestab(){
 			var estab = document.getElementById("select_estab").value;
 			MyApiClient.get("/BACKEND/apis/hectareas/Traer_por_hectarea_id.php?id_establecimiento="+estab)
@@ -229,6 +248,18 @@ var vm=new Vue({
 
 				});
 		},
+		traer_animales(){
+			MyApiClient.get("/BACKEND/apis/hectareas/Traer_animales.php")
+				.then((rta) =>{
+					//console.log(rta);
+					if (rta.data.id_respuesta == "1") {
+						this.animales=rta.data.mensaje;
+					}else{
+						this.animales=[];
+					}
+
+				});
+		},
 
 	},
 	updated () {
@@ -238,6 +269,7 @@ var vm=new Vue({
 		//this.traer_caravanas();
 
 		this.traer_establecimientos();
+		this.traer_animales();
 		this.traer_hectareas_xidestab2();
 
 	}

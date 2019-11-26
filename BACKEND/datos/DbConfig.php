@@ -7,9 +7,9 @@ class DbConfig
 	public function __construct()
 	{	
 		 $basedatos='lagunacampo';
-	 $servidor='localhost';
-	 $usuario='root';
-	 $paswd='';
+	     $servidor='localhost';
+	     $usuario='root';
+	      $paswd='';
 
 		$this->dbName = $basedatos;
 

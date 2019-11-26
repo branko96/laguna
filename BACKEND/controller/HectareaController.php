@@ -2,6 +2,7 @@
 	include_once dirname(__FILE__). '/../model/Respuesta.php';
 	include_once dirname(__FILE__) . '/../datos/DbHectarea.php';
 	include_once dirname(__FILE__) . '/../model/Hectarea.php';
+include_once dirname(__FILE__) . '/../model/Animal.php';
 	//include_once dirname(__FILE__). '/../datos/conexion.php';
 
 	class HectareaController
@@ -14,15 +15,162 @@
 		}
 	
 		//Metodos//
+        public function TraerAnimales(){
+            $query = sprintf("SELECT * FROM animales");
 
-		/*public function DevolverCaravanas()
-		{	
-					$query = sprintf("SELECT * FROM hectareas");
-					$result = $this->db->getData($query);
+            $result = $this->db->getData($query);
+            //var_dump($result);
+            if(count($result)>0) {
+                $animales= [];
 
-			return $result;
-		}*/
-		
+                for($i=0; $i< count($result);$i++){
+
+                    array_push($animales, new Animal($result[$i]['id_animal'],$result[$i]['tipo']));
+                }
+                $respuesta =  new Respuesta(1,$animales);
+                return $respuesta;
+
+            }else{
+                $respuesta =  new Respuesta(-1,'No se ha encontrado ningun establecimiento.');
+                return $respuesta;
+            }
+
+        }
+
+
+            public function FiltrarHectareasxAnimal($id_animal,$id_establecimiento){
+            switch ($id_animal) {
+                case 1:
+                    $query = sprintf("SELECT numero,total_toros FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);          $result = $this->db->getData($query);
+                    if(!$result) {
+                               $respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea');
+                                return $respuesta;
+                    }else{
+                         $hectareas = [];
+                             for($i=0; $i< count($result);$i++){
+                                   $hectarea = new stdClass();
+                                   $hectarea->numero= $result[$i]['numero'];
+                                   $hectarea->total_toros =$result[$i]['total_toros'];
+                                   array_push($hectareas, $hectarea);
+                                   $respuesta["id_respuesta"] = 1;
+                                   $respuesta["mensaje"]["hectareas"] = $hectareas;
+                             }}
+                    break;
+                case 2:
+                    $query = sprintf("SELECT numero,total_vacas FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);          $result = $this->db->getData($query);
+                    if(!$result) {
+                        $respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea');
+                        return $respuesta;
+                    }else{
+                        $hectareas = [];
+                        for($i=0; $i< count($result);$i++){
+                            $hectarea = new stdClass();
+                            $hectarea->numero= $result[$i]['numero'];
+                            $hectarea->total_vacas =$result[$i]['total_vacas'];
+                            array_push($hectareas, $hectarea);
+                            $respuesta["id_respuesta"] = 1;
+                            $respuesta["mensaje"]["hectareas"] = $hectareas;
+                        }}
+                    break;
+                case 3:
+                    $query = sprintf("SELECT numero,total_terneros FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);          $result = $this->db->getData($query);
+                    if(!$result) {
+                        $respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea');
+                        return $respuesta;
+                    }else{
+                        $hectareas = [];
+                        for($i=0; $i< count($result);$i++){
+                            $hectarea = new stdClass();
+                            $hectarea->numero= $result[$i]['numero'];
+                            $hectarea->total_terneros =$result[$i]['total_terneros'];
+                            array_push($hectareas, $hectarea);
+                            $respuesta["id_respuesta"] = 1;
+                            $respuesta["mensaje"]["hectareas"] = $hectareas;
+                        }}
+                    break;
+                case 4:
+                    $query = sprintf("SELECT numero,total_terneras FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);          $result = $this->db->getData($query);
+                    if(!$result) {
+                        $respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea');
+                        return $respuesta;
+                    }else{
+                        $hectareas = [];
+                        for($i=0; $i< count($result);$i++){
+                            $hectarea = new stdClass();
+                            $hectarea->numero= $result[$i]['numero'];
+                            $hectarea->total_terneras =$result[$i]['total_terneras'];
+                            array_push($hectareas, $hectarea);
+                            $respuesta["id_respuesta"] = 1;
+                            $respuesta["mensaje"]["hectareas"] = $hectareas;
+                        }}
+                    break;
+                case 5:
+                    $query = sprintf("SELECT numero,total_novillos FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);          $result = $this->db->getData($query);
+                    if(!$result) {
+                        $respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea');
+                        return $respuesta;
+                    }else{
+                        $hectareas = [];
+                        for($i=0; $i< count($result);$i++){
+                            $hectarea = new stdClass();
+                            $hectarea->numero= $result[$i]['numero'];
+                            $hectarea->total_novillos =$result[$i]['total_novillos'];
+                            array_push($hectareas, $hectarea);
+                            $respuesta["id_respuesta"] = 1;
+                            $respuesta["mensaje"]["hectareas"] = $hectareas;
+                        }}
+                    break;
+                case 6:
+                    $query = sprintf("SELECT numero,total_vaca_vieja FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);          $result = $this->db->getData($query);
+                    if(!$result) {
+                        $respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea');
+                        return $respuesta;
+                    }else{
+                        $hectareas = [];
+                        for($i=0; $i< count($result);$i++){
+                            $hectarea = new stdClass();
+                            $hectarea->numero= $result[$i]['numero'];
+                            $hectarea->total_vaca_vieja =$result[$i]['total_vaca_vieja'];
+                            array_push($hectareas, $hectarea);
+                            $respuesta["id_respuesta"] = 1;
+                            $respuesta["mensaje"]["hectareas"] = $hectareas;
+                        }}
+                    break;
+                case 7:
+                    $query = sprintf("SELECT numero,total_vaquillona FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);          $result = $this->db->getData($query);
+                    if(!$result) {
+                        $respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea');
+                        return $respuesta;
+                    }else{
+                        $hectareas = [];
+                        for($i=0; $i< count($result);$i++){
+                            $hectarea = new stdClass();
+                            $hectarea->numero= $result[$i]['numero'];
+                            $hectarea->total_vaquillona =$result[$i]['total_vaquillona'];
+                            array_push($hectareas, $hectarea);
+                            $respuesta["id_respuesta"] = 1;
+                            $respuesta["mensaje"]["hectareas"] = $hectareas;
+                        }}
+                    break;
+                case 8:
+                    $query = sprintf("SELECT numero,total_caballos FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);          $result = $this->db->getData($query);
+                    if(!$result) {
+                        $respuesta =  new Respuesta(-1,'No se ha encontrado la hectarea');
+                        return $respuesta;
+                    }else{
+                        $hectareas = [];
+                        for($i=0; $i< count($result);$i++){
+                            $hectarea = new stdClass();
+                            $hectarea->numero= $result[$i]['numero'];
+                            $hectarea->total_caballos =$result[$i]['total_caballos'];
+                            array_push($hectareas, $hectarea);
+                            $respuesta["id_respuesta"] = 1;
+                            $respuesta["mensaje"]["hectareas"] = $hectareas;
+                        }}
+                    break;
+            }
+                return $respuesta;
+        }
 		public function VerHectarea($id_establecimiento){
 			$query = sprintf("SELECT * FROM hectareas WHERE id_establecimiento = %d",$id_establecimiento);
 			$result = $this->db->getData($query);
